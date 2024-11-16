@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+	<link rel="stylesheet" href="dumb.css">
+	<script src="smart.js" defer></script>
+</head>
+
+<body>
+    <h1>Canonn Patrol</h1>
+	<p id="sourceDataText">Systems data from EDSM Nightly dumps</p>
+
+    <div id="filterMenu">
+        <select id="sourceFilter">
+		<option value="inara">System link to:</option>
+        <option value="inara">INARA</option>
+        <option value="edsm">EDSM</option>
+        <option value="spansh">Spansh</option>
+    </select>
+    </div>
+	
+    <div id="systemMenu">
+		<select id="startSystemSelect">
+			<option value="">Start route from:</option>
+		</select>
+    </div>
+
+    <div id="routeOutputContainer">
+        <button id="downloadCSVBtn">Download CSV</button>
+        <div id="routeOutput"></div>
+        <button id="closeRouteBtn">&#10006;</button>
+    </div>
+
+    <button id="routeBtn">Plot Route</button>
+
+    <div id="loading" class="loading">
+        <div class="loading-text">Loading Data, please wait...</div>
+		<div class="progress-container">
+			<div id="loading-progress-bar" class="progress-bar"></div>
+			<span id="loading-progress-text">0%</span>
+		</div>
+    </div>
+
+    <table id="systemsTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">System</th>
+				<th onclick="sortTable(1)">Pending</th>
+				<th onclick="sortTable(2)">Active</th>
+				<th onclick="sortTable(3)">Controlled</th>
+				<th onclick="sortTable(4)">Deaths</th>
+				<th onclick="sortTable(5)">Traffic</th>
+				<th onclick="sortTable(6)">Influence</th>
+				<th class="hidden-column">ID64</th>
+                <th class="hidden-column">X</th>
+                <th class="hidden-column">Y</th>
+                <th class="hidden-column">Z</th>
+                <th onclick="sortTable(11)">Last Update</th>
+				<th class="sortable no-sort">Route</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
