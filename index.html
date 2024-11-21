@@ -4,27 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="dumb.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
 	<script src="smart.js" defer></script>
 </head>
 
 <body>
 	<h1>Canonn Patrol</h1>
-	<p id="sourceDataText">Systems data from EDSM Nightly dumps</p>
+	<p id="sourceDataText">Systems data from Elite BGS</p>
 
-	<div id="filterMenu">
-		<select id="sourceFilter">
-		<option value="inara">System link to:</option>
-		<option value="inara">INARA</option>
-		<option value="edsm">EDSM</option>
-		<option value="spansh">Spansh</option>
-	</select>
+	<div id="websiteMenu">
+		<select id="websiteFilter">
+			<option value="" disabled selected>System link to:</option>
+			<option value="elitebgs">Elite BGS</option>
+			<option value="inara">INARA</option>
+			<option value="edsm">EDSM</option>
+			<option value="spansh">Spansh</option>
+		</select>
 	</div>
 	
 	<div id="systemMenu">
 		<select id="startSystemSelect">
 			<option value="">Start route from:</option>
 		</select>
+	</div>
+
+	<div id="factionMenu">
+		<select id="factionSelect">
+			<option value="startFaction">Canonn</option>
+			<option value="otherFaction">Other faction...</option>
+		</select>
+		<input type="text" id="otherFactionInput" placeholder="Enter faction name" style="display: none;">
 	</div>
 
 	<div id="routeOutputContainer">
@@ -34,6 +42,7 @@
 	</div>
 
 	<button id="routeBtn">Plot Route</button>
+	<button id="selectBtn">Select all/none</button>
 
 	<div id="loading" class="loading">
 		<div class="loading-text">Loading Data, please wait...</div>
@@ -46,18 +55,19 @@
 	<table id="systemsTable">
 		<thead>
 			<tr>
-				<th onclick="sortTable(0)">System</th>
-				<th onclick="sortTable(1)">Pending</th>
-				<th onclick="sortTable(2)">Active</th>
-				<th onclick="sortTable(3)">Controlled</th>
-				<th onclick="sortTable(4)">Deaths</th>
-				<th onclick="sortTable(5)">Traffic</th>
-				<th onclick="sortTable(6)">Influence</th>
+				<th class="sortable no-sort">#</th>
+				<th onclick="sortTable(1)">System</th>
+				<th onclick="sortTable(2)">Pending</th>
+				<th onclick="sortTable(3)">Active</th>
+				<th onclick="sortTable(4)">Recovery</th>
+				<th onclick="sortTable(5)">Controlled</th>
+				<th onclick="sortTable(6)">Happiness</th>
+				<th onclick="sortTable(7)">Influence</th>
 				<th class="hidden-column">ID64</th>
 				<th class="hidden-column">X</th>
 				<th class="hidden-column">Y</th>
 				<th class="hidden-column">Z</th>
-				<th onclick="sortTable(11)">Last Update</th>
+				<th onclick="sortTable(12)">Last Update</th>
 				<th class="sortable no-sort">Route</th>
 			</tr>
 		</thead>

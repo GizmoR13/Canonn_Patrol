@@ -1,11 +1,32 @@
 
 // Arrays to store system data, filtered data, and ordered systems for route plotting
-var allSystems = [];
+var canonnSystems = [];
 var filteredSystems = [];
 var orderedSystems = [];
 var selectedStartSystem = '';
-let sortDirection = [true, true, true, true, true, true, true, true, true];
-let selectedSystemsForRoute = [];
+let sortDirection = [true, true, true, true, true, true, true, true];
+let selectDeselect = [];
+let totalSystems = 0;
+let loadedSystems = 0;
+let selectedFaction = "canonn";
+let selectedFactionDisplay = "Canonn";
+
+// Update progress bar
+function updateProgressBar() {
+	const progressBar = document.getElementById('loading-progress-bar');
+	const progressText = document.getElementById('loading-progress-text');
+	const progress = Math.round((loadedSystems / totalSystems) * 100);
+	progressBar.style.width = `${progress}%`;
+	progressText.textContent = `${progress}%`;
+}
+
+// Reset progress bar
+function resetProgressBar() {
+	const progressBar = document.getElementById('loading-progress-bar');
+	const progressText = document.getElementById('loading-progress-text');
+	progressBar.style.width = '0%';
+	progressText.textContent = '0%';
+}
 
 // Format update time from seconds into readable format
 function formatUpdateTime(lastUpdate) {
@@ -21,153 +42,123 @@ function formatUpdateTime(lastUpdate) {
 	}
 }
 
-// Format timestamp in seconds into a readable date format
-function formatDate(timestampInSeconds) {
-	const date = new Date(timestampInSeconds * 1000);
-	return date.toLocaleString();
-}
-
-// Updates source data text with last update date from the data
-function updateSourceDataText() {
-	if (allSystems.length === 0) {
-		console.error("No systems!");
-		return;
-	}
-
-	const latestSystem = allSystems.reduce((latest, system) => {
-		return (system.updateTimeInSeconds > latest.updateTimeInSeconds) ? system : latest;
-	}, allSystems[0]);
-	const formattedDate = formatDate(latestSystem.updateTimeInSeconds);
+// Update last tick
+async function lastTick() {
+	const time = await fetch('https://elitebgs.app/api/ebgs/v5/ticks?time');
+	const tickData = await time.json();
+	const tickTime = tickData[0].time;
+	const date = new Date(tickTime);
+	const formattedTime = date.toLocaleString();
 	const sourceTextElement = document.getElementById('sourceDataText');
-	sourceTextElement.textContent = `Systems data from EDSM Nightly dumps, last updated on ${formattedDate}`;
+	sourceTextElement.textContent = `Systems data from Elite BGS, last tick ${formattedTime}`;
 }
 
-// Load and process system data from the EDSM API
+const factionHappinessBands = {
+	'faction_happinessband1': 'Elated',
+	'faction_happinessband2': 'Happy',
+	'faction_happinessband3': 'Discontented',
+	'faction_happinessband4': 'Unhappy',
+	'faction_happinessband5': 'Despondent'
+};
+
+function getFactionHappiness(happinessBandKey) {
+	const bandKey = happinessBandKey.replace('$', '').replace(';', '').toLowerCase();
+	return factionHappinessBands[bandKey] || 'None';
+}
+
+// Load and process system data from the Elite BGS API
 async function loadAndProcessData() {
 	const tableBody = document.getElementById('systemsTable').getElementsByTagName('tbody')[0];
 	tableBody.innerHTML = '';
+	clearOldRows();
 	const loadingElement = document.getElementById('loading');
 	loadingElement.style.display = 'block';
-	const progressBar = document.getElementById('loading-progress-bar');
-	const progressText = document.getElementById('loading-progress-text');
-	progressBar.style.width = '0%';
-	progressText.textContent = '0%';
-
+	canonnSystems = [];
+	filteredSystems = [];
+	orderedSystems = [];
+	loadedSystems = 0;
+	totalSystems = 0;
+	resetProgressBar();
+	updateProgressBar();
 	try {
-		const response = await fetch('https://www.edsm.net/dump/systemsPopulated.json.gz');
-		const arrayBuffer = await response.arrayBuffer();
-		const uint8Array = new Uint8Array(arrayBuffer);
-		const decompressedData = pako.ungzip(uint8Array, { to: 'string' });
-		const jsonData = JSON.parse(decompressedData);
-		const systems = [];				
-		const totalSystems = jsonData.length;
-		let loadedSystems = 0;
-		
-		function updateProgressBar(loaded, total) {
-			const progress = Math.round((loaded / total) * 100);
-			progressBar.style.width = `${progress}%`;
-			progressText.textContent = `${progress}%`;
-		}				
-		const chunkSize = 200;
+		const factionResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/factions?name=${selectedFaction}`);
+		const factionData = await factionResponse.json();
+		const systems = [];
+		totalSystems = factionData.docs.reduce((count, faction) => count + faction.faction_presence.length, 0);
+		for (const faction of factionData.docs) {
+			for (const factionInfo of faction.faction_presence) {
+				const systemName = factionInfo.system_name;
+				const systemDetailsResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/systems?name=${systemName}`);
+				const systemDetailsData = await systemDetailsResponse.json();
 
-		const processChunk = async (startIndex) => {
-			const chunk = jsonData.slice(startIndex, startIndex + chunkSize);
-			for (const system of chunk) {
-				let canonn = false;
-				let pendingStatesText = '';
-				let activeStatesText = '';
-				let controlled = false;
-				let influence = 0;
-	
-				if (system.controllingFaction && system.controllingFaction.name.toLowerCase() === "canonn") {
-					canonn = true;
-					controlled = true;
-				}
+				if (systemDetailsData.docs.length > 0) {
+					const systemDetails = systemDetailsData.docs[0];
+					const latestUpdateTime = new Date(factionInfo.updated_at).getTime() / 1000;
+					let pendingStatesText = '';
+					let activeStatesText = '';
+					let recoveryStatesText = '';
+					let factionHappiness = '';
+					let controlledText = false;
+					let influence = factionInfo.influence ? (factionInfo.influence * 100).toFixed(1) : 0;					
+					if (systemDetails.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
+						controlledText = true;
+					}
+					if (factionInfo.pending_states && factionInfo.pending_states.length > 0) {
+						pendingStatesText = factionInfo.pending_states.map(state => state.state).join(', ');
+					} else {
+						pendingStatesText = 'None';
+					}
+					if (factionInfo.active_states && factionInfo.active_states.length > 0) {
+						activeStatesText = factionInfo.active_states.map(state => state.state).join(', ');
+					} else {
+						activeStatesText = 'None';
+					}
+					if (factionInfo.recovering_states && factionInfo.recovering_states.length > 0) {
+						recoveryStatesText = factionInfo.recovering_states.map(state => state.state).join(', ');
+					} else {
+						recoveryStatesText = 'None';
+					}
+					factionHappiness = getFactionHappiness(factionInfo.happiness);
 
-				if (system.factions) {
-					system.factions.forEach(faction => {
-						if (faction.name.toLowerCase() === "canonn") {
-							canonn = true;
-							pendingStatesText = faction.pendingStates && faction.pendingStates.length > 0
-							? faction.pendingStates.map(state => state.state).join(', ')
-							: 'None';
-							activeStatesText = faction.activeStates && faction.activeStates.length > 0
-							? faction.activeStates.map(state => state.state).join(', ')
-							: 'None';
-							influence = (faction.influence * 100).toFixed(1) || 0;
-						}
+					systems.push({
+						name: systemName,
+						id64: systemDetails.system_address,
+						elitebgs_id: systemDetails._id,
+						coords: {
+							x: systemDetails.x,
+							y: systemDetails.y,
+							z: systemDetails.z
+						},
+						formattedTime: formatUpdateTime(latestUpdateTime),
+						updateTimeInSeconds: latestUpdateTime,
+						pendingStates: pendingStatesText,
+						activeStates: activeStatesText,
+						recoveryStates: recoveryStatesText,
+						influence: influence,
+						happiness: factionHappiness,
+						controlled: controlledText,
+						route: false
 					});
 				}
-
-				if (canonn && influence > 0) {
-					const latestUpdateTime = system.factions ? getLatestUpdateTime(system.factions) : null;
-					
-					try {
-					const deathResponse = await fetch(`https://www.edsm.net/api-system-v1/deaths?systemName=${system.name}`);
-					const deathData = await deathResponse.json();
-					const weekKills = deathData.deaths ? deathData.deaths.week : 0;
-					const trafficResponse = await fetch(`https://www.edsm.net/api-system-v1/traffic?systemName=${system.name}`);
-					const trafficData = await trafficResponse.json();
-					const weekTraffic = trafficData.traffic ? trafficData.traffic.week : 0;
-
-						systems.push({
-							name: system.name,
-							id: system.id,
-							id64: system.id64,
-							coords: system.coords,
-							updateTime: latestUpdateTime,
-							formattedTime: latestUpdateTime ? formatUpdateTime(latestUpdateTime) : '',
-							updateTimeInSeconds: latestUpdateTime,
-							pendingStates: pendingStatesText,
-							activeStates: activeStatesText,
-							kills: weekKills,
-							traffic: weekTraffic,
-							controlled: controlled,
-							inf: influence,
-							route: false
-						});
-					}
-						catch (deathError) {
-						console.error(`Error fetching death data for system ${system.name}:`, deathError);
-					}
-				}
 				loadedSystems++;
-				updateProgressBar(loadedSystems, totalSystems);
+				updateProgressBar();
 			}
-
-			if (startIndex + chunkSize < totalSystems) {
-				await new Promise(resolve => setTimeout(resolve, 0));
-				await processChunk(startIndex + chunkSize);
-			}
-		};
-		await processChunk(0);
-		allSystems = systems;
-	}	
-	catch (error) {
+		}
+		canonnSystems = systems;
+	} catch (error) {
 		console.error('Error loading or processing the data:', error);
 		alert('Error loading data.');
-	}
-	finally {
+	} finally {
 		loadingElement.style.display = 'none';
 	}
-	updateSourceDataText();
+	lastTick();
 	updateTable();
 	populateStartSystemSelect();
 }
 
-// Get latest update time from the system's factions
-function getLatestUpdateTime(factions) {
-	let latestUpdate = 0;
-	factions.forEach(faction => {
-		if (faction.lastUpdate && faction.lastUpdate > latestUpdate) {
-			latestUpdate = faction.lastUpdate;
-		}
-	});
-	return latestUpdate;
-}
-
+// Toggle route checkbox for a system (add/remove it from the route)
 function toggleRoute(systemName, checkbox) {
-	const system = allSystems.find(s => s.name === systemName);
+	const system = canonnSystems.find(s => s.name === systemName);
 	if (system) {
 		if (checkbox.checked) {
 			if (!filteredSystems.includes(system)) {
@@ -181,6 +172,18 @@ function toggleRoute(systemName, checkbox) {
 	populateStartSystemSelect();
 }
 
+// Clear all rows from the table (except the header)
+function clearOldRows() {
+	const table = document.getElementById("systemsTable");
+	const rows = table.querySelectorAll("tr");
+	rows.forEach((row, index) => {
+		if (index !== 0) {
+			row.remove();
+		}
+	});
+}
+
+// Sort table based on the selected column
 function sortTable(columnIndex) {
 	const table = document.getElementById("systemsTable");
 	const rows = Array.from(table.rows).slice(1);
@@ -199,13 +202,13 @@ function sortTable(columnIndex) {
 		const cellA = rowA.cells[columnIndex].textContent.trim();
 		const cellB = rowB.cells[columnIndex].textContent.trim();
 
-		if (columnIndex === 4 || columnIndex === 5 || columnIndex === 6) {
+		if (columnIndex === 7) {
 			const numA = parseFloat(cellA) || 0;
 			const numB = parseFloat(cellB) || 0;
 			return sortDirection[columnIndex] ? numA - numB : numB - numA;
 		}
 
-		if (columnIndex === 11) {
+		if (columnIndex === 12) {
 			const timeA = rowA.cells[columnIndex].dataset.timestamp;
 			const timeB = rowB.cells[columnIndex].dataset.timestamp;
 			return sortDirection[columnIndex] ? timeA - timeB : timeB - timeA;
@@ -213,26 +216,33 @@ function sortTable(columnIndex) {
 
 		return sortDirection[columnIndex] ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
 	});
-	rows.forEach(row => table.appendChild(row));
+	rows.forEach((row, index) => {
+		table.appendChild(row);
+		const rowNumberCell = row.cells[0];
+		rowNumberCell.textContent = index + 1;
+	});
 }
 
 // Update table with filtered systems
 function updateTable() {
 	const tableBody = document.getElementById('systemsTable').getElementsByTagName('tbody')[0];
 	tableBody.innerHTML = '';
+	clearOldRows();
+	let rowNumber = 1;
 
-	allSystems.forEach(system => {
+	canonnSystems.forEach(system => {
 		const row = tableBody.insertRow();
 		row.innerHTML = `
+			<td class="row-number">${rowNumber}</td> 
 			<td><a href="#" class="system-link" data-id64="${system.id64}">${system.name}</a></td>
 			<td>${system.pendingStates}</td>
 			<td>${system.activeStates}</td>
+			<td>${system.recoveryStates}</td>
 			<td class="${system.controlled ? 'checked' : 'unchecked'}">
 				${system.controlled ? '✔' : '❌'}
 			</td>
-			<td>${system.kills}</td>
-			<td>${system.traffic}</td>
-			<td>${system.inf}</td>
+			<td>${system.happiness}</td>
+			<td>${system.influence}</td>
 			<td class="hidden-column">${system.id64}</td>
 			<td class="hidden-column">${system.coords.x}</td>
 			<td class="hidden-column">${system.coords.y}</td>
@@ -240,18 +250,18 @@ function updateTable() {
 			<td data-timestamp="${system.updateTimeInSeconds}">${system.formattedTime}</td>
 			<td>
 				<input type="checkbox" 
-				${selectedSystemsForRoute.some(s => s.name === system.name) ? 'checked' : ''} 
+				${selectDeselect.some(s => s.name === system.name) ? 'checked' : ''} 
 				onchange="toggleRoute('${system.name}', this)">
 			</td>
 		`;
+		rowNumber++;
 	});
-	sortTable(11);	// Sort by "update" column initially (column index 11)
 }
 
 // Populate start system select dropdown
 function populateStartSystemSelect() {
 	const startSystemSelect = document.getElementById('startSystemSelect');
-	startSystemSelect.innerHTML = '<option value="">Start route from:</option>';
+	startSystemSelect.innerHTML = '<option value="" disabled selected>Start route from:</option>';
 
 	filteredSystems.forEach(system => {
 		const option = document.createElement('option');
@@ -388,32 +398,97 @@ function closeRouteContainer() {
 	document.getElementById('routeOutputContainer').style.display = 'none';
 }
 
-// Event listeners for user interaction
+// Handles change in faction selection (dropdown or custom input)
+function handleFactionChange(event) {
+	var otherFactionInput = document.getElementById("otherFactionInput");
+	var factionSelect = document.getElementById("factionSelect");
+	if (event.target === factionSelect) {
+		if (factionSelect.value === "otherFaction") {
+			otherFactionInput.style.display = "block";
+			otherFactionInput.value = selectedFactionDisplay;
+		} else {
+			otherFactionInput.style.display = "none";
+			selectedFactionDisplay = factionSelect.value;
+			loadAndProcessData();
+		}
+	}
+	if (event.target === otherFactionInput && event.key === "Enter") {
+		let enteredFaction = otherFactionInput.value.trim();	  
+		if (enteredFaction) {
+			selectedFaction = enteredFaction.replace(/\s+/g, '+');
+			selectedFactionDisplay = enteredFaction;
+			factionSelect.value = "startFaction";
+			let canonnOption = factionSelect.querySelector("option[value='startFaction']");
+			canonnOption.textContent = selectedFactionDisplay;
+			otherFactionInput.style.display = "none";
+			loadAndProcessData();
+		} else {
+			otherFactionInput.style.display = "none";
+		}
+	}
+}
+
+// "select/deselect all" button click to toggle checkboxes
+document.getElementById('selectBtn').addEventListener('click', function() {
+	const checkboxes = document.querySelectorAll('#systemsTable input[type="checkbox"]');
+	const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+	checkboxes.forEach(checkbox => {
+		checkbox.checked = !allChecked;
+		const systemName = checkbox.closest('tr').querySelector('.system-link').textContent.trim();
+		const system = canonnSystems.find(s => s.name === systemName);
+		if (checkbox.checked && system && !filteredSystems.includes(system)) {
+			filteredSystems.push(system);
+		} else if (!checkbox.checked) {
+			filteredSystems = filteredSystems.filter(s => s.name !== systemName);
+		}
+	});
+	populateStartSystemSelect();
+});
+
+// Event listeners for website
 document.getElementById('systemsTable').addEventListener('click', function(event) {
 	if (event.target && event.target.matches('a.system-link')) {
 		const systemName = event.target.textContent.trim();
-		const sourceFilterValue = document.getElementById('sourceFilter').value;
-		const system = allSystems.find(s => s.name === systemName);
+		const websiteFilterValue = document.getElementById('websiteFilter').value;
+		const system = canonnSystems.find(s => s.name === systemName);
 		if (!system) {
 			console.error('System not found!');
 			return;
 		}
+
 		let url = '';
-		switch (sourceFilterValue) {
+		switch (websiteFilterValue) {
+			case 'elitebgs':
+				url = `https://elitebgs.app/systems/${system.elitebgs_id}`;
+				break;
 			case 'inara':
 				url = `https://inara.cz/elite/starsystem/?search=${system.id64}`;
 				break;
 			case 'edsm':
-				url = `https://www.edsm.net/en/system/id/${system.id}/name`;
-				break;
+				fetch(`https://www.edsm.net/api-system-v1/estimated-value?systemName=${encodeURIComponent(systemName)}`)
+					.then(response => response.json())
+					.then(data => {
+						if (data && data.url) {
+							url = data.url;
+							window.open(url, '_blank');
+						} else {
+							console.error('No URL found in EDSM API response.');
+						}
+					})
+					.catch(error => {
+						console.error('Error fetching system data from EDSM API:', error);
+					});
+				return;
 			case 'spansh':
 				url = `https://spansh.co.uk/system/${system.id64}`;
 				break;
 			default:
-			console.error('Unknown source selected!');
-			return;
+				console.error('Unknown source selected!');
+				return;
 		}
-		window.open(url, '_blank');
+		if (url) {
+			window.open(url, '_blank');
+		}
 	}
 });
 document.getElementById('startSystemSelect').addEventListener('change', function(e) {
@@ -422,6 +497,8 @@ document.getElementById('startSystemSelect').addEventListener('change', function
 document.getElementById('downloadCSVBtn').addEventListener('click', function() {
 	generateCSV(orderedSystems);
 });
+document.getElementById("factionSelect").addEventListener("change", handleFactionChange);
+document.getElementById("otherFactionInput").addEventListener("keydown", handleFactionChange);
 document.getElementById('routeBtn').addEventListener('click', plotRoute);
 document.getElementById('closeRouteBtn').addEventListener('click', closeRouteContainer);
 

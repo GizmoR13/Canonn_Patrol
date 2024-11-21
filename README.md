@@ -1,15 +1,11 @@
-# Canonn_Patrol
+# Canonn Patrol
 
-A small helper for BGS Canonn
 
- - Basic system information
- - Pending/Active states are Canonn faction states
- - Deaths/Traffic are weekly values 
- - Route plotter with "Traveling Salesman Problem" solver
- - Save route in csv file
+ - Primarily, it is a route planner with a solution to the "travelling salesman" problem.
+ - It contains basic information about the system.
+ - By default, it works with the Canonn faction, but another one can be selected.
 
-All data from last EDSM Nightly dump
-!!! Slow loading !!!
+All data from last Elite BGS
 
 Math for the "Salesman Problem" from:
 https://github.com/Makeshift/EDSalesmanSolver
