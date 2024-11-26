@@ -1,6 +1,6 @@
 
 // Arrays to store system data, filtered data, and ordered systems for route plotting
-var canonnSystems = [];
+var factionSystems = [];
 var filteredSystems = [];
 var orderedSystems = [];
 var selectedStartSystem = '';
@@ -10,6 +10,7 @@ let totalSystems = 0;
 let loadedSystems = 0;
 let selectedFaction = "canonn";
 let selectedFactionDisplay = "Canonn";
+let savedFactions = ["Canonn"];
 
 // Update progress bar
 function updateProgressBar() {
@@ -34,7 +35,6 @@ function formatUpdateTime(lastUpdate) {
 	const timeDifferenceInSeconds = Math.floor((currentTime.getTime() / 1000) - lastUpdate);
 	const hoursDifference = Math.floor(timeDifferenceInSeconds / 3600);
 	const daysDifference = Math.floor(hoursDifference / 24);
-
 	if (hoursDifference < 24) {
 		return `${hoursDifference} hours`;
 	} else {
@@ -50,20 +50,26 @@ async function lastTick() {
 	const date = new Date(tickTime);
 	const formattedTime = date.toLocaleString();
 	const sourceTextElement = document.getElementById('sourceDataText');
-	sourceTextElement.textContent = `Systems data from Elite BGS, last tick ${formattedTime}`;
+	sourceTextElement.textContent = `Faction data from Elite BGS, Power data from EDSM, last tick ${formattedTime}`;
 }
 
-const factionHappinessBands = {
-	'faction_happinessband1': 'Elated',
-	'faction_happinessband2': 'Happy',
-	'faction_happinessband3': 'Discontented',
-	'faction_happinessband4': 'Unhappy',
-	'faction_happinessband5': 'Despondent'
-};
+function saveFactionData(factionName, systemData) {
+	let factions = JSON.parse(sessionStorage.getItem('factions')) || {};
+	if (!factions[factionName]) {
+		factions[factionName] = {};
+	}
+	factions[factionName] = systemData;
+	sessionStorage.setItem('factions', JSON.stringify(factions));
+}
 
-function getFactionHappiness(happinessBandKey) {
-	const bandKey = happinessBandKey.replace('$', '').replace(';', '').toLowerCase();
-	return factionHappinessBands[bandKey] || 'None';
+function loadFactionData(factionName) {
+	const factions = JSON.parse(sessionStorage.getItem('factions')) || {};
+	if (factions[factionName]) {
+		return factions[factionName];
+	} else {
+		console.log('No faction data');
+		return null;
+	}
 }
 
 // Load and process system data from the Elite BGS API
@@ -73,15 +79,28 @@ async function loadAndProcessData() {
 	clearOldRows();
 	const loadingElement = document.getElementById('loading');
 	loadingElement.style.display = 'block';
-	canonnSystems = [];
+	factionSystems = [];
 	filteredSystems = [];
 	orderedSystems = [];
 	loadedSystems = 0;
 	totalSystems = 0;
 	resetProgressBar();
-	updateProgressBar();
+	const selectedFactionName = selectedFaction;
+	let factionData = loadFactionData(selectedFactionName);
+
+	if (factionData) {
+		factionSystems = factionData;
+		lastTick();
+		updateTable();
+		populateStartSystemSelect();
+		loadingElement.style.display = 'none';
+		return;
+	}
 	try {
+		const powerPlayResponse = await fetch('powerPlay.json');
+		const powerPlayData = await powerPlayResponse.json();
 		const factionResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/factions?name=${selectedFaction}`);
+		console.log(selectedFaction);
 		const factionData = await factionResponse.json();
 		const systems = [];
 		totalSystems = factionData.docs.reduce((count, faction) => count + faction.faction_presence.length, 0);
@@ -97,9 +116,20 @@ async function loadAndProcessData() {
 					let pendingStatesText = '';
 					let activeStatesText = '';
 					let recoveryStatesText = '';
-					let factionHappiness = '';
+					let conflictsStatesText = '';
+					let systemPower = '-';
+					let powerState = '-';
+					let factionStations = 0;
 					let controlledText = false;
-					let influence = factionInfo.influence ? (factionInfo.influence * 100).toFixed(1) : 0;					
+					let powerLatestUpdateTime = 0;
+					let influence = factionInfo.influence ? (factionInfo.influence * 100).toFixed(1) : 0;
+					const powerInfo = powerPlayData.find(power => power.name === systemName);
+					
+					if (powerInfo) {
+						systemPower = powerInfo.power;
+						powerState = powerInfo.powerState;
+						powerLatestUpdateTime = new Date(powerInfo.date.replace(' ', 'T')).getTime() / 1000;
+					}
 					if (systemDetails.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
 						controlledText = true;
 					}
@@ -118,7 +148,20 @@ async function loadAndProcessData() {
 					} else {
 						recoveryStatesText = 'None';
 					}
-					factionHappiness = getFactionHappiness(factionInfo.happiness);
+					if (factionInfo.conflicts && factionInfo.conflicts.length > 0) {
+						conflictsStatesText = factionInfo.conflicts.map(type => type.type).join(', ');
+					} else {
+						conflictsStatesText = '-';
+					}
+					const stationsResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/stations?system=${systemName}`);
+					const stationsData = await stationsResponse.json();
+					if (stationsData.docs.length > 0) {
+						stationsData.docs.forEach(station => {
+							if (station.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
+								factionStations++;
+							}
+						});
+					}
 
 					systems.push({
 						name: systemName,
@@ -131,11 +174,13 @@ async function loadAndProcessData() {
 						},
 						formattedTime: formatUpdateTime(latestUpdateTime),
 						updateTimeInSeconds: latestUpdateTime,
+						stations: factionStations,
 						pendingStates: pendingStatesText,
 						activeStates: activeStatesText,
 						recoveryStates: recoveryStatesText,
 						influence: influence,
-						happiness: factionHappiness,
+						power: systemPower,
+						state: powerState,
 						controlled: controlledText,
 						route: false
 					});
@@ -144,7 +189,8 @@ async function loadAndProcessData() {
 				updateProgressBar();
 			}
 		}
-		canonnSystems = systems;
+		factionSystems = systems;
+		saveFactionData(selectedFactionName, factionSystems);
 	} catch (error) {
 		console.error('Error loading or processing the data:', error);
 		alert('Error loading data.');
@@ -158,7 +204,7 @@ async function loadAndProcessData() {
 
 // Toggle route checkbox for a system (add/remove it from the route)
 function toggleRoute(systemName, checkbox) {
-	const system = canonnSystems.find(s => s.name === systemName);
+	const system = factionSystems.find(s => s.name === systemName);
 	if (system) {
 		if (checkbox.checked) {
 			if (!filteredSystems.includes(system)) {
@@ -190,25 +236,23 @@ function sortTable(columnIndex) {
 	sortDirection[columnIndex] = !sortDirection[columnIndex];
 	const headers = table.querySelectorAll('th');
 	headers.forEach(header => header.classList.remove('sorted-asc', 'sorted-desc'));
-
 	if (sortDirection[columnIndex]) {
 		headers[columnIndex].classList.add('sorted-asc');
 	}
 	else {
 		headers[columnIndex].classList.add('sorted-desc');
 	}
-
 	rows.sort((rowA, rowB) => {
 		const cellA = rowA.cells[columnIndex].textContent.trim();
 		const cellB = rowB.cells[columnIndex].textContent.trim();
 
-		if (columnIndex === 7) {
+		if (columnIndex === 6 || columnIndex === 2) {
 			const numA = parseFloat(cellA) || 0;
 			const numB = parseFloat(cellB) || 0;
 			return sortDirection[columnIndex] ? numA - numB : numB - numA;
 		}
 
-		if (columnIndex === 12) {
+		if (columnIndex === 14) {
 			const timeA = rowA.cells[columnIndex].dataset.timestamp;
 			const timeB = rowB.cells[columnIndex].dataset.timestamp;
 			return sortDirection[columnIndex] ? timeA - timeB : timeB - timeA;
@@ -230,19 +274,21 @@ function updateTable() {
 	clearOldRows();
 	let rowNumber = 1;
 
-	canonnSystems.forEach(system => {
+	factionSystems.forEach(system => {
 		const row = tableBody.insertRow();
 		row.innerHTML = `
 			<td class="row-number">${rowNumber}</td> 
 			<td><a href="#" class="system-link" data-id64="${system.id64}">${system.name}</a></td>
+			<td>${system.influence}</td>
 			<td>${system.pendingStates}</td>
 			<td>${system.activeStates}</td>
 			<td>${system.recoveryStates}</td>
+			<td>${system.stations}</td>
 			<td class="${system.controlled ? 'checked' : 'unchecked'}">
 				${system.controlled ? '✔' : '❌'}
 			</td>
-			<td>${system.happiness}</td>
-			<td>${system.influence}</td>
+			<td>${system.power}</td>
+			<td>${system.state}</td>
 			<td class="hidden-column">${system.id64}</td>
 			<td class="hidden-column">${system.coords.x}</td>
 			<td class="hidden-column">${system.coords.y}</td>
@@ -377,7 +423,6 @@ function copyToClipboard(systemName, row) {
 function generateCSV(systems) {
 	const headers = ['System', 'Distance'];
 	let csvContent = headers.join(',') + '\n';
-
 	let totalDistance = 0;
 	systems.forEach((system, index) => {
 		const previousSystem = systems[index - 1];
@@ -402,29 +447,77 @@ function closeRouteContainer() {
 function handleFactionChange(event) {
 	var otherFactionInput = document.getElementById("otherFactionInput");
 	var factionSelect = document.getElementById("factionSelect");
+
 	if (event.target === factionSelect) {
 		if (factionSelect.value === "otherFaction") {
 			otherFactionInput.style.display = "block";
-			otherFactionInput.value = selectedFactionDisplay;
+			otherFactionInput.value = "";
 		} else {
 			otherFactionInput.style.display = "none";
 			selectedFactionDisplay = factionSelect.value;
+			selectedFaction = factionSelect.value.replace(/\s+/g, '+');
+			if (selectedFaction === "startFaction") {
+				selectedFaction = "canonn";
+			}
 			loadAndProcessData();
 		}
 	}
+
 	if (event.target === otherFactionInput && event.key === "Enter") {
-		let enteredFaction = otherFactionInput.value.trim();	  
-		if (enteredFaction) {
+		let enteredFaction = otherFactionInput.value.trim();
+		
+		// Jeśli użytkownik wprowadził nazwę frakcji
+		if (enteredFaction.length > 0) {
+			// Dodanie nowej frakcji do listy
+			if (!savedFactions.includes(enteredFaction)) {
+				savedFactions.push(enteredFaction);
+				// Zaktualizowanie rozwijanego menu
+				updateFactionSelect();
+			}
+
 			selectedFaction = enteredFaction.replace(/\s+/g, '+');
 			selectedFactionDisplay = enteredFaction;
-			factionSelect.value = "startFaction";
-			let canonnOption = factionSelect.querySelector("option[value='startFaction']");
-			canonnOption.textContent = selectedFactionDisplay;
-			otherFactionInput.style.display = "none";
+
+			// Wybór nowej frakcji w rozwijanym menu
+			factionSelect.value = enteredFaction; 
+			otherFactionInput.style.display = "none";  // Ukrycie pola
 			loadAndProcessData();
 		} else {
 			otherFactionInput.style.display = "none";
 		}
+	}
+}
+
+function updateFactionSelect() {
+	const factionSelect = document.getElementById("factionSelect");
+
+	// Najpierw usuń wszystkie opcje (poza "other faction...")
+	while (factionSelect.options.length > 1) {
+		factionSelect.remove(1);
+	}
+
+	// Dodanie nowych frakcji do menu
+	savedFactions.forEach(faction => {
+		// Dodajemy tylko, jeśli frakcja jeszcze nie została dodana
+		if (faction !== "otherFaction") {
+			let option = document.createElement("option");
+			option.value = faction;
+			option.textContent = faction;
+			factionSelect.appendChild(option);
+		}
+	});
+
+	// Dodajemy opcję "other faction..."
+	let otherOption = document.createElement("option");
+	otherOption.value = "otherFaction";
+	otherOption.textContent = "Other faction...";
+	factionSelect.appendChild(otherOption);
+
+	// Ustawienie domyślnej wybranej frakcji w menu na "canonn"
+	factionSelect.value = "canonn";  // Pokazuje "canonn" jako domyślną wybraną frakcję
+	const defaultOption = factionSelect.querySelector('option[value="startFaction"]');
+	if (defaultOption) {
+		defaultOption.style.display = "none";
 	}
 }
 
@@ -435,7 +528,7 @@ document.getElementById('selectBtn').addEventListener('click', function() {
 	checkboxes.forEach(checkbox => {
 		checkbox.checked = !allChecked;
 		const systemName = checkbox.closest('tr').querySelector('.system-link').textContent.trim();
-		const system = canonnSystems.find(s => s.name === systemName);
+		const system = factionSystems.find(s => s.name === systemName);
 		if (checkbox.checked && system && !filteredSystems.includes(system)) {
 			filteredSystems.push(system);
 		} else if (!checkbox.checked) {
@@ -450,7 +543,7 @@ document.getElementById('systemsTable').addEventListener('click', function(event
 	if (event.target && event.target.matches('a.system-link')) {
 		const systemName = event.target.textContent.trim();
 		const websiteFilterValue = document.getElementById('websiteFilter').value;
-		const system = canonnSystems.find(s => s.name === systemName);
+		const system = factionSystems.find(s => s.name === systemName);
 		if (!system) {
 			console.error('System not found!');
 			return;

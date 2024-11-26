@@ -1,0 +1,37 @@
+name: Download File from EDSM and Push to Repo
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:  
+
+jobs:
+  download-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl gzip
+
+      - name: Download the file
+        run: |
+          curl -L https://www.edsm.net/dump/powerPlay.json.gz -o powerPlay.json.gz 
+
+      - name: Decompress the file
+        run: |
+          gunzip powerPlay.json.gz 
+
+      - name: Commit and push the file to repo
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add powerPlay.json
+          git commit -m "Update powerPlay.json"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
