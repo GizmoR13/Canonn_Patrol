@@ -10,7 +10,7 @@ let totalSystems = 0;
 let loadedSystems = 0;
 let selectedFaction = "canonn";
 let selectedFactionDisplay = "Canonn";
-let savedFactions = ["Canonn"];
+let savedFactions = ["canonn"];
 
 // Update progress bar
 function updateProgressBar() {
@@ -97,10 +97,9 @@ async function loadAndProcessData() {
 		return;
 	}
 	try {
-		const powerPlayResponse = await fetch('powerPlay.json');
+		const powerPlayResponse = await fetch('powerPlay_test.json');
 		const powerPlayData = await powerPlayResponse.json();
 		const factionResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/factions?name=${selectedFaction}`);
-		console.log(selectedFaction);
 		const factionData = await factionResponse.json();
 		const systems = [];
 		totalSystems = factionData.docs.reduce((count, faction) => count + faction.faction_presence.length, 0);
@@ -128,7 +127,6 @@ async function loadAndProcessData() {
 					if (powerInfo) {
 						systemPower = powerInfo.power;
 						powerState = powerInfo.powerState;
-						powerLatestUpdateTime = new Date(powerInfo.date.replace(' ', 'T')).getTime() / 1000;
 					}
 					if (systemDetails.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
 						controlledText = true;
@@ -147,11 +145,6 @@ async function loadAndProcessData() {
 						recoveryStatesText = factionInfo.recovering_states.map(state => state.state).join(', ');
 					} else {
 						recoveryStatesText = 'None';
-					}
-					if (factionInfo.conflicts && factionInfo.conflicts.length > 0) {
-						conflictsStatesText = factionInfo.conflicts.map(type => type.type).join(', ');
-					} else {
-						conflictsStatesText = '-';
 					}
 					const stationsResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/stations?system=${systemName}`);
 					const stationsData = await stationsResponse.json();
@@ -462,25 +455,17 @@ function handleFactionChange(event) {
 			loadAndProcessData();
 		}
 	}
-
 	if (event.target === otherFactionInput && event.key === "Enter") {
 		let enteredFaction = otherFactionInput.value.trim();
-		
-		// Jeśli użytkownik wprowadził nazwę frakcji
 		if (enteredFaction.length > 0) {
-			// Dodanie nowej frakcji do listy
 			if (!savedFactions.includes(enteredFaction)) {
 				savedFactions.push(enteredFaction);
-				// Zaktualizowanie rozwijanego menu
 				updateFactionSelect();
 			}
-
 			selectedFaction = enteredFaction.replace(/\s+/g, '+');
 			selectedFactionDisplay = enteredFaction;
-
-			// Wybór nowej frakcji w rozwijanym menu
 			factionSelect.value = enteredFaction; 
-			otherFactionInput.style.display = "none";  // Ukrycie pola
+			otherFactionInput.style.display = "none";
 			loadAndProcessData();
 		} else {
 			otherFactionInput.style.display = "none";
@@ -490,34 +475,34 @@ function handleFactionChange(event) {
 
 function updateFactionSelect() {
 	const factionSelect = document.getElementById("factionSelect");
-
-	// Najpierw usuń wszystkie opcje (poza "other faction...")
 	while (factionSelect.options.length > 1) {
 		factionSelect.remove(1);
 	}
-
-	// Dodanie nowych frakcji do menu
 	savedFactions.forEach(faction => {
-		// Dodajemy tylko, jeśli frakcja jeszcze nie została dodana
-		if (faction !== "otherFaction") {
+		if (faction !== "otherFaction" && faction !== "canonn") {
 			let option = document.createElement("option");
 			option.value = faction;
 			option.textContent = faction;
 			factionSelect.appendChild(option);
 		}
 	});
-
-	// Dodajemy opcję "other faction..."
 	let otherOption = document.createElement("option");
 	otherOption.value = "otherFaction";
 	otherOption.textContent = "Other faction...";
 	factionSelect.appendChild(otherOption);
-
-	// Ustawienie domyślnej wybranej frakcji w menu na "canonn"
-	factionSelect.value = "canonn";  // Pokazuje "canonn" jako domyślną wybraną frakcję
-	const defaultOption = factionSelect.querySelector('option[value="startFaction"]');
+	const defaultOption = factionSelect.querySelector('option[value="canonn"]');
 	if (defaultOption) {
-		defaultOption.style.display = "none";
+		factionSelect.value = "canonn";
+	} else {
+		let canonnOption = document.createElement("option");
+		canonnOption.value = "canonn";
+		canonnOption.textContent = "Canonn";
+		factionSelect.insertBefore(canonnOption, factionSelect.firstChild);
+		factionSelect.value = "canonn";
+	}
+	const startFactionOption = factionSelect.querySelector('option[value="startFaction"]');
+	if (startFactionOption) {
+		startFactionOption.style.display = "none";
 	}
 }
 

@@ -20,7 +20,7 @@ jobs:
 
       - name: Download the file
         run: |
-          curl -L https://www.edsm.net/dump/powerPlay.json.gz -o powerPlay.json.gz 
+          curl -L --max-time 60 https://www.edsm.net/dump/powerPlay.json.gz -o powerPlay.json.gz
 
       - name: Decompress the file
         run: |
