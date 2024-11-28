@@ -1,5 +1,8 @@
 name: Download File from EDSM and Push to Repo
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 3 * * *'
