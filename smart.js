@@ -1,16 +1,16 @@
 
-// Arrays to store system data, filtered data, and ordered systems for route plotting
-var factionSystems = [];
-var filteredSystems = [];
-var orderedSystems = [];
-var selectedStartSystem = '';
-let sortDirection = [true, true, true, true, true, true, true, true];
+// Arrays to store system data
+let factionSystems = [];
+let filteredSystems = [];
+let orderedSystems = [];
+let selectedStartSystem = '';
+let sortDirection = [];
 let selectDeselect = [];
 let totalSystems = 0;
 let loadedSystems = 0;
-let selectedFaction = "canonn";
-let selectedFactionDisplay = "Canonn";
-let savedFactions = ["canonn"];
+let selectedFaction = "Canonn";
+let savedFactions = [];
+let factionStatus = null;
 
 // Update progress bar
 function updateProgressBar() {
@@ -42,10 +42,14 @@ function formatUpdateTime(lastUpdate) {
 	}
 }
 
+function updateFactionTimestamp(timestamp) {
+	const factionTextElement = document.getElementById('factionDataText');
+	factionTextElement.textContent = `${selectedFaction} data from ${new Date(timestamp).toLocaleString()}`;
+}
+
 // Update last tick
 async function lastTick() {
-	const time = await fetch('https://elitebgs.app/api/ebgs/v5/ticks?time');
-	const tickData = await time.json();
+	const tickData = await fetchData('GetTick', { time: true });
 	const tickTime = tickData[0].time;
 	const date = new Date(tickTime);
 	const formattedTime = date.toLocaleString();
@@ -53,26 +57,205 @@ async function lastTick() {
 	sourceTextElement.textContent = `Faction data from Elite BGS, Power data from EDSM, last tick ${formattedTime}`;
 }
 
+async function loadFactionStatus() {
+  try {
+	const data = await fetchData('GetStatus', {});
+	factionStatus = {
+	  peaceAgreement: data.peaceAgreement,
+	  deadFactions: data.deadFactions,
+	  noContact: data.noContact
+	};
+  } catch (error) {
+	console.error("Error loading faction data:", error);
+	return null;
+  }
+}
+
 function saveFactionData(factionName, systemData) {
-	let factions = JSON.parse(sessionStorage.getItem('factions')) || {};
+	let factions = JSON.parse(localStorage.getItem('factions')) || {};
+	const timestamp = Date.now();
 	if (!factions[factionName]) {
 		factions[factionName] = {};
 	}
-	factions[factionName] = systemData;
-	sessionStorage.setItem('factions', JSON.stringify(factions));
+	factions[factionName] = {
+		systems: systemData,
+		timestamp: timestamp
+	};
+	localStorage.setItem('factions', JSON.stringify(factions));
 }
 
 function loadFactionData(factionName) {
-	const factions = JSON.parse(sessionStorage.getItem('factions')) || {};
+	const factions = JSON.parse(localStorage.getItem('factions')) || {};
 	if (factions[factionName]) {
 		return factions[factionName];
 	} else {
-		console.log('No faction data');
 		return null;
 	}
 }
 
-// Load and process system data from the Elite BGS API
+function clearFactionData(key) {
+	if (key === "data") {
+		localStorage.removeItem('factions');
+		console.log('All systems data cleared. Local Storage size: ' + getStorageSize() + ' KB');
+	} else if (key === "list") {
+		localStorage.removeItem('savedFactions');
+		console.log('Faction list cleared. Local Storage size: ' + getStorageSize() + ' KB');
+	} else {
+		console.error('Unknown key: ' + key);
+	}
+	checkLocalStorageForData();
+}
+
+function checkLocalStorageForData() {
+	const factionsExist = localStorage.getItem('savedFactions') !== null;
+	const dataExist = localStorage.getItem('factions') !== null;
+	const clearListBtn = document.getElementById('clearListBtn');
+	const clearDataBtn = document.getElementById('clearDataBtn');
+
+	if (!factionsExist) {
+		clearListBtn.classList.add('disabled');
+		clearListBtn.disabled = true;
+	} else {
+		clearListBtn.classList.remove('disabled');
+		clearListBtn.disabled = false;
+	}
+	if (!dataExist) {
+		clearDataBtn.classList.add('disabled');
+		clearDataBtn.disabled = true;
+	} else {
+		clearDataBtn.classList.remove('disabled');
+		clearDataBtn.disabled = false;
+	}
+}
+
+function getStorageSize() {
+	let total = 0;
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		const value = localStorage.getItem(key);
+		total += Math.round(((key.length + value.length) * 2) / 1024);
+	}
+	return total;
+}
+
+async function onStart() {
+	const selectedFactionName = selectedFaction;
+	let factionData = loadFactionData(selectedFactionName);
+	const savedFactionsFromStorage = localStorage.getItem('savedFactions');
+	savedFactions = JSON.parse(savedFactionsFromStorage) || ["Canonn", "Canonn Deep Space Research"];
+	updateFactionSelect();
+	checkLocalStorageForData();
+	await loadFactionStatus();
+	if (factionData) {
+		factionSystems = factionData.systems;
+		const timestamp = factionData.timestamp;
+		updateFactionTimestamp(timestamp);
+		lastTick();
+		updateTable();
+		populateStartSystemSelect();
+		
+	} else {
+		loadAndProcessData();
+	}
+}
+
+async function fetchSystemUrl(params) {
+	let url = '';
+	const systemName = params.systemName;
+	const websiteFilterValue = params.websiteFilterValue;
+	switch (websiteFilterValue) {
+		case 'elitebgs':
+			url = `https://elitebgs.app/systems/${params.elitebgs_id}`;
+			break;
+		case 'inara':
+			url = `https://inara.cz/elite/starsystem/?search=${params.id64}`;
+			break;
+		case 'edsm':
+			url = await fetchEdsmUrl(systemName);
+			break;
+		case 'spansh':
+			url = `https://spansh.co.uk/system/${params.id64}`;
+			break;
+		default:
+			throw new Error('Unknown source selected!');
+	}
+	return url;
+}
+
+async function fetchEdsmUrl(systemName) {
+	try {
+		const response = await fetch(`https://www.edsm.net/api-system-v1/estimated-value?systemName=${encodeURIComponent(systemName)}`);
+		const data = await response.json();
+		if (data && data.url) {
+			const modifiedUrl = data.url.replace('/bodies', '');
+			return modifiedUrl;
+		} else {
+			console.error('No URL found in EDSM API response.');
+			return null;
+		}
+	} catch (error) {
+		console.error('Error fetching system data from EDSM API:', error);
+		return null;
+	}
+}
+
+async function fetchData(site, params = {}) {
+	let url = '';
+	switch (site) {
+		case 'getStations':
+			url = 'https://elitebgs.app/api/ebgs/v5/stations';
+			break;
+		case 'getSystem':
+			url = 'https://elitebgs.app/api/ebgs/v5/systems';
+			break;
+		case 'GetFaction':
+			url = 'https://elitebgs.app/api/ebgs/v5/factions';
+			break;
+		case 'GetTick':
+			url = 'https://elitebgs.app/api/ebgs/v5/ticks';
+			break;
+		case 'GetPowers':
+			url = 'json/powerPlay_test.json';
+			break;
+		case 'GetStatus':
+			url = 'json/factions_status.json';
+			break;
+		case 'GetPlayersFactions':
+			url = 'json/ED_Player_Factions.json';
+			break;
+		case 'GetInfo':
+			url = 'json/info.json';
+			break;
+		default:
+			throw new Error('Unknown site type');
+	}
+	return await fetchJson(url, params);
+}
+
+async function fetchJson(url, params = {}) {
+	try {
+		let response;
+		if (url.endsWith('.json')) {
+			response = await fetch(url);
+		} else {
+			let queryParams = new URLSearchParams(params).toString();
+			if (queryParams) {
+				url += '?' + queryParams;
+			}
+			response = await fetch(url);
+		}
+		if (!response.ok) {
+			throw new Error(`Failed to fetch data from ${url}, server offline?`);
+		}
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error(error);
+		return null;
+	}
+}
+
+// Load and process system data from Elite BGS API
 async function loadAndProcessData() {
 	const tableBody = document.getElementById('systemsTable').getElementsByTagName('tbody')[0];
 	tableBody.innerHTML = '';
@@ -86,28 +269,21 @@ async function loadAndProcessData() {
 	totalSystems = 0;
 	resetProgressBar();
 	const selectedFactionName = selectedFaction;
-	let factionData = loadFactionData(selectedFactionName);
 
-	if (factionData) {
-		factionSystems = factionData;
-		lastTick();
-		updateTable();
-		populateStartSystemSelect();
-		loadingElement.style.display = 'none';
-		return;
-	}
 	try {
-		const powerPlayResponse = await fetch('powerPlay_test.json');
-		const powerPlayData = await powerPlayResponse.json();
-		const factionResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/factions?name=${selectedFaction}`);
-		const factionData = await factionResponse.json();
+		const encodedFactionName = selectedFaction.replace(/&/g, '%26');
+		const powerPlayData = await fetchData('GetPowers', {});
+		const factionData = await fetchData('GetFaction', { name: encodedFactionName });
+		const playerFactionsData = await fetchData('GetPlayersFactions', {});
 		const systems = [];
 		totalSystems = factionData.docs.reduce((count, faction) => count + faction.faction_presence.length, 0);
+
+		const allSystemPromises = [];
+
 		for (const faction of factionData.docs) {
 			for (const factionInfo of faction.faction_presence) {
 				const systemName = factionInfo.system_name;
-				const systemDetailsResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/systems?name=${systemName}`);
-				const systemDetailsData = await systemDetailsResponse.json();
+				const systemDetailsData = await fetchData('getSystem', { name: systemName });
 
 				if (systemDetailsData.docs.length > 0) {
 					const systemDetails = systemDetailsData.docs[0];
@@ -115,20 +291,71 @@ async function loadAndProcessData() {
 					let pendingStatesText = '';
 					let activeStatesText = '';
 					let recoveryStatesText = '';
-					let conflictsStatesText = '';
+					let conflictsData = [];
 					let systemPower = '-';
 					let powerState = '-';
-					let factionStations = 0;
 					let controlledText = false;
-					let powerLatestUpdateTime = 0;
+					let otherPlayerSystem = false;
+					let otherPlayerHome = false;
+					let otherFactionsData = [];
+					let controllingFaction = '';
+					let systemStations = 0;
 					let influence = factionInfo.influence ? (factionInfo.influence * 100).toFixed(1) : 0;
 					const powerInfo = powerPlayData.find(power => power.name === systemName);
-					
+
+					const factionPromises = systemDetails.factions.map(async (faction) => {
+						const allFactionData = await loadOthersData(systemName, faction.name, faction.faction_id, playerFactionsData);
+						const existingSystem = otherFactionsData.find(item => item.systemName === systemName);
+						if (existingSystem) {
+							existingSystem.factions.push({
+								factionName: faction.name,
+								data: allFactionData
+							});
+						} else {
+							otherFactionsData.push({
+								systemName: systemName,
+								factions: [{
+									factionName: faction.name,
+									data: allFactionData
+								}]
+							});
+						}
+					});
+					allSystemPromises.push(Promise.all(factionPromises));
+					await Promise.all(allSystemPromises);
+
+					const systemData = otherFactionsData.find(system => system.systemName === systemName);
+					if (systemData) {
+						if (systemData.factions.find(faction => 
+							faction.data && faction.data.length > 0 &&
+							faction.data[0].playerFaction === true &&
+							faction.factionName.trim().toLowerCase() !== selectedFaction.trim().toLowerCase()
+						)) {
+							otherPlayerSystem = true;
+						}
+						
+						if (systemData.factions.find(faction => 
+							faction.data && faction.data.length > 0 &&
+							faction.data[0].playerFactionHome === systemName &&
+							faction.factionName.trim().toLowerCase() !== selectedFaction.trim().toLowerCase()
+						)) {
+							otherPlayerHome = true;
+						}
+						const factionData = systemData.factions.find(faction => faction.factionName.trim().toLowerCase() === selectedFaction.trim().toLowerCase());
+						if (factionData && factionData.data.length > 0) {
+							systemStations = factionData.data[0].systemStations || 0;
+						} else {
+							console.log('No faction or faction data for:', selectedFaction);
+						}
+					} else {
+						console.log('No ', systemName, ' in detailed data');
+					}
+					controllingFaction = systemDetails.controlling_minor_faction;
 					if (powerInfo) {
 						systemPower = powerInfo.power;
 						powerState = powerInfo.powerState;
 					}
-					if (systemDetails.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
+					if (systemDetails.controlling_minor_faction.trim().toLowerCase() === selectedFaction.trim().toLowerCase()) {
 						controlledText = true;
 					}
 					if (factionInfo.pending_states && factionInfo.pending_states.length > 0) {
@@ -146,16 +373,9 @@ async function loadAndProcessData() {
 					} else {
 						recoveryStatesText = 'None';
 					}
-					const stationsResponse = await fetch(`https://elitebgs.app/api/ebgs/v5/stations?system=${systemName}`);
-					const stationsData = await stationsResponse.json();
-					if (stationsData.docs.length > 0) {
-						stationsData.docs.forEach(station => {
-							if (station.controlling_minor_faction.trim().toLowerCase() === selectedFactionDisplay.trim().toLowerCase()) {
-								factionStations++;
-							}
-						});
+					if (systemDetails.conflicts) {
+						conflictsData = systemDetails.conflicts;
 					}
-
 					systems.push({
 						name: systemName,
 						id64: systemDetails.system_address,
@@ -167,14 +387,19 @@ async function loadAndProcessData() {
 						},
 						formattedTime: formatUpdateTime(latestUpdateTime),
 						updateTimeInSeconds: latestUpdateTime,
-						stations: factionStations,
 						pendingStates: pendingStatesText,
 						activeStates: activeStatesText,
 						recoveryStates: recoveryStatesText,
+						stations: systemStations,
 						influence: influence,
 						power: systemPower,
 						state: powerState,
+						controlling: controllingFaction,
 						controlled: controlledText,
+						othersData: otherFactionsData,
+						otherPlayerSystem: otherPlayerSystem,
+						otherPlayerHome: otherPlayerHome,
+						conflictsData: conflictsData,
 						route: false
 					});
 				}
@@ -185,14 +410,73 @@ async function loadAndProcessData() {
 		factionSystems = systems;
 		saveFactionData(selectedFactionName, factionSystems);
 	} catch (error) {
-		console.error('Error loading or processing the data:', error);
+		console.error('Error loading or processing data:', error);
 		alert('Error loading data.');
 	} finally {
 		loadingElement.style.display = 'none';
 	}
+	updateFactionTimestamp(Date.now());
 	lastTick();
 	updateTable();
 	populateStartSystemSelect();
+	console.log("LocalStorage size: " + getStorageSize() + " KB");
+}
+
+async function loadOthersData(systemName, factionName, factionId, playerFactionsData) {
+	let data = [];
+	let factionStations = 0;
+	let systemStations = 0;
+	let playerFaction = false;
+	let playerFactionHome = '';
+	let page = 1;
+	let hasNextPage = true;
+	let stationsData = [];
+
+	while (hasNextPage) {
+		const pageData = await fetchData('getStations', { system: systemName, page: page });
+		stationsData = pageData.docs;
+		stationsData.forEach(station => {
+			if (station.controlling_minor_faction.trim().toLowerCase() === factionName.trim().toLowerCase()) {
+				factionStations++;
+			}
+			systemStations++;
+		});
+		if (pageData.pages > page) {
+			page++;
+		} else {
+			hasNextPage = false;
+		}
+	}
+	const factionsData = await fetchData('GetFaction', { id: factionId });
+	const factionsDocs = factionsData.docs;
+	for (const faction of factionsDocs) {
+		const factionPresence = faction.faction_presence.find(presence => presence.system_name.toLowerCase() === systemName.toLowerCase());
+		if (factionPresence) {
+			playerFaction = playerFactionsData.some(factionData => 
+				factionData.Faction && factionData.Faction.trim().toLowerCase() === factionName.trim().toLowerCase()
+			);
+			if (playerFaction) {
+				const playerFactionData = playerFactionsData.find(factionData => 
+					factionData.Faction && factionData.Faction.trim().toLowerCase() === factionName.trim().toLowerCase()
+				);
+				if (playerFactionData) {
+					playerFactionHome = playerFactionData.System;
+				}
+			}
+			const factionDetails = {
+				influence: (factionPresence.influence * 100).toFixed(1),
+				active_states: factionPresence.active_states.map(state => state.state).join(', ') || 'None',
+				pending_states: factionPresence.pending_states.map(state => state.state).join(', ') || 'None',
+				recovering_states: factionPresence.recovering_states.map(state => state.state).join(', ') || 'None',
+				playerFactionHome: playerFactionHome,
+				playerFaction: playerFaction,
+				factionStations: factionStations || 0,
+				systemStations: systemStations || 0
+			};
+			data.push(factionDetails);
+		}
+	}
+	return data;
 }
 
 // Toggle route checkbox for a system (add/remove it from the route)
@@ -211,7 +495,7 @@ function toggleRoute(systemName, checkbox) {
 	populateStartSystemSelect();
 }
 
-// Clear all rows from the table (except the header)
+// Clear all rows from table (except header)
 function clearOldRows() {
 	const table = document.getElementById("systemsTable");
 	const rows = table.querySelectorAll("tr");
@@ -222,11 +506,15 @@ function clearOldRows() {
 	});
 }
 
-// Sort table based on the selected column
+// Sort table based on selected column
 function sortTable(columnIndex) {
 	const table = document.getElementById("systemsTable");
-	const rows = Array.from(table.rows).slice(1);
+	const rows = Array.from(table.querySelectorAll('tr.main-row'));
 	sortDirection[columnIndex] = !sortDirection[columnIndex];
+	const existingSubRows = document.querySelectorAll('.sub-row');
+	existingSubRows.forEach(subRow => {
+		subRow.style.display = 'none';	// Ukrywamy pod-wiersze
+	});
 	const headers = table.querySelectorAll('th');
 	headers.forEach(header => header.classList.remove('sorted-asc', 'sorted-desc'));
 	if (sortDirection[columnIndex]) {
@@ -238,19 +526,16 @@ function sortTable(columnIndex) {
 	rows.sort((rowA, rowB) => {
 		const cellA = rowA.cells[columnIndex].textContent.trim();
 		const cellB = rowB.cells[columnIndex].textContent.trim();
-
-		if (columnIndex === 6 || columnIndex === 2) {
+		if (columnIndex === 7 || columnIndex === 2) {
 			const numA = parseFloat(cellA) || 0;
 			const numB = parseFloat(cellB) || 0;
 			return sortDirection[columnIndex] ? numA - numB : numB - numA;
 		}
-
-		if (columnIndex === 14) {
+		if (columnIndex === 13) {
 			const timeA = rowA.cells[columnIndex].dataset.timestamp;
 			const timeB = rowB.cells[columnIndex].dataset.timestamp;
 			return sortDirection[columnIndex] ? timeA - timeB : timeB - timeA;
 		}
-
 		return sortDirection[columnIndex] ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
 	});
 	rows.forEach((row, index) => {
@@ -258,6 +543,7 @@ function sortTable(columnIndex) {
 		const rowNumberCell = row.cells[0];
 		rowNumberCell.textContent = index + 1;
 	});
+	addSubRows();
 }
 
 // Update table with filtered systems
@@ -266,9 +552,33 @@ function updateTable() {
 	tableBody.innerHTML = '';
 	clearOldRows();
 	let rowNumber = 1;
+	let systemConflicts = 0;
+	const { peaceAgreement, deadFactions, noContact } = factionStatus;
 
 	factionSystems.forEach(system => {
+		let systemClass = '';
+		if (system.othersData && system.othersData.some(systemData => 
+			systemData.factions.some(faction => peaceAgreement.includes(faction.factionName))
+		)) {
+			systemClass = 'peace-agreement';
+		} else if (system.othersData && system.othersData.some(systemData => 
+			systemData.factions.some(faction => noContact.includes(faction.factionName))
+		)) {
+			systemClass = 'no-contact';
+		} else if (system.othersData && system.othersData.some(systemData => 
+			systemData.factions.some(faction => deadFactions.includes(faction.factionName))
+		)) {
+			systemClass = 'dead-factions';
+		} else if (system.otherPlayerSystem) {
+			systemClass = 'other-player-system';
+		}
+		const conflicts = extractConflicts(system);
+		systemConflicts = conflicts.length;
 		const row = tableBody.insertRow();
+		row.classList.add('main-row');
+		if (systemClass) {
+			row.classList.add(systemClass);
+		}
 		row.innerHTML = `
 			<td class="row-number">${rowNumber}</td> 
 			<td><a href="#" class="system-link" data-id64="${system.id64}">${system.name}</a></td>
@@ -276,16 +586,19 @@ function updateTable() {
 			<td>${system.pendingStates}</td>
 			<td>${system.activeStates}</td>
 			<td>${system.recoveryStates}</td>
+			<td>${systemConflicts}</td>
 			<td>${system.stations}</td>
+			<td class="${system.otherPlayerSystem ? 'checked' : 'unchecked'}">
+				${system.otherPlayerSystem ? '✔' : '✖'}
+			</td>
+			<td class="${system.otherPlayerHome ? 'checked' : 'unchecked'}">
+				${system.otherPlayerHome ? '✔' : '✖'}
+			</td>
 			<td class="${system.controlled ? 'checked' : 'unchecked'}">
-				${system.controlled ? '✔' : '❌'}
+				${system.controlled ? '✔' : '✖'}
 			</td>
 			<td>${system.power}</td>
 			<td>${system.state}</td>
-			<td class="hidden-column">${system.id64}</td>
-			<td class="hidden-column">${system.coords.x}</td>
-			<td class="hidden-column">${system.coords.y}</td>
-			<td class="hidden-column">${system.coords.z}</td>
 			<td data-timestamp="${system.updateTimeInSeconds}">${system.formattedTime}</td>
 			<td>
 				<input type="checkbox" 
@@ -294,6 +607,233 @@ function updateTable() {
 			</td>
 		`;
 		rowNumber++;
+		row.system = system;
+		tableBody.appendChild(row);
+	});
+	addSubRows();
+}
+
+function extractConflicts(system) {
+	const conflictResults = [];
+	
+	function normalizeFactionName(factionName) {
+		return factionName.replace(/[&]/g, 'and').toLowerCase();
+	}
+	function isConflictExists(conflictArray, faction1, faction2) {
+		const normalizedFaction1 = normalizeFactionName(faction1);
+		const normalizedFaction2 = normalizeFactionName(faction2);
+
+		return conflictArray.some(conflict => 
+			(normalizeFactionName(conflict.faction1) === normalizedFaction1 && normalizeFactionName(conflict.faction2) === normalizedFaction2) ||
+			(normalizeFactionName(conflict.faction1) === normalizedFaction2 && normalizeFactionName(conflict.faction2) === normalizedFaction1)
+		);
+	}
+	system.conflictsData.forEach(conflictData => {
+		const faction1Name = conflictData.faction1.name;
+		const faction2Name = conflictData.faction2.name;
+		const faction1_won = conflictData.faction1.days_won;
+		const faction2_won = conflictData.faction2.days_won;
+		const faction1Data = system.othersData.find(systemFaction =>
+			systemFaction.factions.some(faction => faction.factionName === faction1Name)
+		);
+		const faction2Data = system.othersData.find(systemFaction =>
+			systemFaction.factions.some(faction => faction.factionName === faction2Name)
+		);
+		if (faction1Data && faction2Data) {
+			let conflictObj = {
+				faction1: faction1Name,
+				faction2: faction2Name,
+				faction1_days_won: faction1_won,
+				faction2_days_won: faction2_won
+			};
+			if (!isConflictExists(conflictResults, faction1Name, faction2Name)) {
+				conflictResults.push(conflictObj);
+			}
+		} else {
+			console.log(`No data for faction: ${faction1Name} or ${faction2Name}`);
+		}
+	});
+	return conflictResults.map(conflict => ({
+		faction1: conflict.faction1,
+		faction2: conflict.faction2,
+		faction1_days_won: conflict.faction1_days_won,
+		faction2_days_won: conflict.faction2_days_won
+	}));
+}
+
+
+function createSubRow(system, row) {
+	let factionRows = [];
+	const subRow = document.createElement('tr');
+	subRow.style.display = 'none';
+	subRow.classList.add('sub-row');
+	const tableContainer = document.createElement('td');
+	tableContainer.setAttribute('colspan', '16');
+	tableContainer.style.padding = '0';
+	tableContainer.style.border = 'none';
+	const table = document.createElement('table');
+	table.classList.add('sub-table');
+	const headerRow = document.createElement('tr');
+	headerRow.classList.add('sub-header-row');
+	const conflicts = extractConflicts(system);
+	const { peaceAgreement, deadFactions, noContact } = factionStatus;
+	headerRow.innerHTML = `
+		<td>Faction</td>
+		<td>Influence</td>
+		<td>Pending</td>
+		<td>Active</td>
+		<td>Recovery</td>
+		<td colspan="${conflicts.length > 0 ? conflicts.length : 1}">Conflicts</td>
+		<td>Stations</td>
+		<td>Controlling</td>
+	`;
+	table.appendChild(headerRow);
+
+	if (Array.isArray(system.othersData) && system.othersData.length > 0) {
+		let anyFactionData = false;
+		system.othersData.forEach(systemFaction => {
+			systemFaction.factions.forEach(factionData => {
+				if (factionData.data && factionData.data.length > 0) {
+					anyFactionData = true;
+					let controlling = false;
+					let home = false;
+					let factionClass = '';
+					if (peaceAgreement.includes(factionData.factionName)) {
+						factionClass = 'fac-peace-agreement';
+					} else if (deadFactions.includes(factionData.factionName)) {
+						factionClass = 'fac-dead-factions';
+					} else if (noContact.includes(factionData.factionName)) {
+						factionClass = 'fac-no-contact';
+					} else if (factionData.data[0].playerFaction) {
+						factionClass = 'fac-player-faction';
+					}
+					if (factionData.factionName.trim().toLowerCase() === system.controlling.trim().toLowerCase()) {
+						controlling = true;
+					}
+					const factionDetails = factionData.data[0];
+					if (factionDetails.playerFactionHome === system.name) {
+						home = true;
+					}
+					const row = document.createElement('tr');
+					row.classList.add('sub-data-row');
+					let conflictData = "";
+					if (conflicts.length === 0) {
+						conflictData = `<td>&nbsp;</td>`;
+					} else {
+						conflicts.forEach(conflict => {
+							if (conflict.faction1 === factionData.factionName || conflict.faction2 === factionData.factionName) {
+								let result = "0";
+								if (conflict.faction1 === factionData.factionName) {
+									result = conflict.faction1_days_won;
+								} else if (conflict.faction2 === factionData.factionName) {
+									result = conflict.faction2_days_won;
+								}
+								conflictData += `<td>${result}</td>`;
+							} else {
+								conflictData += `<td>&nbsp;</td>`;
+							}
+						});
+					}
+					const copyIcon = `<img src="pic/copy.png" alt="Copy Icon" class="copy-icon-2" data-faction-name="${factionData.factionName}">`;
+					row.innerHTML = `
+						<td><a class="${factionClass}" style="cursor: pointer;" data-faction="${factionData.factionName}">
+							${factionData.factionName}${home ? ' <span style="color: #5BAD99;">[N]</span>' : ''}
+							</a>
+							${copyIcon}
+						</td>
+						<td>${factionDetails.influence}</td>
+						<td>${factionDetails.pending_states}</td>
+						<td>${factionDetails.active_states}</td>
+						<td>${factionDetails.recovering_states}</td>
+						${conflictData}
+						<td>${factionDetails.factionStations}</td>
+						<td class="${controlling ? 'checked' : 'unchecked'}">
+							${controlling ? '✔' : ''}
+						</td>
+					`;
+					factionRows.push({
+						row: row,
+						influence: parseFloat(factionDetails.influence) || 0
+					});
+					factionRows.sort((a, b) => b.influence - a.influence);
+					factionRows.forEach(factionRow => {
+						table.appendChild(factionRow.row);
+					});
+					const factionCell = row.querySelector('td a[data-faction]');
+					factionCell.addEventListener('click', function(event) {
+						const factionName = event.target.dataset.faction;
+						if (!savedFactions.includes(factionName)) {
+							savedFactions.push(factionName);
+							updateFactionSelect();
+						}
+						selectedFaction = factionName;
+						const factionSelect = document.getElementById("factionSelect");
+						factionSelect.value = factionName;
+						localStorage.setItem('savedFactions', JSON.stringify(savedFactions));
+
+						onStart();
+					});
+					const copyIcons = row.querySelectorAll('.copy-icon-2');
+					copyIcons.forEach(icon => {
+						icon.addEventListener('click', (event) => {
+							const factionName = icon.getAttribute('data-faction-name');
+							copyFactionNameToClipboard(event, factionName, icon);
+						});
+					});
+				}
+			});
+		});
+		if (!anyFactionData) {
+			const emptyRow = document.createElement('tr');
+			emptyRow.innerHTML = `
+				<td colspan="4">No other factions in the system</td>
+			`;
+			table.appendChild(emptyRow);
+		}
+	} else {
+		const emptyRow = document.createElement('tr');
+		emptyRow.innerHTML = `
+			<td colspan="4">No other factions in the system</td>
+		`;
+		table.appendChild(emptyRow);
+	}
+	tableContainer.appendChild(table);
+	subRow.appendChild(tableContainer);
+	row.subRow = subRow;
+	if (!row.hasClickListener) {
+		row.addEventListener('click', function(event) {
+			const checkboxCell = event.target.closest('td');
+			const checkbox = checkboxCell && checkboxCell.querySelector('input[type="checkbox"]');
+			const link = event.target.closest('a.system-link');
+			if (checkbox || link) {
+				return;
+			}
+			toggleSubRow(row);
+		});
+		row.hasClickListener = true;
+	}
+	return subRow;
+}
+
+function toggleSubRow(row) {
+	const subRow = row.subRow;
+	if (subRow.style.display === 'none') {
+		subRow.style.display = '';
+	} else {
+		subRow.style.display = 'none';
+	}
+}
+
+function addSubRows() {
+	const rows = document.querySelectorAll('tr.main-row');
+	rows.forEach(row => {
+		const system = row.system;
+		const subRow = createSubRow(system, row);
+		if (row.subRow) {
+			row.subRow.remove();
+		}
+		row.parentNode.insertBefore(subRow, row.nextSibling);
+		row.subRow = subRow;
 	});
 }
 
@@ -301,13 +841,259 @@ function updateTable() {
 function populateStartSystemSelect() {
 	const startSystemSelect = document.getElementById('startSystemSelect');
 	startSystemSelect.innerHTML = '<option value="" disabled selected>Start route from:</option>';
-
 	filteredSystems.forEach(system => {
 		const option = document.createElement('option');
 		option.value = system.name;
 		option.textContent = system.name;
 		startSystemSelect.appendChild(option);
 	});
+}
+
+function factionRaport() {
+	document.getElementById('pageInfoContainer').style.display = 'none';
+	const factionInfoOutput = document.getElementById('factionInfoOutput');
+	checkLocalStorageForData();
+	const { peaceAgreement, deadFactions, noContact } = factionStatus;
+	const selectedFactionName = selectedFaction;
+	let factionData = {};
+	factionSystems.forEach(system => {
+		system.othersData.forEach(data => {
+			data.factions.forEach(faction => {
+				if (faction.data[0] && faction.data[0].playerFaction && faction.factionName !== selectedFactionName) {
+					if (!factionData[faction.factionName]) {
+						factionData[faction.factionName] = {
+							systemCount: 0,
+							systemNames: [],
+							factionClass: ''
+						};
+					}
+					if (!factionData[faction.factionName].systemNames.includes(system.name)) {
+						factionData[faction.factionName].systemNames.push(system.name);
+					}
+					factionData[faction.factionName].systemCount++;
+					if (peaceAgreement.includes(faction.factionName)) {
+						factionData[faction.factionName].factionClass = 'peace-agreement';
+					} else if (noContact.includes(faction.factionName)) {
+						factionData[faction.factionName].factionClass = 'no-contact';
+					} else if (deadFactions.includes(faction.factionName)) {
+						factionData[faction.factionName].factionClass = 'dead-factions';
+					}
+				}
+			});
+		});
+	});
+	let factionList = Object.keys(factionData).map(factionName => {
+		return {
+			factionName: factionName,
+			systemCount: factionData[factionName].systemCount,
+			systemNames: factionData[factionName].systemNames,
+			factionClass: factionData[factionName].factionClass
+		};
+	});
+	factionList.sort((a, b) => b.systemCount - a.systemCount);
+	let tableHTML = `
+		<table class="faction-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Faction</th>
+					<th>Systems</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+	`;
+	factionList.forEach((faction, index) => {
+		const copyIcon = `<img
+			src="pic/copy.png"
+			alt="Copy Icon"
+			class="copy-icon"
+			data-faction-name="${faction.factionName}"
+		>`;
+		tableHTML += `
+			<tr class="faction-row ${faction.factionClass}" data-faction="${faction.factionName}">
+				<td>${index + 1}</td>
+				<td>${faction.factionName}</td>
+				<td>${faction.systemCount}</td>
+				<td class="copy-icon-container">${copyIcon}</td>
+			</tr>
+			<tr class="system-names-row" data-faction="${faction.factionName}" style="display: none;">
+				<td colspan="4">
+					<ul>
+						${faction.systemNames.map(system => `<li>${system}</li>`).join('')}
+					</ul>
+				</td>
+			</tr>
+		`;
+	});
+
+	tableHTML += `
+			</tbody>
+		</table>
+	`;
+	document.getElementById('factionInfoContainer').style.display = 'block';
+	factionInfoOutput.innerHTML = tableHTML;
+	const copyIcons = document.querySelectorAll('.copy-icon');
+	copyIcons.forEach(icon => {
+		icon.addEventListener('click', (event) => {
+			const factionName = icon.getAttribute('data-faction-name');
+			copyFactionNameToClipboard(event, factionName, icon);
+		});
+	});
+	const factionRows = document.querySelectorAll('.faction-row');
+	factionRows.forEach(row => {
+		row.addEventListener('click', (event) => {
+			if (event.target.closest('.copy-icon-container')) {
+				return;
+			}
+			const factionName = row.getAttribute('data-faction');
+			const systemRow = document.querySelector(`.system-names-row[data-faction="${factionName}"]`);
+			if (systemRow.style.display === 'none') {
+				systemRow.style.display = 'table-row';
+			} else {
+				systemRow.style.display = 'none';
+			}
+		});
+	});
+}
+
+function copyFactionNameToClipboard(event, factionName, copyIcon) {
+	event.stopPropagation();
+	const textToCopy = factionName;
+	const tempInput = document.createElement('input');
+	tempInput.value = textToCopy;
+	document.body.appendChild(tempInput);
+	tempInput.select();
+	document.execCommand('copy');
+	document.body.removeChild(tempInput);
+	copyIcon.src = 'pic/copy_red.png';
+	setTimeout(() => {
+		copyIcon.src = 'pic/copy.png';
+	}, 500);
+}
+
+function info() {
+	fetchData('GetInfo', {})
+		.then(data => {
+			const infoOutput = document.getElementById('infoOutput');
+			if (!infoOutput) {
+				console.error('Container for info output not found!');
+				return;
+			}
+			let htmlContent = `
+				<p style="
+					color: ${data.style.description?.color || 'black'};
+					text-align: ${data.style.description?.textAlign || 'center'};
+					font-size: ${data.style.description?.fontSize || '18px'};
+				">${data.description}</p>
+				<ul>`;
+
+			// "list1"
+			htmlContent += `<h3 style="
+				color: ${data.title1Style?.color || 'black'};
+				text-align: ${data.title1Style?.textAlign || 'center'};
+				font-size: ${data.title1Style?.fontSize || '20px'};
+			">${data.title1}</h3>
+			<ul>`;
+			data.list1.forEach(item => {
+				let itemStyle = item.style ? `
+					color: ${item.style.color || 'black'};
+					font-size: ${item.style['font-size'] || '16px'};
+					text-align: ${item.style['text-align'] || 'left'};
+					font-weight: ${item.style['font-weight'] || 'normal'};
+				` : '';
+				let subTextStyle = item.subText && item.subText.style ? `
+					color: ${item.subText.style.color || 'blue'};
+					font-size: ${item.subText.style['font-size'] || '14px'};
+					text-align: ${item.subText.style['text-align'] || 'center'};
+				` : '';
+				let bulletStyle = subTextStyle ? subTextStyle : itemStyle;
+				if (item.subText) {
+					htmlContent += `
+						<li style="${bulletStyle}">
+							<span style="${itemStyle}">${item.text}</span> 
+							<span style="${subTextStyle}">${item.subText.text}</span>
+						</li>
+					`;
+				} else {
+					htmlContent += `<li style="${itemStyle}">${item.text}</li>`;
+				}
+			});
+			htmlContent += `
+			</ul>`;
+
+			// "list2"
+			htmlContent += `<h3 style="
+				color: ${data.title2Style?.color || 'black'};
+				text-align: ${data.title2Style?.textAlign || 'center'};
+				font-size: ${data.title2Style?.fontSize || '20px'};
+			">${data.title2}</h3>
+			<ul>`;
+			data.list2.forEach(item => {
+				let itemStyle = item.style ? `
+					color: ${item.style.color || 'black'};
+					font-size: ${item.style['font-size'] || '16px'};
+					text-align: ${item.style['text-align'] || 'left'};
+				` : '';
+				let subTextStyle = item.subText && item.subText.style ? `
+					color: ${item.subText.style.color || 'blue'};
+					font-size: ${item.subText.style['font-size'] || '14px'};
+					text-align: ${item.subText.style['text-align'] || 'center'};
+				` : '';
+				let bulletStyle = subTextStyle ? subTextStyle : itemStyle;
+				if (item.subText) {
+					htmlContent += `
+						<li style="${bulletStyle}">
+							<span style="${itemStyle}">${item.text}</span>
+							<span style="${subTextStyle}">${item.subText.text}</span>
+						</li>
+					`;
+				} else {
+					htmlContent += `<li style="${itemStyle}">${item.text}</li>`;
+				}
+			});
+			htmlContent += `
+			</ul>`;
+			
+			// "list3"
+			htmlContent += `<h3 style="
+				color: ${data.title3Style?.color || 'black'};
+				text-align: ${data.title3Style?.textAlign || 'center'};
+				font-size: ${data.title3Style?.fontSize || '20px'};
+			">${data.title3}</h3>
+			<ul>`;
+			data.list3.forEach(item => {
+				let itemStyle = item.style ? `
+					color: ${item.style.color || 'black'};
+					font-size: ${item.style['font-size'] || '16px'};
+					text-align: ${item.style['text-align'] || 'left'};
+				` : '';
+				let subTextStyle = item.subText && item.subText.style ? `
+					color: ${item.subText.style.color || 'blue'};
+					font-size: ${item.subText.style['font-size'] || '14px'};
+					text-align: ${item.subText.style['text-align'] || 'center'};
+				` : '';
+				let bulletStyle = subTextStyle ? subTextStyle : itemStyle;
+				if (item.subText) {
+					htmlContent += `
+						<li style="${bulletStyle}">
+							<span style="${itemStyle}">${item.text}</span>
+							<span style="${subTextStyle}">${item.subText.text}</span>
+						</li>
+					`;
+				} else {
+					htmlContent += `<li style="${itemStyle}">${item.text}</li>`;
+				}
+			});
+			htmlContent += `
+			</ul>`;
+			
+			infoOutput.innerHTML = htmlContent;
+			document.getElementById('pageInfoContainer').style.display = 'block';
+		})
+		.catch(error => {
+			console.error('Error loading the info.json file:', error);
+		});
 }
 
 // Plot route based on the selected system
@@ -354,7 +1140,7 @@ function getDistance(system1, system2) {
 	);
 }
 
-// Display route and distances in the output container
+// Display route and distances in output container
 function displayRoute(systems) {
 	const routeContainer = document.getElementById('routeOutput');
 	if (!routeContainer) {
@@ -362,6 +1148,7 @@ function displayRoute(systems) {
 		return;
 	}
 	const outputTable = document.createElement('table');
+	outputTable.classList.add('route-table');
 	outputTable.innerHTML = `
 		<tr>
 			<th>System</th>
@@ -399,7 +1186,7 @@ function displayRoute(systems) {
 	document.getElementById('routeOutputContainer').style.display = 'block';
 }
 
-// Copy system name to the clipboard and highlight icon
+// Copy system name to clipboard and highlight icon
 function copyToClipboard(systemName, row) {
 	const textarea = document.createElement('textarea');
 	textarea.value = systemName;
@@ -431,11 +1218,6 @@ function generateCSV(systems) {
 	link.click();
 }
 
-// Close the route output container
-function closeRouteContainer() {
-	document.getElementById('routeOutputContainer').style.display = 'none';
-}
-
 // Handles change in faction selection (dropdown or custom input)
 function handleFactionChange(event) {
 	var otherFactionInput = document.getElementById("otherFactionInput");
@@ -447,26 +1229,25 @@ function handleFactionChange(event) {
 			otherFactionInput.value = "";
 		} else {
 			otherFactionInput.style.display = "none";
-			selectedFactionDisplay = factionSelect.value;
-			selectedFaction = factionSelect.value.replace(/\s+/g, '+');
+			selectedFaction = factionSelect.value;
 			if (selectedFaction === "startFaction") {
-				selectedFaction = "canonn";
+				selectedFaction = "Canonn";
 			}
-			loadAndProcessData();
+			onStart();
 		}
 	}
 	if (event.target === otherFactionInput && event.key === "Enter") {
-		let enteredFaction = otherFactionInput.value.trim();
+		let enteredFaction = otherFactionInput.value;
 		if (enteredFaction.length > 0) {
 			if (!savedFactions.includes(enteredFaction)) {
 				savedFactions.push(enteredFaction);
 				updateFactionSelect();
+				localStorage.setItem('savedFactions', JSON.stringify(savedFactions));
 			}
-			selectedFaction = enteredFaction.replace(/\s+/g, '+');
-			selectedFactionDisplay = enteredFaction;
+			selectedFaction = enteredFaction;
 			factionSelect.value = enteredFaction; 
 			otherFactionInput.style.display = "none";
-			loadAndProcessData();
+			onStart();
 		} else {
 			otherFactionInput.style.display = "none";
 		}
@@ -475,31 +1256,15 @@ function handleFactionChange(event) {
 
 function updateFactionSelect() {
 	const factionSelect = document.getElementById("factionSelect");
-	while (factionSelect.options.length > 1) {
-		factionSelect.remove(1);
-	}
 	savedFactions.forEach(faction => {
-		if (faction !== "otherFaction" && faction !== "canonn") {
+		const existingOption = Array.from(factionSelect.options).find(option => option.value === faction);
+		if (!existingOption) {
 			let option = document.createElement("option");
 			option.value = faction;
 			option.textContent = faction;
 			factionSelect.appendChild(option);
 		}
 	});
-	let otherOption = document.createElement("option");
-	otherOption.value = "otherFaction";
-	otherOption.textContent = "Other faction...";
-	factionSelect.appendChild(otherOption);
-	const defaultOption = factionSelect.querySelector('option[value="canonn"]');
-	if (defaultOption) {
-		factionSelect.value = "canonn";
-	} else {
-		let canonnOption = document.createElement("option");
-		canonnOption.value = "canonn";
-		canonnOption.textContent = "Canonn";
-		factionSelect.insertBefore(canonnOption, factionSelect.firstChild);
-		factionSelect.value = "canonn";
-	}
 	const startFactionOption = factionSelect.querySelector('option[value="startFaction"]');
 	if (startFactionOption) {
 		startFactionOption.style.display = "none";
@@ -507,7 +1272,7 @@ function updateFactionSelect() {
 }
 
 // "select/deselect all" button click to toggle checkboxes
-document.getElementById('selectBtn').addEventListener('click', function() {
+function selectAll() {
 	const checkboxes = document.querySelectorAll('#systemsTable input[type="checkbox"]');
 	const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
 	checkboxes.forEach(checkbox => {
@@ -521,10 +1286,10 @@ document.getElementById('selectBtn').addEventListener('click', function() {
 		}
 	});
 	populateStartSystemSelect();
-});
+}
 
 // Event listeners for website
-document.getElementById('systemsTable').addEventListener('click', function(event) {
+document.getElementById('systemsTable').addEventListener('click', async function(event) {
 	if (event.target && event.target.matches('a.system-link')) {
 		const systemName = event.target.textContent.trim();
 		const websiteFilterValue = document.getElementById('websiteFilter').value;
@@ -533,52 +1298,58 @@ document.getElementById('systemsTable').addEventListener('click', function(event
 			console.error('System not found!');
 			return;
 		}
-
-		let url = '';
-		switch (websiteFilterValue) {
-			case 'elitebgs':
-				url = `https://elitebgs.app/systems/${system.elitebgs_id}`;
-				break;
-			case 'inara':
-				url = `https://inara.cz/elite/starsystem/?search=${system.id64}`;
-				break;
-			case 'edsm':
-				fetch(`https://www.edsm.net/api-system-v1/estimated-value?systemName=${encodeURIComponent(systemName)}`)
-					.then(response => response.json())
-					.then(data => {
-						if (data && data.url) {
-							url = data.url;
-							window.open(url, '_blank');
-						} else {
-							console.error('No URL found in EDSM API response.');
-						}
-					})
-					.catch(error => {
-						console.error('Error fetching system data from EDSM API:', error);
-					});
-				return;
-			case 'spansh':
-				url = `https://spansh.co.uk/system/${system.id64}`;
-				break;
-			default:
-				console.error('Unknown source selected!');
-				return;
-		}
-		if (url) {
-			window.open(url, '_blank');
+		const params = {
+			systemName: systemName,
+			websiteFilterValue: websiteFilterValue,
+			elitebgs_id: system.elitebgs_id,
+			id64: system.id64
+		};
+		try {
+			const url = await fetchSystemUrl(params);
+			if (url) {
+				window.open(url, '_blank');
+			} else {
+				console.error('Failed to generate URL.');
+			}
+		} catch (error) {
+			console.error('Error generating URL:', error);
 		}
 	}
 });
+
+document.addEventListener('click', function(event) {
+	var otherFactionInput = document.getElementById("otherFactionInput");
+	var factionSelect = document.getElementById("factionSelect");
+	if (!otherFactionInput.contains(event.target) && !factionSelect.contains(event.target)) {
+		otherFactionInput.style.display = "none";
+		updateFactionSelect();
+	}
+});
+
+const elementsWithClickListeners = [
+	{ id: 'downloadCSVBtn', action: () => generateCSV(orderedSystems) },
+	{ id: 'reloadBtn', action: () => loadAndProcessData() },
+	{ id: 'selectBtn', action: () => selectAll() },
+	{ id: 'infoBtn', action: () => info() },
+	{ id: 'raportBtn', action: () => factionRaport() },
+	{ id: 'closeRouteBtn', action: () => document.getElementById('routeOutputContainer').style.display = 'none' },
+	{ id: 'closeInfoBtn', action: () => document.getElementById('pageInfoContainer').style.display = 'none' },
+	{ id: 'closeFactionBtn', action: () => document.getElementById('factionInfoContainer').style.display = 'none' },
+	{ id: 'clearListBtn', action: () => clearFactionData("list") },
+	{ id: 'clearDataBtn', action: () => clearFactionData("data") },
+	{ id: 'routeBtn', action: () => plotRoute() }
+];
+
+elementsWithClickListeners.forEach(element => {
+	document.getElementById(element.id).addEventListener('click', element.action);
+});
+
 document.getElementById('startSystemSelect').addEventListener('change', function(e) {
 	selectedStartSystem = e.target.value;
 });
-document.getElementById('downloadCSVBtn').addEventListener('click', function() {
-	generateCSV(orderedSystems);
-});
-document.getElementById("factionSelect").addEventListener("change", handleFactionChange);
-document.getElementById("otherFactionInput").addEventListener("keydown", handleFactionChange);
-document.getElementById('routeBtn').addEventListener('click', plotRoute);
-document.getElementById('closeRouteBtn').addEventListener('click', closeRouteContainer);
+
+document.getElementById('factionSelect').addEventListener('change', handleFactionChange);
+document.getElementById('otherFactionInput').addEventListener('keydown', handleFactionChange);
 
 // Load and process data when the page loads
-window.onload = loadAndProcessData;
+window.onload = onStart;

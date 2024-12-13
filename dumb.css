@@ -17,6 +17,45 @@ body {
 	user-select: none;
 }
 
+.sub-header-row td {
+	color: #EF7B04;
+	font-weight: bold;
+}
+
+.sub-data-row td {
+	position: relative;
+	border-radius: 0;
+}
+
+.sub-data-row a:hover {
+	color: #A2D8A8 !important;
+}
+
+.sub-data-row:hover td {
+	background-color: transparent !important;
+}
+
+.sub-data-row {
+	transition: background-color 0.3s ease;
+}
+
+.sub-data-row:hover {
+	background-color: #506772 !important;
+	border-radius: 3px;
+}
+
+.sub-table {
+	width: 90%;
+	margin: 20px auto;
+}
+
+.sub-table th, .sub-table td {
+	padding: 2px;
+	text-align: center;
+	border: 1px solid #506772;
+	border-radius: 3px;
+}
+
 table, th, td {
 	user-select: none;
 }
@@ -59,7 +98,19 @@ td {
 	margin: 0;
 }
 
-tr:hover td {
+table td.checked {
+	color: #319687;
+	font-size: 1em;
+	text-align: center;
+}
+
+table td.unchecked {
+	color: #C45C5A;
+	font-size: 1em;
+	text-align: center;
+}
+
+tr.main-row:hover td {
 	background-color: #506772;
 }
 
@@ -89,6 +140,11 @@ th.no-sort::after {
 	content: none;
 }
 
+.route-table {
+	width: auto;
+	margin-top: 40px;
+}
+
 #systemsTable {
 	border:1px solid black;
 	margin-left:auto;
@@ -107,6 +163,15 @@ h1 {
 	top: 40px;
 	left: 50%;
 	transform: translateX(-50%);
+	text-align: center;
+	font-size: 14px;
+	color: #052535;
+}
+
+#factionDataText {
+	position: absolute;
+	top: 40px;
+	right: 30px;
 	text-align: center;
 	font-size: 14px;
 	color: #052535;
@@ -248,6 +313,84 @@ select:focus {
 	background-color: #506772;
 }
 
+#raportBtn {
+	position: absolute;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 0px;
+	background-color: #1E292D;
+	color: #4CAF50;
+	border: 2px solid #506772;
+	cursor: pointer;
+	font-size: 20px;
+	min-width: 250px;
+	height: 40px;
+	border-radius: 5px;
+	font-weight: bold;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 89%;
+}
+
+#raportBtn:hover {
+	background-color: #3D4E56;
+}
+
+#clearDataBtn {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 0px;
+	background-color: #1E292D;
+	color: #DB5158;
+	border: 2px solid #506772;
+	cursor: pointer;
+	font-size: 16px;
+	min-width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	left: 75%;
+	top: 90%;
+}
+
+#clearDataBtn:hover {
+	background-color: #3D4E56;
+}
+
+#clearListBtn {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 0px;
+	background-color: #1E292D;
+	color: #DB5158;
+	border: 2px solid #506772;
+	cursor: pointer;
+	font-size: 16px;
+	min-width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	left: 5%;
+	top: 90%;
+}
+
+#clearListBtn:hover {
+	background-color: #3D4E56;
+}
+
+#clearDataBtn.disabled, #clearListBtn.disabled {
+	color: #b8b8b8;
+	cursor: not-allowed;
+}
+
+#clearDataBtn.disabled:hover, #clearListBtn.disabled:hover {
+	background-color: #5c5c5c;
+}
+
 #selectBtn {
 	position: absolute;
 	display: block;
@@ -262,6 +405,44 @@ select:focus {
 	height: 30px;
 	border-radius: 5px;
 	font-weight: normal;
+}
+
+#factionInfoContainer {
+	margin-top: 30px;
+	text-align: center;
+	padding: 15px;
+	background-color: #263238;
+	border: 1px solid #506772;
+	border-radius: 10px;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	display: none;
+}
+
+#factionInfoContainer th::after {
+	content: none;
+}
+
+#factionInfoContainer th.sorted-asc::after, 
+#factionInfoContainer th.sorted-desc::after {
+	display: none !important;
+}
+
+#factionInfoContainer table {
+	padding: 5px;
+	border-radius: 3px;
+}
+
+#factionInfoContainer td, #factionInfoContainer th {
+	padding: 5px;
+	border: 1px solid #000;
+	border-radius: 3px;
 }
 
 #routeOutputContainer {
@@ -302,24 +483,74 @@ select:focus {
 	border-radius: 3px;
 }
 
-#closeRouteBtn {
+.page-Info-Container {
+	margin: 0;
+	margin-top: 30px;
+	padding: 0;
+	background-color: #263238;
+	border: 3px solid #506772;
+	border-radius: 10px;
+	width: auto;
+	min-width: 1000px;
+	height: 650px;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	display: none;
+}
+
+.info-container h3 {
+	margin: 10px;
+}
+
+.info-container p {
+	margin-bottom: 10px;
+}
+
+.info-container ul {
+	list-style-type: disc;
+	padding: 0;
+}
+
+.info-container ul li {
+	margin-left: 150px;
+	padding-bottom: 6px;
+}
+
+.info-container button {
+	margin-top: 10px;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.info-container button:hover {
+	background-color: #0056b3;
+}
+
+.closeBtn {
 	background-color: transparent;
 	color: #4CAF50;
 	border: none;
 	font-size: 24px;
 	position: absolute;
-	top: 10px;
-	right: 20px;
+	top: 0px;
+	right: 10px;
 	cursor: pointer;
 	padding: 5px;
 }
 
-#closeRouteBtn:hover {
+.closeBtn:hover {
 	color: #f44336;
 }
 
 #downloadCSVBtn {
-	position: relative;
+	position: absolute;
 	display: flex;
 	justify-content: center;
 	background-color: #263238;
@@ -330,15 +561,65 @@ select:focus {
 	cursor: pointer;
 	border-radius: 3px;
 	font-weight: bold;
+	top: 10px;
 }
 
 #downloadCSVBtn:hover {
 	background-color: #506772;
 }
 
+#reloadBtn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	background-color: #263238;
+	color: #4CAF50;
+	font-size: 18px;
+	border: 2px solid #506772;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 3px;
+	top: 10px;
+	right: 30px;
+	width: 150px;
+}
+
+#reloadBtn:hover {
+	background-color: #506772;
+}
+
+#infoBtn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	background-color: #263238;
+	color: #4CAF50;
+	font-size: 18px;
+	border: 2px solid #506772;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 3px;
+	top: 10px;
+	left: 30px;
+	width: 150px;
+}
+
+#infoBtn:hover {
+	background-color: #506772;
+}
+
 .copy-icon {
 	cursor: pointer;
 	margin-left: 10px;
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+}
+
+.copy-icon-2 {
+	position: absolute;
+	cursor: pointer;
+	right: 10px;
 	width: 15px;
 	height: 15px;
 	vertical-align: middle;
@@ -361,17 +642,7 @@ input[type="checkbox"]:checked {
 	background-color: #4CAF50;
 	border-color: #000;
 }
-td.checked {
-	color: green;
-	font-size: 1em;
-	text-align: center;
-}
 
-td.unchecked {
-	color: #C20000;
-	font-size: 0.7em;
-	text-align: center;
-}
 a.system-link {
 	color: inherit;
 	text-decoration: none;
@@ -415,4 +686,58 @@ a.system-link:active {
 	font-weight: bold;
 	line-height: 30px;
 	color: #EF7B04;
+}
+
+.fac-player-faction {
+	font-weight: bold;
+}
+
+.fac-peace-agreement {
+	color: #5A90B5;
+
+}
+
+.fac-dead-factions {
+	color: #83AF88;
+
+}
+
+.fac-no-contact {
+	color: #C6BC2D;
+
+}
+
+.other-player-system a.system-link {
+	font-weight: bold;
+}
+
+.peace-agreement a.system-link {
+	color: #5A90B5;
+
+}
+
+.dead-factions a.system-link {
+	color: #83AF88;
+
+}
+
+.no-contact a.system-link {
+	color: #C6BC2D;
+
+}
+
+.faction-table tr:not(.peace-agreement):not(.no-contact):not(.dead-factions) td:nth-child(2) {
+	font-weight: bold;
+}
+
+.faction-table .peace-agreement td:nth-child(2) {
+	color: #5A90B5;
+}
+
+.faction-table .no-contact td:nth-child(2) {
+	color: #C6BC2D;
+}
+
+.faction-table .dead-factions td:nth-child(2) {
+	color: #83AF88;
 }

@@ -10,10 +10,11 @@
 <body>
 	<h1>Canonn Patrol</h1>
 	<p id="sourceDataText">Faction data from Elite BGS, Power data from EDSM</p>
+	<p id="factionDataText"></p>
 
 	<div id="websiteMenu">
 		<select id="websiteFilter">
-			<option value="" disabled selected>System link to:</option>
+			<option value="" disabled selected>System link:</option>
 			<option value="elitebgs">Elite BGS</option>
 			<option value="inara">INARA</option>
 			<option value="edsm">EDSM</option>
@@ -36,13 +37,28 @@
 	</div>
 
 	<div id="routeOutputContainer">
-		<button id="downloadCSVBtn">Download CSV</button>
 		<div id="routeOutput"></div>
-		<button id="closeRouteBtn">&#10006;</button>
+		<button id="downloadCSVBtn">Download CSV</button>
+		<button class="closeBtn" id="closeRouteBtn">&#10006;</button>
+	</div>
+	
+	<div id="factionInfoContainer">
+		<div id="factionInfoOutput"></div>
+		<button class="closeBtn" id="closeFactionBtn">&#10006;</button>
+	</div>
+	
+	<div class="page-Info-Container" id="pageInfoContainer">
+		<div class="info-container" id="infoOutput"></div>
+		<button id="clearListBtn">Clear Factions List</button>
+		<button id="clearDataBtn">Clear All Data</button>
+		<button id="raportBtn">Faction Raport</button>
+		<button class="closeBtn" id="closeInfoBtn">&#10006;</button>
 	</div>
 
 	<button id="routeBtn">Plot Route</button>
 	<button id="selectBtn">Select all/none</button>
+	<button id="reloadBtn">Reload data</button>
+	<button id="infoBtn">INFO</button>
 
 	<div id="loading" class="loading">
 		<div class="loading-text">Loading Data, please wait...</div>
@@ -61,15 +77,14 @@
 				<th onclick="sortTable(3)">Pending</th>
 				<th onclick="sortTable(4)">Active</th>
 				<th onclick="sortTable(5)">Recovery</th>
-				<th onclick="sortTable(6)">Stations</th>
-				<th onclick="sortTable(7)">Controlled</th>
-				<th onclick="sortTable(8)">Power</th>
-				<th onclick="sortTable(9)">State</th>
-				<th class="hidden-column">ID64</th>
-				<th class="hidden-column">X</th>
-				<th class="hidden-column">Y</th>
-				<th class="hidden-column">Z</th>
-				<th onclick="sortTable(14)">Last Update</th>
+				<th onclick="sortTable(6)">Conflicts</th>
+				<th onclick="sortTable(7)">Stations</th>
+				<th onclick="sortTable(8)">OPS</th>
+				<th onclick="sortTable(9)">OPH</th>
+				<th onclick="sortTable(10)">Controlled</th>
+				<th onclick="sortTable(11)">Power</th>
+				<th onclick="sortTable(12)">State</th>
+				<th onclick="sortTable(13)">Last Update</th>
 				<th class="sortable no-sort">Route</th>
 			</tr>
 		</thead>

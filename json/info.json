@@ -1,0 +1,130 @@
+{
+	"description": "NOTE: Highlights for other player systems/factions are 100% accurate only for Canonn.",
+	"title1": "Systems/Factions",
+	"list1": [
+		{
+			"text": "Peace agreement",
+			"style": { "color": "#5A90B5", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Player faction with peace agreement.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "No response",
+			"style": { "color": "#C6BC2D", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Player faction does not respond to contact attempts. ",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Dead factions",
+			"style": { "color": "#83AF88", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Player faction has not been active for a long time.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Others (bold)",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px", "font-weight": "bold" },
+			"subText": {
+				"text": "Other player factions.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		}
+	],
+	"title2": "Table",
+	"list2": [
+		{
+			"text": "Influence, States",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Selected faction related.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Conflicts, Stations",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Summary of the system.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "OPS",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Other player factions in the system.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "OPH",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Other player's home system.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		}
+	],
+	"title3": "Buttons",
+	"list3": [
+		{
+			"text": "Plot Route",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Select systems, select start system, then plot route.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "System link:",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Website to open when the system name is clicked.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Reload data",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Reload data for the current table.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Faction Raport",
+			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Summary of all player factions present in current faction systems.",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Clear Factions List",
+			"style": { "color": "#C45C5A", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Clear the saved faction list (does not clear systems data).",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		},
+		{
+			"text": "Clear All Data",
+			"style": { "color": "#C45C5A", "text-align": "left", "font-size": "16px" },
+			"subText": {
+				"text": "Clear all system data from the browser (does not clear the visited factions list).",
+				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
+			}
+		}
+	],
+	"style": {
+		"description": { "color": "#A57C7C", "text-align": "center", "font-size": "18px" }
+	},
+	"title1Style": { "color": "#EF7B04", "text-align": "center", "font-size": "20px" },
+	"title2Style": { "color": "#EF7B04", "text-align": "center", "font-size": "20px" },
+	"title3Style": { "color": "#EF7B04", "text-align": "center", "font-size": "20px" }
+}

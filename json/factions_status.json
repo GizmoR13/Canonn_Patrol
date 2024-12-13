@@ -1,0 +1,21 @@
+{
+	"peaceAgreement": [
+		"Lagrange Interstellar", 
+		"Stellanebula Project", 
+		"Interplanetary Explorations", 
+		"PRYSM Organization"
+	],
+	"deadFactions": [
+		"Phoenix Flight Explorers Commune", 
+		"The Digiel Aggregate", 
+		"Eternal Sunrise Association", 
+		"Interstellar Incorporated", 
+		"FDMA Security Service", 
+		"Wings Of Justice", 
+		"Marquis du Ma'a"
+	],
+	"noContact": [
+		"Black Skull Conclave", 
+		"Muro Independents"
+	]
+}
