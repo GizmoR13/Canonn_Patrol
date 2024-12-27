@@ -35,27 +35,28 @@
 			<div class="dropdown-content">
 				<label class="section-header">SYSTEMS:</label><br>
 				<label><input type="checkbox" value="3" checked onchange="toggleColumnVisibility()"> Influence</label><br>
-				<label><input type="checkbox" value="4" checked onchange="toggleColumnVisibility()"> Pending</label><br>
-				<label><input type="checkbox" value="5" checked onchange="toggleColumnVisibility()"> Active</label><br>
-				<label><input type="checkbox" value="6" checked onchange="toggleColumnVisibility()"> Recovery</label><br>
-				<label><input type="checkbox" value="7" checked onchange="toggleColumnVisibility()"> Allegiance</label><br>
-				<label><input type="checkbox" value="8" checked onchange="toggleColumnVisibility()"> Government</label><br>
-				<label><input type="checkbox" value="9" checked onchange="toggleColumnVisibility()"> Primary Economy</label><br>
-				<label><input type="checkbox" value="10" checked onchange="toggleColumnVisibility()"> Secondary Economy</label><br>
-				<label><input type="checkbox" value="11" checked onchange="toggleColumnVisibility()"> Security</label><br>
-				<label><input type="checkbox" value="12" checked onchange="toggleColumnVisibility()"> Happiness</label><br>
-				<label><input type="checkbox" value="13" checked onchange="toggleColumnVisibility()"> Population</label><br>
-				<label><input type="checkbox" value="14" checked onchange="toggleColumnVisibility()"> Conflicts</label><br>
-				<label><input type="checkbox" value="15" checked onchange="toggleColumnVisibility()"> Conflicts (faction)</label><br>
-				<label><input type="checkbox" value="16" checked onchange="toggleColumnVisibility()"> Stations</label><br>
-				<label><input type="checkbox" value="17" checked onchange="toggleColumnVisibility()"> Stations (faction)</label><br>
-				<label><input type="checkbox" value="18" checked onchange="toggleColumnVisibility()"> OPS</label><br>
-				<label><input type="checkbox" value="19" checked onchange="toggleColumnVisibility()"> OPH</label><br>
-				<label><input type="checkbox" value="20" checked onchange="toggleColumnVisibility()"> Controlled</label><br>
-				<label><input type="checkbox" value="21" checked onchange="toggleColumnVisibility()"> Distance</label><br>
-				<label><input type="checkbox" value="22" checked onchange="toggleColumnVisibility()"> Power</label><br>
-				<label><input type="checkbox" value="23" checked onchange="toggleColumnVisibility()"> State</label><br>
-				<label><input type="checkbox" value="24" checked onchange="toggleColumnVisibility()"> Last Update</label><br>
+				<label><input type="checkbox" value="4" checked onchange="toggleColumnVisibility()"> Factions</label><br>
+				<label><input type="checkbox" value="5" checked onchange="toggleColumnVisibility()"> Pending</label><br>
+				<label><input type="checkbox" value="6" checked onchange="toggleColumnVisibility()"> Active</label><br>
+				<label><input type="checkbox" value="7" checked onchange="toggleColumnVisibility()"> Recovery</label><br>
+				<label><input type="checkbox" value="8" checked onchange="toggleColumnVisibility()"> Allegiance</label><br>
+				<label><input type="checkbox" value="9" checked onchange="toggleColumnVisibility()"> Government</label><br>
+				<label><input type="checkbox" value="10" checked onchange="toggleColumnVisibility()"> Primary Economy</label><br>
+				<label><input type="checkbox" value="11" checked onchange="toggleColumnVisibility()"> Secondary Economy</label><br>
+				<label><input type="checkbox" value="12" checked onchange="toggleColumnVisibility()"> Security</label><br>
+				<label><input type="checkbox" value="13" checked onchange="toggleColumnVisibility()"> Happiness</label><br>
+				<label><input type="checkbox" value="14" checked onchange="toggleColumnVisibility()"> Population</label><br>
+				<label><input type="checkbox" value="15" checked onchange="toggleColumnVisibility()"> Conflicts</label><br>
+				<label><input type="checkbox" value="16" checked onchange="toggleColumnVisibility()"> Conflicts (faction)</label><br>
+				<label><input type="checkbox" value="17" checked onchange="toggleColumnVisibility()"> Stations</label><br>
+				<label><input type="checkbox" value="18" checked onchange="toggleColumnVisibility()"> Stations (faction)</label><br>
+				<label><input type="checkbox" value="19" checked onchange="toggleColumnVisibility()"> OPS</label><br>
+				<label><input type="checkbox" value="20" checked onchange="toggleColumnVisibility()"> OPH</label><br>
+				<label><input type="checkbox" value="21" checked onchange="toggleColumnVisibility()"> Controlled</label><br>
+				<label><input type="checkbox" value="22" checked onchange="toggleColumnVisibility()"> Distance</label><br>
+				<label><input type="checkbox" value="23" checked onchange="toggleColumnVisibility()"> Power</label><br>
+				<label><input type="checkbox" value="24" checked onchange="toggleColumnVisibility()"> State</label><br>
+				<label><input type="checkbox" value="25" checked onchange="toggleColumnVisibility()"> Last Update</label><br>
 				<label class="section-header">FACTIONS:</label><br>
 				<label><input type="checkbox" value="30" checked onchange="toggleColumnVisibility()"> Influence</label><br>
 				<label><input type="checkbox" value="31" checked onchange="toggleColumnVisibility()"> Happiness</label><br>
@@ -119,55 +120,58 @@
 				<th data-index="3" onclick="sortTable(2)" class="tooltip">Influence
 					<span class="tooltiptext">RED &lt; 5% difference,<br> YELOW &lt; 10% difference </span>
 				</th>
-				<th data-index="4" onclick="sortTable(3)" class="tooltip">Pending
+				<th data-index="4" onclick="sortTable(3)" class="tooltip">Fac
+					<span class="tooltiptext">Factions in the system</span>
+				</th>
+				<th data-index="5" onclick="sortTable(4)" class="tooltip">Pending
 					<span class="tooltiptext"><strong>Faction</strong> pending states</span>
 				</th>
-				<th data-index="5" onclick="sortTable(4)" class="tooltip">Active
+				<th data-index="6" onclick="sortTable(5)" class="tooltip">Active
 					<span class="tooltiptext"><strong>Faction</strong> active states</span>
 				</th>
-				<th data-index="6" onclick="sortTable(5)" class="tooltip">Recovery
+				<th data-index="7" onclick="sortTable(6)" class="tooltip">Recovery
 					<span class="tooltiptext"><strong>Faction</strong> recovery states</span>
 				</th>
-				<th data-index="7" onclick="sortTable(6)" class="tooltip">Allegiance
+				<th data-index="8" onclick="sortTable(7)" class="tooltip">Allegiance
 					<span class="tooltiptext"><strong>System</strong> allegiance</span>
 				</th>
-				<th data-index="8" onclick="sortTable(7)" class="tooltip">Government
+				<th data-index="9" onclick="sortTable(8)" class="tooltip">Government
 					<span class="tooltiptext"><strong>System</strong> government</span>
 				</th>
-				<th data-index="9" onclick="sortTable(8)" class="tooltip">Economy (1)
+				<th data-index="10" onclick="sortTable(9)" class="tooltip">Economy (1)
 					<span class="tooltiptext">Primary Economy</span>
 				</th>
-				<th data-index="10" onclick="sortTable(9)" class="tooltip">Economy (2)
+				<th data-index="11" onclick="sortTable(10)" class="tooltip">Economy (2)
 					<span class="tooltiptext">Secondary Economy</span>
 				</th>
-				<th data-index="11" onclick="sortTable(10)">Security</th>
-				<th data-index="12" onclick="sortTable(11)">Happiness</th>
-				<th data-index="13" onclick="sortTable(12)">Population</th>
-				<th data-index="14" onclick="sortTable(13)" class="tooltip">Conflicts
+				<th data-index="12" onclick="sortTable(11)">Security</th>
+				<th data-index="13" onclick="sortTable(12)">Happiness</th>
+				<th data-index="14" onclick="sortTable(13)">Population</th>
+				<th data-index="15" onclick="sortTable(14)" class="tooltip">Conflicts
 					<span class="tooltiptext">System Conflicts</span>
 				</th>
-				<th data-index="15" onclick="sortTable(14)" class="tooltip">Conflicts (F)
+				<th data-index="16" onclick="sortTable(15)" class="tooltip">Conflicts (F)
 					<span class="tooltiptext">Faction Conflicts</span>
 				</th>
-				<th data-index="16" onclick="sortTable(15)" class="tooltip">Stations
+				<th data-index="17" onclick="sortTable(16)" class="tooltip">Stations
 					<span class="tooltiptext">System Stations</span>
 				</th>
-				<th data-index="17" onclick="sortTable(16)" class="tooltip">Stations (F)
+				<th data-index="18" onclick="sortTable(17)" class="tooltip">Stations (F)
 					<span class="tooltiptext">Faction Stations</span>
 				</th>
-				<th data-index="18" onclick="sortTable(17)" class="tooltip">OPS
+				<th data-index="19" onclick="sortTable(18)" class="tooltip">OPS
 					<span class="tooltiptext">Other Player Faction in the System</span>
 				</th>
-				<th data-index="19" onclick="sortTable(18)" class="tooltip">OPH
+				<th data-index="20" onclick="sortTable(19)" class="tooltip">OPH
 					<span class="tooltiptext">Other Player Faction home System</span>
 				</th>
-				<th data-index="20" onclick="sortTable(19)">Controlled</th>
-				<th data-index="21" onclick="sortTable(20)" class="tooltip">Distance
+				<th data-index="21" onclick="sortTable(20)">Controlled</th>
+				<th data-index="22" onclick="sortTable(21)" class="tooltip">Distance
 					<span class="tooltiptext">Distance to home system</span>
 				</th>
-				<th data-index="22" onclick="sortTable(21)">Power</th>
-				<th data-index="23" onclick="sortTable(22)">State</th>
-				<th data-index="24" onclick="sortTable(23)">Last Update</th>
+				<th data-index="23" onclick="sortTable(22)">Power</th>
+				<th data-index="24" onclick="sortTable(23)">State</th>
+				<th data-index="25" onclick="sortTable(24)">Last Update</th>
 				<th class="sortable on-hover no-sort tooltip" onclick="selectAll()">Select ±
 					<span class="tooltiptext">Select-deselect all systems</span>
 				</th>

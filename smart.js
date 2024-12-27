@@ -99,6 +99,11 @@ function clearFactionData(key) {
 		console.log('All systems data cleared. Local Storage size: ' + getStorageSize() + ' KB');
 	} else if (key === "list") {
 		localStorage.removeItem('savedFactions');
+		location.reload();
+		console.log('Faction list cleared. Local Storage size: ' + getStorageSize() + ' KB');
+	} else if (key === "update") {
+		localStorage.removeItem('factions');
+		localStorage.removeItem('selectedColumns');
 		console.log('Faction list cleared. Local Storage size: ' + getStorageSize() + ' KB');
 	} else {
 		console.error('Unknown key: ' + key);
@@ -139,10 +144,10 @@ function getStorageSize() {
 }
 
 function checkVersion() {
-	const Ver = 1.5;
+	const Ver = 1.6;
 	const storedVersion = localStorage.getItem("Ver");
 	if (storedVersion === null || parseFloat(storedVersion) !== Ver) {
-		clearFactionData("data");
+		clearFactionData("update");
 		localStorage.setItem("Ver", Ver);
 	}
 }
@@ -360,6 +365,7 @@ async function loadAndProcessData() {
 					let otherFactionsData = [];
 					let homeSystemCoords = [];
 					let systemStations = 0;
+					let factionCount = 0;
 					let currentFactionStations = 0;
 					let influenceColor = 0;
 					const powerInfo = powerPlayData.find(power => power.name === systemName);
@@ -403,6 +409,7 @@ async function loadAndProcessData() {
 									minInfluenceDifference = influenceDifference;
 								}
 							}
+							factionCount++;
 						});
 						if (minInfluenceDifference < 5) {
 							influenceColor = 2;
@@ -489,6 +496,7 @@ async function loadAndProcessData() {
 						otherPlayerSystem: otherPlayerSystem,
 						otherPlayerHome: otherPlayerHome,
 						conflictsData: systemDetails.conflicts,
+						factions: factionCount,
 						route: false
 					});
 				}
@@ -618,12 +626,12 @@ function sortTable(columnIndex) {
 	rows.sort((rowA, rowB) => {
 		const cellA = rowA.cells[columnIndex].textContent.trim();
 		const cellB = rowB.cells[columnIndex].textContent.trim();
-		if (columnIndex === 20 || columnIndex === 15 || columnIndex === 16 || columnIndex === 2) {
+		if (columnIndex === 21 || columnIndex === 17 || columnIndex === 16 || columnIndex === 2) {
 			const numA = parseFloat(cellA) || 0;
 			const numB = parseFloat(cellB) || 0;
 			return sortDirection[columnIndex] ? numA - numB : numB - numA;
 		}
-		if (columnIndex === 12 || columnIndex === 23) {
+		if (columnIndex === 13 || columnIndex === 24) {
 			const timeA = rowA.cells[columnIndex].dataset.timestamp;
 			const timeB = rowB.cells[columnIndex].dataset.timestamp;
 			return sortDirection[columnIndex] ? timeA - timeB : timeB - timeA;
@@ -700,33 +708,34 @@ function updateTable() {
 			<td class="row-number">${rowNumber}</td> 
 			<td><a href="#" class="system-link" data-id64="${system.id64}">${system.name}</a></td>
 			<td data-index="3" class="${influenceClass}">${system.influence}</td>
-			<td data-index="4">${system.pendingStates}</td>
-			<td data-index="5">${system.activeStates}</td>
-			<td data-index="6">${system.recoveryStates}</td>
-			<td data-index="7">${system.allegiance}</td>
-			<td data-index="8">${system.government}</td>
-			<td data-index="9">${system.primary_economy}</td>
-			<td data-index="10">${system.secondary_economy}</td>
-			<td data-index="11">${system.security}</td>
-			<td data-index="12">${system.happiness}</td>
-			<td data-index="13" data-timestamp="${system.population}">${system.population.toLocaleString()}</td>
-			<td data-index="14">${systemConflicts}</td>
-			<td data-index="15">${factionConflicts}</td>
-			<td data-index="16">${system.stations}</td>
-			<td data-index="17">${system.currentFactionStations}</td>
-			<td data-index="18" class="${system.otherPlayerSystem ? 'checked' : 'unchecked'}">
+			<td data-index="4">${system.factions}</td>
+			<td data-index="5">${system.pendingStates}</td>
+			<td data-index="6">${system.activeStates}</td>
+			<td data-index="7">${system.recoveryStates}</td>
+			<td data-index="8">${system.allegiance}</td>
+			<td data-index="9">${system.government}</td>
+			<td data-index="10">${system.primary_economy}</td>
+			<td data-index="11">${system.secondary_economy}</td>
+			<td data-index="12">${system.security}</td>
+			<td data-index="13">${system.happiness}</td>
+			<td data-index="14" data-timestamp="${system.population}">${system.population.toLocaleString()}</td>
+			<td data-index="15">${systemConflicts}</td>
+			<td data-index="16">${factionConflicts}</td>
+			<td data-index="17">${system.stations}</td>
+			<td data-index="18">${system.currentFactionStations}</td>
+			<td data-index="19" class="${system.otherPlayerSystem ? 'checked' : 'unchecked'}">
 				${system.otherPlayerSystem ? '✔' : '✖'}
 			</td>
-			<td data-index="19" class="${system.otherPlayerHome ? 'checked' : 'unchecked'}">
+			<td data-index="20" class="${system.otherPlayerHome ? 'checked' : 'unchecked'}">
 				${system.otherPlayerHome ? '✔' : '✖'}
 			</td>
-			<td data-index="20" class="${system.controlled ? 'checked' : 'unchecked'}">
+			<td data-index="21" class="${system.controlled ? 'checked' : 'unchecked'}">
 				${system.controlled ? '✔' : '✖'}
 			</td>
-			<td data-index="21">${getDistance(homeCoords, system).toFixed(0) + " Ly"}</td>
-			<td data-index="22">${system.power}</td>
-			<td data-index="23">${system.state}</td>
-			<td data-index="24" data-timestamp="${system.updateTimeInSeconds}">${system.formattedTime}</td>
+			<td data-index="22">${getDistance(homeCoords, system).toFixed(0) + " Ly"}</td>
+			<td data-index="23">${system.power}</td>
+			<td data-index="24">${system.state}</td>
+			<td data-index="25" data-timestamp="${system.updateTimeInSeconds}">${system.formattedTime}</td>
 			<td>
 				<input type="checkbox" 
 				${selectDeselect.some(s => s.name === system.name) ? 'checked' : ''} 
@@ -1503,7 +1512,7 @@ function toggleColumnVisibility() {
 
 function loadColumnVisibility() {
 	const savedColumns = JSON.parse(localStorage.getItem("selectedColumns")) || [];
-	const defaultColumns = savedColumns && savedColumns.length > 0 ? savedColumns : ["3", "5", "14", "16", "18", "19", "20", "22", "23", "24", "30", "32", "33", "34", "37", "38", "39", "40"];
+	const defaultColumns = savedColumns && savedColumns.length > 0 ? savedColumns : ["3", "6", "15", "17", "19", "20", "21", "23", "24", "25", "30", "32", "33", "34", "37", "38", "39", "40"];
 	const checkboxes = document.querySelectorAll("#columnsMenu .dropdown-content input[type='checkbox']");
 	checkboxes.forEach(checkbox => {
 		if (defaultColumns.includes(checkbox.value)) {
