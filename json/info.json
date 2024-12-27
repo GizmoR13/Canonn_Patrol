@@ -6,7 +6,7 @@
 			"text": "Peace agreement",
 			"style": { "color": "#5A90B5", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Player faction with peace agreement.",
+				"text": "player faction with peace agreement.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -14,7 +14,7 @@
 			"text": "No response",
 			"style": { "color": "#C6BC2D", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Player faction does not respond to contact attempts. ",
+				"text": "player faction does not respond to contact attempts. ",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -22,7 +22,7 @@
 			"text": "Dead factions",
 			"style": { "color": "#83AF88", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Player faction has not been active for a long time.",
+				"text": "player faction has not been active for a long time.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -30,7 +30,7 @@
 			"text": "Others (bold)",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px", "font-weight": "bold" },
 			"subText": {
-				"text": "Other player factions.",
+				"text": "other player factions.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		}
@@ -38,18 +38,18 @@
 	"title2": "Table",
 	"list2": [
 		{
-			"text": "Influence, States",
+			"text": "Influence",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Selected faction related.",
+				"text": "<span style=\"color: #C45C5A;\">red</span> - Less than 5%,<span style=\"color: #C6BC2D;\">yelow</span> - Less than 10%, difference to another factions.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
 		{
-			"text": "Conflicts, Stations",
+			"text": "Distance",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Summary of the system.",
+				"text": "distance to home system, for non-player factions, distance to Varati.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -57,7 +57,7 @@
 			"text": "OPS",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Other player factions in the system.",
+				"text": "other player factions in the system.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -65,7 +65,7 @@
 			"text": "OPH",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Other player's home system.",
+				"text": "other player's home system.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		}
@@ -76,15 +76,15 @@
 			"text": "Plot Route",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Select systems, select start system, then plot route.",
+				"text": "select systems, select start system, then plot route.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
 		{
-			"text": "System link:",
+			"text": "System link",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Website to open when the system name is clicked.",
+				"text": "website to open when the system name is clicked.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -92,7 +92,7 @@
 			"text": "Reload data",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Reload data for the current table.",
+				"text": "reload data for the current table.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -100,7 +100,7 @@
 			"text": "Faction Raport",
 			"style": { "color": "#4CAF50", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Summary of all player factions present in current faction systems.",
+				"text": "summary of all player factions present in current faction systems.",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -108,7 +108,7 @@
 			"text": "Clear Factions List",
 			"style": { "color": "#C45C5A", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Clear the saved faction list (does not clear systems data).",
+				"text": "clear the saved faction list (does not clear systems data).",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		},
@@ -116,7 +116,7 @@
 			"text": "Clear All Data",
 			"style": { "color": "#C45C5A", "text-align": "left", "font-size": "16px" },
 			"subText": {
-				"text": "Clear all system data from the browser (does not clear the visited factions list).",
+				"text": "clear all system data from the browser (does not clear the visited factions list).",
 				"style": { "color": "#898989", "text-align": "left", "font-size": "16px" }
 			}
 		}

@@ -15,6 +15,10 @@ body {
 	background-position: center center;
 	background-attachment: fixed;
 	user-select: none;
+	width: 100%;
+	max-width: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sub-header-row td {
@@ -45,12 +49,14 @@ body {
 }
 
 .sub-table {
-	width: 90%;
-	margin: 20px auto;
+	width: auto;
+	min-width: 80%;
+	margin: 5px auto;
+	table-layout: fixed;
 }
 
 .sub-table th, .sub-table td {
-	padding: 2px;
+	padding: 5px;
 	text-align: center;
 	border: 1px solid #506772;
 	border-radius: 3px;
@@ -69,6 +75,8 @@ table {
 	color: #4CAF50;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 th {
@@ -84,6 +92,8 @@ th {
 	border: 1px solid #506772;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 td {
@@ -108,6 +118,10 @@ table td.unchecked {
 	color: #C45C5A;
 	font-size: 1em;
 	text-align: center;
+}
+
+th.on-hover:hover {
+	color: #4CAF50;
 }
 
 tr.main-row:hover td {
@@ -147,8 +161,12 @@ th.no-sort::after {
 
 #systemsTable {
 	border:1px solid black;
+	table-layout: fixed;
 	margin-left:auto;
 	margin-right:auto;
+	
+	max-width: 100%;
+	width: auto;
 }
 
 h1 {
@@ -171,7 +189,7 @@ h1 {
 #factionDataText {
 	position: absolute;
 	top: 40px;
-	right: 30px;
+	right: calc(50% - 40% - 100px);
 	text-align: center;
 	font-size: 14px;
 	color: #052535;
@@ -203,15 +221,14 @@ h1 {
 
 #websiteMenu {
 	position: absolute;
-	margin: 5px;
 	display: flex;
-	left: 29%;
+	left: calc(50% - 370px);
 	font-size: 16px;
 	min-height: 30px;
 }
 
 #websiteMenu select {
-	min-width: 230px;
+	width: 200px;
 }
 
 #sourceFilter {
@@ -220,15 +237,14 @@ h1 {
 
 #systemMenu {
 	position: absolute;
-	margin: 5px;
 	display: flex;
-	right: 29%;
+	left: calc(50% + 170px);
 	font-size: 16px;
 	min-height: 30px;
 }
 
 #systemMenu select {
-	min-width: 230px;
+	width: 200px;
 }
 
 #startSystemSelect {
@@ -237,18 +253,16 @@ h1 {
 
 #factionMenu {
 	position: absolute;
-	margin: 5px;
 	display: block;
-	left: 15%;
+	left: calc(50% - 650px);
 	font-size: 16px;
 	min-height: 30px;
 	z-index: 1000;
 }
 
 #factionMenu select {
-	min-height: 30px;
-	min-width: 230px;
-	max-width: 230px;
+	height: 30px;
+	width: 200px;
 }
 
 #factionSelect {
@@ -274,6 +288,65 @@ h1 {
 	background-color: #263238;
 	outline: none;
 	border-color: #506772;
+}
+
+.dropdown {
+	position: absolute;
+	display: block;
+	left: calc(50% + 450px);
+}
+
+.dropdown-btn {
+	position: relative;
+	display: block;
+	padding: 0px 0px;
+	background-color: #263238;
+	color: #EF7B04;
+	border: 1px solid #506772;
+	cursor: pointer;
+	font-size: 16px;
+	min-width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	font-weight: normal;
+}
+
+.dropdown-content {
+	display: none;
+	position: relative;
+	background-color: #263238;
+	border: 1px solid #506772;
+	border-radius: 5px;
+	color: #EF7B04;
+	min-width: 160px;
+	font-size: 16px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	padding-top: 10px;
+	overflow: hidden;
+	max-height: 500px;
+	overflow-y: auto;
+	margin-top: 0;
+	flex-direction: column;
+}
+
+.dropdown-content label {
+	display: flex;
+	align-items: center;
+	padding: 0px 10px 0px 10px;
+}
+
+.dropdown-content input {
+	margin-right: 15px;
+	margin: 0px 10px;
+}
+
+.section-header {
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	width: fit-content;
 }
 
 select {
@@ -303,7 +376,7 @@ select:focus {
 	border: 2px solid #506772;
 	cursor: pointer;
 	font-size: 20px;
-	min-width: 250px;
+	min-width: 200px;
 	height: 40px;
 	border-radius: 5px;
 	font-weight: bold;
@@ -389,22 +462,6 @@ select:focus {
 
 #clearDataBtn.disabled:hover, #clearListBtn.disabled:hover {
 	background-color: #5c5c5c;
-}
-
-#selectBtn {
-	position: absolute;
-	display: block;
-	margin: -35px 73%;
-	padding: 0px 0px;
-	background-color: #263238;
-	color: #EF7B04;
-	border: 1px solid #506772;
-	cursor: pointer;
-	font-size: 16px;
-	min-width: 230px;
-	height: 30px;
-	border-radius: 5px;
-	font-weight: normal;
 }
 
 #factionInfoContainer {
@@ -580,7 +637,7 @@ select:focus {
 	cursor: pointer;
 	border-radius: 3px;
 	top: 10px;
-	right: 30px;
+	left: calc(50% + 40% - 50px);
 	width: 150px;
 }
 
@@ -600,7 +657,7 @@ select:focus {
 	cursor: pointer;
 	border-radius: 3px;
 	top: 10px;
-	left: 30px;
+	right: calc(50% + 40% - 50px);
 	width: 150px;
 }
 
@@ -619,10 +676,11 @@ select:focus {
 .copy-icon-2 {
 	position: absolute;
 	cursor: pointer;
-	right: 10px;
+	right: 5px;
 	width: 15px;
 	height: 15px;
-	vertical-align: middle;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 input[type="checkbox"] {
@@ -671,7 +729,7 @@ a.system-link:active {
 	margin-top: 10px;
 }
 
-.progress-bar {
+#loading-progress-bar {
 	height: 100%;
 	width: 0%;
 	background-color: #4CAF50;
@@ -694,17 +752,18 @@ a.system-link:active {
 
 .fac-peace-agreement {
 	color: #5A90B5;
-
 }
 
 .fac-dead-factions {
 	color: #83AF88;
-
 }
 
 .fac-no-contact {
 	color: #C6BC2D;
+}
 
+.faction-name-cell a {
+	padding-right: 30px;
 }
 
 .other-player-system a.system-link {
@@ -713,17 +772,14 @@ a.system-link:active {
 
 .peace-agreement a.system-link {
 	color: #5A90B5;
-
 }
 
 .dead-factions a.system-link {
 	color: #83AF88;
-
 }
 
 .no-contact a.system-link {
 	color: #C6BC2D;
-
 }
 
 .faction-table tr:not(.peace-agreement):not(.no-contact):not(.dead-factions) td:nth-child(2) {
@@ -740,4 +796,43 @@ a.system-link:active {
 
 .faction-table .dead-factions td:nth-child(2) {
 	color: #83AF88;
+}
+
+.tooltip {
+	position: relative;
+	cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 150px;
+	background-color: #263238;
+	color: #319687;
+	text-align: center;
+	border: 1px solid #506772;
+	border-radius: 5px;
+	padding: 5px;
+	position: absolute;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -75px;
+	opacity: 0;
+	transition: opacity 1s, visibility 0s linear 1s;
+	white-space: wrap;
+	z-index: 2000;
+	font-weight: normal;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 0.9;
+	transition-delay: 0.5s;
+}
+
+.influence-yellow {
+	color: #C6BC2D;
+}
+
+.influence-red {
+	color: #C45C5A;
 }

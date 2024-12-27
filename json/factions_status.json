@@ -1,21 +1,41 @@
 {
 	"peaceAgreement": [
-		"Lagrange Interstellar", 
-		"Stellanebula Project", 
-		"Interplanetary Explorations", 
+		"Lagrange Interstellar",
+		"Stellanebula Project",
+		"Interplanetary Explorations",
 		"PRYSM Organization"
 	],
 	"deadFactions": [
-		"Phoenix Flight Explorers Commune", 
-		"The Digiel Aggregate", 
-		"Eternal Sunrise Association", 
-		"Interstellar Incorporated", 
-		"FDMA Security Service", 
-		"Wings Of Justice", 
+		"Phoenix Flight Explorers Commune",
+		"The Digiel Aggregate",
+		"Eternal Sunrise Association",
+		"Interstellar Incorporated",
+		"FDMA Security Service",
+		"Wings Of Justice",
+		"Alpha Dogs Corporation",
+		"Anaconda Bridge Club",
+		"Dark World Corps",
+		"Elite And Real",
+		"Space Nomads",
+		"Elite Minerals Company",
+		"New Liberty Order",
+		"Les Red Nemesis",
+		"Dark Marauders",
+		"Chankopa Vikings",
+		"Anarchia Licentia",
+		"TGNO Corp",
+		"The Galactic Freelancers",
 		"Marquis du Ma'a"
 	],
 	"noContact": [
-		"Black Skull Conclave", 
+		"Black Skull Conclave",
 		"Muro Independents"
+	],
+	"awaitingContact": [
+		"The Dark Ancient Bounty Alliance",
+		"World Eaters",
+		"The Coven",
+		"A.T.L.A.S",
+		"Galactic Research Investigation Division"
 	]
 }
