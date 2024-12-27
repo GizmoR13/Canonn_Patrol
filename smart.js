@@ -1515,37 +1515,6 @@ function loadColumnVisibility() {
 	toggleColumnVisibility();
 }
 
-function incrementVisitCount() {
-	fetch('https://api.countapi.xyz/update/gizmor13.github.io/Canonn_Patrol/?amount=1')
-		.then(response => response.json())
-		.then(data => {
-			console.log('Visit count updated:', data.value);
-		})
-		.catch(error => console.error('Error updating visit count:', error));
-}
-
-function checkVisits() {
-	fetch('https://api.countapi.xyz/get/gizmor13.github.io/Canonn_Patrol')
-		.then(response => response.json())
-		.then(data => {
-			console.log('Total visit count from all users:', data.value);
-		})
-		.catch(error => console.error('Error retrieving visit count:', error));
-}
-
-incrementVisitCount();
-
-(function() {
-	const originalLog = console.log;
-	console.log = function(message) {
-		if (message === 'pingpatrol') {
-			checkVisits();
-		} else {
-			originalLog.apply(console, arguments);
-		}
-	};
-})();
-
 // Event listeners for website
 document.getElementById('systemsTable').addEventListener('click', async function(event) {
 	if (event.target && event.target.matches('a.system-link')) {
