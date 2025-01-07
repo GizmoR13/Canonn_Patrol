@@ -1,0 +1,1604 @@
+{
+  "id": 19245,
+  "id64": 669075121577,
+  "name": "HIP 112535",
+  "coords": {
+    "x": -134.46875,
+    "y": -92,
+    "z": 5.03125
+  },
+  "allegiance": "Independent",
+  "government": "Democracy",
+  "state": "None",
+  "economy": "Industrial",
+  "security": "Low",
+  "population": 3757193,
+  "controllingFaction": {
+    "id": 82848,
+    "name": "Extreme Order of Light",
+    "allegiance": "Independent",
+    "government": "Democracy",
+    "isPlayer": false
+  },
+  "factions": [
+    {
+      "id": 82848,
+      "name": "Extreme Order of Light",
+      "allegiance": "Independent",
+      "government": "Democracy",
+      "influence": 0.422577,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [
+        {
+          "state": "Expansion",
+          "trend": 0
+        }
+      ],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 24573,
+      "name": "Movement for HIP 112535 Confederacy",
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "influence": 0.27972,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 78037,
+      "name": "HIP 112535 Silver Camorra",
+      "allegiance": "Independent",
+      "government": "Anarchy",
+      "influence": 0.113886,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 78036,
+      "name": "HIP 112535 PLC",
+      "allegiance": "Federation",
+      "government": "Corporate",
+      "influence": 0.073926,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 78038,
+      "name": "Liberals of HIP 112535",
+      "allegiance": "Independent",
+      "government": "Democracy",
+      "influence": 0.065934,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 71572,
+      "name": "League of HIP 112535 Bureau",
+      "allegiance": "Independent",
+      "government": "Dictatorship",
+      "influence": 0.043956,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 81923,
+      "name": "Pilots' Federation Local Branch",
+      "allegiance": "Pilots Federation",
+      "government": "Democracy",
+      "influence": 0,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "None",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 80799,
+      "name": "Xukong Nexus",
+      "allegiance": "Independent",
+      "government": "Dictatorship",
+      "influence": 0,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": true,
+      "lastUpdate": 1735062796
+    },
+    {
+      "id": 16742,
+      "name": "Belgeth Party",
+      "allegiance": "Independent",
+      "government": "Dictatorship",
+      "influence": 0,
+      "state": "None",
+      "activeStates": [],
+      "recoveringStates": [],
+      "pendingStates": [],
+      "happiness": "Happy",
+      "isPlayer": false,
+      "lastUpdate": 1735062796
+    }
+  ],
+  "stations": [
+    {
+      "id": 217868,
+      "marketId": 3857257216,
+      "type": "Odyssey Settlement",
+      "name": "Hartmann Chemical Installation",
+      "body": {
+        "id": 9202286,
+        "name": "HIP 112535 1",
+        "latitude": -71.9228,
+        "longitude": -36.9151
+      },
+      "distanceToArrival": 389,
+      "allegiance": "Independent",
+      "government": "Dictatorship",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 71572,
+        "name": "League of HIP 112535 Bureau"
+      },
+      "updateTime": {
+        "information": "2024-10-04 16:48:51",
+        "market": "2024-09-17 14:08:53",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 53126,
+      "marketId": 3501825024,
+      "type": "Planetary Outpost",
+      "name": "Darboux Gateway",
+      "body": {
+        "id": 9202286,
+        "name": "HIP 112535 1",
+        "latitude": -40.6778,
+        "longitude": 164.416
+      },
+      "distanceToArrival": 389,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": true,
+      "otherServices": [
+        "Black Market",
+        "Restock",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Crew Lounge",
+        "Tuning",
+        "Interstellar Factors Contact",
+        "Search and Rescue",
+        "Apex Interstellar Transport",
+        "Frontline Solutions",
+        "Pioneer Supplies",
+        "Vista Genomics"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-11-18 20:33:36",
+        "shipyard": null,
+        "outfitting": "2024-11-18 20:33:36"
+      }
+    },
+    {
+      "id": 52875,
+      "marketId": 3221547264,
+      "type": "Coriolis Starport",
+      "name": "Auer City",
+      "body": {
+        "id": 9202288,
+        "name": "HIP 112535 3"
+      },
+      "distanceToArrival": 927,
+      "allegiance": "Independent",
+      "government": "Democracy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": true,
+      "haveOutfitting": true,
+      "otherServices": [
+        "Black Market",
+        "Restock",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Crew Lounge",
+        "Tuning",
+        "Interstellar Factors Contact",
+        "Search and Rescue",
+        "Apex Interstellar Transport",
+        "Frontline Solutions",
+        "Pioneer Supplies",
+        "Vista Genomics"
+      ],
+      "controllingFaction": {
+        "id": 82848,
+        "name": "Extreme Order of Light"
+      },
+      "updateTime": {
+        "information": "2024-12-24 06:20:31",
+        "market": "2024-12-24 06:20:37",
+        "shipyard": "2024-12-24 06:20:37",
+        "outfitting": "2024-12-24 06:20:37"
+      }
+    },
+    {
+      "id": 213355,
+      "marketId": 3857257472,
+      "type": "Odyssey Settlement",
+      "name": "Barka Manufacturing Facility",
+      "body": {
+        "id": 9202286,
+        "name": "HIP 112535 1",
+        "latitude": 30.5975,
+        "longitude": 179.192
+      },
+      "distanceToArrival": 389,
+      "allegiance": "Federation",
+      "government": "Corporate",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 78036,
+        "name": "HIP 112535 PLC"
+      },
+      "updateTime": {
+        "information": "2024-12-24 17:56:35",
+        "market": "2024-12-24 17:56:41",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 53514,
+      "marketId": 3501824768,
+      "type": "Planetary Outpost",
+      "name": "Ramon Gateway",
+      "body": {
+        "id": 9202286,
+        "name": "HIP 112535 1",
+        "latitude": 28.678,
+        "longitude": -9.93962
+      },
+      "distanceToArrival": 389,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": true,
+      "otherServices": [
+        "Black Market",
+        "Restock",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Crew Lounge",
+        "Tuning",
+        "Interstellar Factors Contact",
+        "Search and Rescue",
+        "Apex Interstellar Transport",
+        "Frontline Solutions",
+        "Pioneer Supplies",
+        "Vista Genomics"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-12-01 19:26:41",
+        "shipyard": null,
+        "outfitting": "2023-12-01 19:26:30"
+      }
+    },
+    {
+      "id": 226803,
+      "marketId": 3838238208,
+      "type": "Odyssey Settlement",
+      "name": "Dukuly Botanical Market",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": -35.5907,
+        "longitude": -117.922
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Federation",
+      "government": "Corporate",
+      "economy": "Agriculture",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 78036,
+        "name": "HIP 112535 PLC"
+      },
+      "updateTime": {
+        "information": "2024-12-06 16:24:07",
+        "market": "2023-03-02 21:18:42",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 214156,
+      "marketId": 3838238464,
+      "type": "Odyssey Settlement",
+      "name": "Sano Botanical Holding",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": 64.824,
+        "longitude": 115.422
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Independent",
+      "government": "Democracy",
+      "economy": "Agriculture",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 78038,
+        "name": "Liberals of HIP 112535"
+      },
+      "updateTime": {
+        "information": "2024-11-27 11:58:25",
+        "market": "2023-03-02 21:12:53",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 226798,
+      "marketId": 3838238976,
+      "type": "Odyssey Settlement",
+      "name": "Desai Manufacturing Forge",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": 33.813,
+        "longitude": -59.1502
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-03-02 20:55:23",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 56951,
+      "marketId": 3221547520,
+      "type": "Outpost",
+      "name": "Antonio de Andrade Port",
+      "distanceToArrival": 524.248342,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": true,
+      "otherServices": [
+        "Black Market",
+        "Restock",
+        "Refuel",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Crew Lounge",
+        "Interstellar Factors Contact",
+        "Search and Rescue",
+        "Apex Interstellar Transport",
+        "Pioneer Supplies"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-11-30 13:59:14",
+        "shipyard": null,
+        "outfitting": "2024-11-30 13:59:14"
+      }
+    },
+    {
+      "id": 198154,
+      "marketId": 3838238720,
+      "type": "Odyssey Settlement",
+      "name": "Gunther Nutrition Nursery",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": -6.2951,
+        "longitude": 46.4567
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Independent",
+      "government": "Anarchy",
+      "economy": "Agriculture",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact"
+      ],
+      "controllingFaction": {
+        "id": 78037,
+        "name": "HIP 112535 Silver Camorra"
+      },
+      "updateTime": {
+        "information": "2024-12-06 16:24:07",
+        "market": "2024-09-14 17:52:15",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 226791,
+      "marketId": 3838239232,
+      "type": "Odyssey Settlement",
+      "name": "Dai Chemical Site",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": 37.828,
+        "longitude": 22.5756
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-09-02 19:42:10",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 213051,
+      "marketId": 3838237952,
+      "type": "Odyssey Settlement",
+      "name": "Aku's Territory",
+      "body": {
+        "id": 9202290,
+        "name": "HIP 112535 2 a",
+        "latitude": 53.6154,
+        "longitude": -167.258
+      },
+      "distanceToArrival": 525,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Extraction",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-08-13 13:51:24",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 217944,
+      "marketId": 3856386560,
+      "type": "Odyssey Settlement",
+      "name": "Cheng Biochemical Institution",
+      "body": {
+        "id": 9202285,
+        "name": "HIP 112535 4",
+        "latitude": -31.3598,
+        "longitude": -150.09
+      },
+      "distanceToArrival": 1209,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "High Tech",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-03-03 10:37:34",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 290633,
+      "marketId": 3857258240,
+      "type": "Odyssey Settlement",
+      "name": "Matarov Chemical Enterprise",
+      "body": {
+        "id": 9202284,
+        "name": "HIP 112535 5"
+      },
+      "distanceToArrival": 1211,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-12-01 19:33:02",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 100902,
+      "marketId": 3790234624,
+      "type": "Planetary Outpost",
+      "name": "Couper Base",
+      "body": {
+        "id": 9202285,
+        "name": "HIP 112535 4",
+        "latitude": -65.5954,
+        "longitude": 100.059
+      },
+      "distanceToArrival": 1209,
+      "allegiance": "Independent",
+      "government": "Democracy",
+      "economy": "Military",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": true,
+      "otherServices": [
+        "Black Market",
+        "Restock",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue",
+        "Apex Interstellar Transport",
+        "Frontline Solutions",
+        "Pioneer Supplies",
+        "Vista Genomics"
+      ],
+      "controllingFaction": {
+        "id": 82848,
+        "name": "Extreme Order of Light"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-11-18 20:21:52",
+        "shipyard": null,
+        "outfitting": "2024-11-18 20:21:52"
+      }
+    },
+    {
+      "id": 334994,
+      "marketId": 3857258496,
+      "type": "Odyssey Settlement",
+      "name": "Naidu Industrial Depot",
+      "distanceToArrival": 1210.810217,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": false,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": null,
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 213060,
+      "marketId": 3857257984,
+      "type": "Odyssey Settlement",
+      "name": "Sommer Manufacturing Site",
+      "body": {
+        "id": 9202284,
+        "name": "HIP 112535 5",
+        "latitude": 56.3866,
+        "longitude": 47.3094
+      },
+      "distanceToArrival": 1211,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-03-03 10:31:02",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 285575,
+      "marketId": 3856386048,
+      "type": "Odyssey Settlement",
+      "name": "Stott's Castings",
+      "body": {
+        "id": 9202289,
+        "name": "HIP 112535 8",
+        "latitude": -54.755,
+        "longitude": -86.3488
+      },
+      "distanceToArrival": 2197,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2023-08-13 14:51:23",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 208662,
+      "marketId": 3856385792,
+      "type": "Odyssey Settlement",
+      "name": "Chamapiwa Synthetics Exchange",
+      "body": {
+        "id": 9202292,
+        "name": "HIP 112535 9",
+        "latitude": -16.6963,
+        "longitude": -175.042
+      },
+      "distanceToArrival": 2817,
+      "allegiance": "Independent",
+      "government": "Anarchy",
+      "economy": "Industrial",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Missions",
+        "Interstellar Factors Contact"
+      ],
+      "controllingFaction": {
+        "id": 78037,
+        "name": "HIP 112535 Silver Camorra"
+      },
+      "updateTime": {
+        "information": "2024-12-06 16:24:07",
+        "market": "2024-11-28 22:57:08",
+        "shipyard": null,
+        "outfitting": null
+      }
+    },
+    {
+      "id": 335627,
+      "marketId": 3857258752,
+      "type": "Odyssey Settlement",
+      "name": "Gallo Biological Assembly",
+      "body": {
+        "id": 9202283,
+        "name": "HIP 112535 10"
+      },
+      "distanceToArrival": 4055,
+      "allegiance": "Independent",
+      "government": "Confederacy",
+      "economy": "High Tech",
+      "secondEconomy": null,
+      "haveMarket": true,
+      "haveShipyard": false,
+      "haveOutfitting": false,
+      "otherServices": [
+        "Black Market",
+        "Refuel",
+        "Repair",
+        "Contacts",
+        "Universal Cartographics",
+        "Missions",
+        "Interstellar Factors Contact",
+        "Search and Rescue"
+      ],
+      "controllingFaction": {
+        "id": 24573,
+        "name": "Movement for HIP 112535 Confederacy"
+      },
+      "updateTime": {
+        "information": "2024-12-09 12:09:38",
+        "market": "2024-09-14 17:13:32",
+        "shipyard": null,
+        "outfitting": null
+      }
+    }
+  ],
+  "bodies": [
+    {
+      "id": 9202294,
+      "id64": 669075121577,
+      "bodyId": 0,
+      "name": "HIP 112535",
+      "type": "Star",
+      "subType": "M (Red dwarf) Star",
+      "parents": null,
+      "distanceToArrival": 0,
+      "isMainStar": true,
+      "isScoopable": true,
+      "age": 12382,
+      "spectralClass": "M9",
+      "luminosity": "V",
+      "absoluteMagnitude": 8.331802,
+      "solarMasses": 0.203125,
+      "solarRadius": 0.38125609777138747,
+      "surfaceTemperature": 2138,
+      "orbitalPeriod": null,
+      "semiMajorAxis": null,
+      "orbitalEccentricity": null,
+      "orbitalInclination": null,
+      "argOfPeriapsis": null,
+      "rotationalPeriod": 1.523753677638889,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": null,
+      "updateTime": "2021-01-05 18:31:33"
+    },
+    {
+      "id": 9202286,
+      "id64": 36029466094085545,
+      "bodyId": 1,
+      "name": "HIP 112535 1",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 389,
+      "isLandable": true,
+      "gravity": 0.2425131804338123,
+      "earthMasses": 0.018424,
+      "radius": 1757.95925,
+      "surfaceTemperature": 126,
+      "surfacePressure": null,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Rock": 64.02,
+        "Metal": 31.32,
+        "Ice": 4.66
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 557.6874991809838,
+      "semiMajorAxis": 0.779498845260436,
+      "orbitalEccentricity": 0.000381,
+      "orbitalInclination": 0.045451,
+      "argOfPeriapsis": 258.805785,
+      "rotationalPeriod": 1.6492334421875,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.089632,
+      "materials": {
+        "Iron": 21.53,
+        "Sulphur": 16.54,
+        "Nickel": 16.28,
+        "Carbon": 13.91,
+        "Chromium": 9.68,
+        "Phosphorus": 8.91,
+        "Vanadium": 5.29,
+        "Germanium": 4.5,
+        "Molybdenum": 1.41,
+        "Tungsten": 1.18,
+        "Technetium": 0.77
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202291,
+      "id64": 72058263113049513,
+      "bodyId": 2,
+      "name": "HIP 112535 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 525,
+      "isLandable": false,
+      "gravity": 0.3850230843883795,
+      "earthMasses": 0.066407,
+      "radius": 2648.79325,
+      "surfaceTemperature": 110,
+      "surfacePressure": 0.3483829493609672,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Argon",
+      "atmosphereComposition": {
+        "Argon": 100
+      },
+      "solidComposition": {
+        "Rock": 63.35,
+        "Metal": 32.59,
+        "Ice": 4.07
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 872.9211917078009,
+      "semiMajorAxis": 1.0508439279736352,
+      "orbitalEccentricity": 0.00034,
+      "orbitalInclination": -0.00124,
+      "argOfPeriapsis": 195.002099,
+      "rotationalPeriod": 0.9035061471643518,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -1.718239,
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202290,
+      "id64": 108087060132013481,
+      "bodyId": 3,
+      "name": "HIP 112535 2 a",
+      "type": "Planet",
+      "subType": "Rocky Ice world",
+      "parents": [
+        {
+          "Planet": 2
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 525,
+      "isLandable": true,
+      "gravity": 0.11137148734583938,
+      "earthMasses": 0.002957,
+      "radius": 1039.2575,
+      "surfaceTemperature": 96,
+      "surfacePressure": null,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Rock": 74.28,
+        "Ice": 13.53,
+        "Metal": 12.19
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 16.58124435278935,
+      "semiMajorAxis": 0.0007543863258460804,
+      "orbitalEccentricity": null,
+      "orbitalInclination": -47.061598,
+      "argOfPeriapsis": 24.524173,
+      "rotationalPeriod": 16.9464468896875,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.354352,
+      "materials": {
+        "Sulphur": 19.96,
+        "Iron": 18.99,
+        "Carbon": 16.78,
+        "Nickel": 14.36,
+        "Phosphorus": 10.75,
+        "Manganese": 7.84,
+        "Vanadium": 4.66,
+        "Selenium": 3.12,
+        "Niobium": 1.3,
+        "Tin": 1.17,
+        "Antimony": 1.06
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202288,
+      "id64": 144115857150977449,
+      "bodyId": 4,
+      "name": "HIP 112535 3",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 927,
+      "isLandable": true,
+      "gravity": 0.2104482621043149,
+      "earthMasses": 0.043941,
+      "radius": 2914.38425,
+      "surfaceTemperature": 72,
+      "surfacePressure": 0.010297911798667654,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Thin Argon",
+      "atmosphereComposition": {
+        "Argon": 100
+      },
+      "solidComposition": {
+        "Ice": 68.64,
+        "Rock": 21.06,
+        "Metal": 10.3
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 2051.3635956578705,
+      "semiMajorAxis": 1.857447853285321,
+      "orbitalEccentricity": 1.2e-5,
+      "orbitalInclination": -0.006707,
+      "argOfPeriapsis": 359.690008,
+      "rotationalPeriod": 1.8938793868981483,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.467825,
+      "materials": {
+        "Sulphur": 22.91,
+        "Carbon": 19.27,
+        "Iron": 15.8,
+        "Phosphorus": 12.33,
+        "Nickel": 11.95,
+        "Chromium": 7.11,
+        "Zinc": 4.29,
+        "Selenium": 3.59,
+        "Molybdenum": 1.03,
+        "Tungsten": 0.87,
+        "Tellurium": 0.86
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202285,
+      "id64": 216173451188905385,
+      "bodyId": 6,
+      "name": "HIP 112535 4",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 5
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 1209,
+      "isLandable": true,
+      "gravity": 0.2194969864916016,
+      "earthMasses": 0.049507,
+      "radius": 3029.02975,
+      "surfaceTemperature": 63,
+      "surfacePressure": 0.019109877621514927,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Thin Argon",
+      "atmosphereComposition": {
+        "Argon": 100
+      },
+      "solidComposition": {
+        "Ice": 68.64,
+        "Rock": 21.06,
+        "Metal": 10.3
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 144.69095816215278,
+      "semiMajorAxis": 0.0016355755689523327,
+      "orbitalEccentricity": 0.094125,
+      "orbitalInclination": 3.928331,
+      "argOfPeriapsis": 187.885551,
+      "rotationalPeriod": 10.84630274068287,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.241601,
+      "materials": {
+        "Sulphur": 22.89,
+        "Carbon": 19.25,
+        "Iron": 15.79,
+        "Phosphorus": 12.32,
+        "Nickel": 11.94,
+        "Chromium": 7.1,
+        "Zinc": 4.29,
+        "Selenium": 3.58,
+        "Tin": 1.02,
+        "Yttrium": 0.94,
+        "Tungsten": 0.87
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202284,
+      "id64": 252202248207869353,
+      "bodyId": 7,
+      "name": "HIP 112535 5",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 5
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 1211,
+      "isLandable": true,
+      "gravity": 0.20882305938253745,
+      "earthMasses": 0.042984,
+      "radius": 2893.668,
+      "surfaceTemperature": 63,
+      "surfacePressure": 0.017122772918825562,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Thin Argon",
+      "atmosphereComposition": {
+        "Argon": 100
+      },
+      "solidComposition": {
+        "Ice": 68.64,
+        "Rock": 21.06,
+        "Metal": 10.3
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 144.69095816215278,
+      "semiMajorAxis": 0.0018837886203851562,
+      "orbitalEccentricity": 0.094125,
+      "orbitalInclination": 3.928331,
+      "argOfPeriapsis": 7.885556,
+      "rotationalPeriod": 197.76863922819444,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.396904,
+      "materials": {
+        "Sulphur": 23.47,
+        "Carbon": 19.74,
+        "Iron": 16.19,
+        "Phosphorus": 12.63,
+        "Nickel": 12.24,
+        "Chromium": 7.28,
+        "Vanadium": 3.97,
+        "Zirconium": 1.88,
+        "Cadmium": 1.26,
+        "Tungsten": 0.89,
+        "Polonium": 0.45
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202293,
+      "id64": 288231045226833321,
+      "bodyId": 8,
+      "name": "HIP 112535 6",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 1690,
+      "isLandable": true,
+      "gravity": 0.20891165787996296,
+      "earthMasses": 0.043036,
+      "radius": 2894.80375,
+      "surfaceTemperature": 53,
+      "surfacePressure": 0.00044098337034295584,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.64,
+        "Rock": 21.06,
+        "Metal": 10.3
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 5044.147441232639,
+      "semiMajorAxis": 3.3838680340224254,
+      "orbitalEccentricity": 0.000808,
+      "orbitalInclination": -0.023913,
+      "argOfPeriapsis": 79.684446,
+      "rotationalPeriod": 1.1169645469560185,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.511695,
+      "materials": {
+        "Sulphur": 24.38,
+        "Carbon": 20.5,
+        "Iron": 16.81,
+        "Phosphorus": 13.13,
+        "Nickel": 12.72,
+        "Vanadium": 4.13,
+        "Germanium": 3.52,
+        "Zirconium": 1.95,
+        "Cadmium": 1.31,
+        "Tin": 1.09,
+        "Polonium": 0.47
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202296,
+      "id64": 360288639264761257,
+      "bodyId": 10,
+      "name": "HIP 112535 7",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 9
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 2197,
+      "isLandable": true,
+      "gravity": 0.2858442936872488,
+      "earthMasses": 0.103789,
+      "radius": 3843.2215,
+      "surfaceTemperature": 47,
+      "surfacePressure": 9.460853688625708e-6,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.62,
+        "Rock": 21.07,
+        "Metal": 10.31
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 246.8579000345023,
+      "semiMajorAxis": 0.0031805142122070325,
+      "orbitalEccentricity": 0.108707,
+      "orbitalInclination": -1.286616,
+      "argOfPeriapsis": 124.038581,
+      "rotationalPeriod": 1.1595478134722221,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.260807,
+      "materials": {
+        "Sulphur": 22.8,
+        "Carbon": 19.17,
+        "Iron": 15.73,
+        "Phosphorus": 12.27,
+        "Nickel": 11.89,
+        "Chromium": 7.07,
+        "Zinc": 4.27,
+        "Vanadium": 3.86,
+        "Cadmium": 1.22,
+        "Tin": 1.02,
+        "Antimony": 0.7
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202289,
+      "id64": 396317436283725225,
+      "bodyId": 11,
+      "name": "HIP 112535 8",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 9
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 2197,
+      "isLandable": true,
+      "gravity": 0.2807217508535007,
+      "earthMasses": 0.098704,
+      "radius": 3781.93325,
+      "surfaceTemperature": 47,
+      "surfacePressure": 9.124855662472242e-6,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.62,
+        "Rock": 21.07,
+        "Metal": 10.31
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 246.8579000345023,
+      "semiMajorAxis": 0.0033443556880753114,
+      "orbitalEccentricity": 0.108707,
+      "orbitalInclination": -1.286616,
+      "argOfPeriapsis": 304.038576,
+      "rotationalPeriod": 3.399512397662037,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.281142,
+      "materials": {
+        "Sulphur": 22.37,
+        "Carbon": 18.81,
+        "Iron": 15.43,
+        "Phosphorus": 12.04,
+        "Nickel": 11.67,
+        "Chromium": 6.94,
+        "Manganese": 6.37,
+        "Selenium": 3.5,
+        "Cadmium": 1.2,
+        "Tin": 1,
+        "Antimony": 0.68
+      },
+      "updateTime": "2021-01-05 18:31:33"
+    },
+    {
+      "id": 9202292,
+      "id64": 432346233302689193,
+      "bodyId": 12,
+      "name": "HIP 112535 9",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 2817,
+      "isLandable": true,
+      "gravity": 0.23426498077885927,
+      "earthMasses": 0.059482,
+      "radius": 3213.83525,
+      "surfaceTemperature": 41,
+      "surfacePressure": null,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.62,
+        "Rock": 21.07,
+        "Metal": 10.31
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 10817.002781011459,
+      "semiMajorAxis": 5.627206073393797,
+      "orbitalEccentricity": 0.010514,
+      "orbitalInclination": -0.169943,
+      "argOfPeriapsis": 318.772862,
+      "rotationalPeriod": 0.6482598763657407,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.440952,
+      "materials": {
+        "Sulphur": 22.76,
+        "Carbon": 19.14,
+        "Iron": 15.7,
+        "Phosphorus": 12.25,
+        "Nickel": 11.88,
+        "Chromium": 7.06,
+        "Zinc": 4.27,
+        "Vanadium": 3.86,
+        "Cadmium": 1.22,
+        "Tin": 1.01,
+        "Tellurium": 0.85
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202283,
+      "id64": 468375030321653161,
+      "bodyId": 13,
+      "name": "HIP 112535 10",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 4055,
+      "isLandable": true,
+      "gravity": 0.3563585685772281,
+      "earthMasses": 0.190305,
+      "radius": 4660.8595,
+      "surfaceTemperature": 34,
+      "surfacePressure": 1.4704386873920552e-5,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.62,
+        "Rock": 21.07,
+        "Metal": 10.31
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 18749.288800689814,
+      "semiMajorAxis": 8.119788984690409,
+      "orbitalEccentricity": 0.001105,
+      "orbitalInclination": -2.512034,
+      "argOfPeriapsis": 137.01898,
+      "rotationalPeriod": 1.4519985115740741,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.032933,
+      "materials": {
+        "Sulphur": 23.13,
+        "Carbon": 19.45,
+        "Iron": 15.96,
+        "Phosphorus": 12.45,
+        "Nickel": 12.07,
+        "Manganese": 6.59,
+        "Vanadium": 3.92,
+        "Germanium": 3.34,
+        "Cadmium": 1.24,
+        "Ruthenium": 0.99,
+        "Tungsten": 0.88
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    },
+    {
+      "id": 9202295,
+      "id64": 504403827340617129,
+      "bodyId": 14,
+      "name": "HIP 112535 11",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "distanceToArrival": 7137,
+      "isLandable": true,
+      "gravity": 0.317005165262303,
+      "earthMasses": 0.138153,
+      "radius": 4210.479,
+      "surfaceTemperature": 26,
+      "surfacePressure": 1.1635924006908462e-5,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 68.62,
+        "Rock": 21.07,
+        "Metal": 10.31
+      },
+      "terraformingState": null,
+      "orbitalPeriod": 41621.5433290706,
+      "semiMajorAxis": 13.817633464275637,
+      "orbitalEccentricity": 0.037316,
+      "orbitalInclination": -3.99195,
+      "argOfPeriapsis": 243.841363,
+      "rotationalPeriod": 1.5654589346759258,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.371584,
+      "materials": {
+        "Sulphur": 22.88,
+        "Carbon": 19.24,
+        "Iron": 15.78,
+        "Phosphorus": 12.32,
+        "Nickel": 11.94,
+        "Chromium": 7.1,
+        "Manganese": 6.52,
+        "Arsenic": 1.48,
+        "Tin": 1.02,
+        "Tungsten": 0.87,
+        "Tellurium": 0.85
+      },
+      "updateTime": "2024-11-22 21:08:31"
+    }
+  ],
+  "date": "2016-05-27 00:02:47"
+}
