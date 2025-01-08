@@ -1,0 +1,3680 @@
+{
+  "HIP 114099": [
+    {
+      "name": "HIP 109479",
+      "distance": 33.30908460446639
+    }
+  ],
+  "Arine": [
+    {
+      "name": "Gliese 9035",
+      "distance": 28.581452273502478
+    }
+  ],
+  "HIP 2293": [
+    {
+      "name": "Gliese 9035",
+      "distance": 30.089985486246086
+    }
+  ],
+  "Masai": [
+    {
+      "name": "Gliese 9035",
+      "distance": 24.19472598780569
+    }
+  ],
+  "Col 285 Sector KJ-E b13-5": [
+    {
+      "name": "Gliese 9035",
+      "distance": 21.572099312537944
+    }
+  ],
+  "Evenses": [
+    {
+      "name": "Gliese 9035",
+      "distance": 18.264816331543003
+    },
+    {
+      "name": "Ikpen",
+      "distance": 31.039163769341467
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 33.660950228900255
+    }
+  ],
+  "Chematja": [
+    {
+      "name": "Gliese 9035",
+      "distance": 23.972212918032827
+    }
+  ],
+  "Potilo": [
+    {
+      "name": "Ao Kach",
+      "distance": 26.112194080304704
+    },
+    {
+      "name": "Barueker",
+      "distance": 26.613792388769024
+    },
+    {
+      "name": "Kamandu",
+      "distance": 26.805688237293964
+    },
+    {
+      "name": "Bhumato",
+      "distance": 28.161521426629278
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 28.32136312706364
+    },
+    {
+      "name": "Drevlyan",
+      "distance": 29.164354447038598
+    },
+    {
+      "name": "Kawirun",
+      "distance": 33.54675491944042
+    },
+    {
+      "name": "Lyncis Sector RO-R b4-5",
+      "distance": 33.62751210411648
+    }
+  ],
+  "HIP 94126": [
+    {
+      "name": "HIP 89911",
+      "distance": 27.977826739446723
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 28.017084631524387
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 31.159744663587986
+    }
+  ],
+  "Col 285 Sector TP-N c7-12": [
+    {
+      "name": "Sevelitchit",
+      "distance": 24.6377069055239
+    },
+    {
+      "name": "Hoduma",
+      "distance": 25.132655860951107
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 25.925430173624893
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 26.201480456741372
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 27.3219198572776
+    },
+    {
+      "name": "HIP 80122",
+      "distance": 30.054426540652877
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 30.708352767406787
+    },
+    {
+      "name": "Ullernobo",
+      "distance": 30.71607948717577
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 31.630310818896486
+    },
+    {
+      "name": "Watistha",
+      "distance": 33.65868723765828
+    }
+  ],
+  "Col 285 Sector EI-G b12-2": [
+    {
+      "name": "Kamandu",
+      "distance": 28.157082396130818
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 28.56573080742903
+    },
+    {
+      "name": "Bhumato",
+      "distance": 29.209874989034102
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 29.757220762362874
+    }
+  ],
+  "Njoere": [
+    {
+      "name": "Ao Kach",
+      "distance": 19.130258672453962
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 21.011413379101846
+    },
+    {
+      "name": "Bhumato",
+      "distance": 21.488596176227986
+    },
+    {
+      "name": "Ikpen",
+      "distance": 23.855378881134964
+    },
+    {
+      "name": "Huile",
+      "distance": 25.29602087038592
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 25.38211876745123
+    },
+    {
+      "name": "Kamandu",
+      "distance": 26.834762756311076
+    },
+    {
+      "name": "Lyncis Sector UZ-P b5-4",
+      "distance": 27.555164840279943
+    },
+    {
+      "name": "Barueker",
+      "distance": 28.30049414321241
+    }
+  ],
+  "Mahatrents": [
+    {
+      "name": "Nyiko Oh",
+      "distance": 25.277271009495863
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 25.535285023864528
+    },
+    {
+      "name": "Hoduma",
+      "distance": 25.811459573462713
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 25.945894725852103
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 28.57046524603686
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 28.792377056479722
+    },
+    {
+      "name": "HIP 80122",
+      "distance": 30.493947913889404
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 31.18170662624161
+    },
+    {
+      "name": "Ullernobo",
+      "distance": 32.2369462437899
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 33.849405113864265
+    }
+  ],
+  "Elboongzi": [
+    {
+      "name": "Gliese 9035",
+      "distance": 18.801855377196155
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 23.930665636636604
+    },
+    {
+      "name": "Barueker",
+      "distance": 26.613352058928992
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 27.680956478461866
+    },
+    {
+      "name": "Drevlyan",
+      "distance": 28.796243380213678
+    },
+    {
+      "name": "Kawirun",
+      "distance": 29.44927444989095
+    },
+    {
+      "name": "Lyncis Sector RO-R b4-5",
+      "distance": 29.70672075158246
+    },
+    {
+      "name": "Ikpen",
+      "distance": 32.36063870661393
+    },
+    {
+      "name": "Bhumato",
+      "distance": 32.67932796987264
+    }
+  ],
+  "HIP 110094": [
+    {
+      "name": "Nyikoku",
+      "distance": 32.56148031032987
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 33.25271664183995
+    }
+  ],
+  "Col 285 Sector QJ-P c6-18": [
+    {
+      "name": "Kamandu",
+      "distance": 26.31326082629251
+    },
+    {
+      "name": "Bhumato",
+      "distance": 28.437225273398248
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 31.746831780903744
+    }
+  ],
+  "Bactrimpox": [
+    {
+      "name": "Col 285 Sector JX-T d3-84",
+      "distance": 25.795053123128085
+    },
+    {
+      "name": "Huile",
+      "distance": 26.775433294813364
+    },
+    {
+      "name": "Bhumato",
+      "distance": 26.89882664727218
+    },
+    {
+      "name": "Hoduma",
+      "distance": 27.782972387552416
+    },
+    {
+      "name": "Ikpen",
+      "distance": 27.804721524634985
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-87",
+      "distance": 28.596823605297494
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 29.02559821196628
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 29.238061799861153
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 29.51188187620369
+    },
+    {
+      "name": "Watistha",
+      "distance": 30.205125548075447
+    },
+    {
+      "name": "Kamandu",
+      "distance": 30.245367026414144
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 30.249774017750944
+    },
+    {
+      "name": "Patora",
+      "distance": 31.438276580865562
+    },
+    {
+      "name": "Nujemana",
+      "distance": 32.6297589919846
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 33.225995799599445
+    }
+  ],
+  "Su Li Er": [
+    {
+      "name": "HIP 109479",
+      "distance": 26.986632252144766
+    },
+    {
+      "name": "Fali",
+      "distance": 31.08352532894234
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 31.820511024730575
+    }
+  ],
+  "Candjinan": [
+    {
+      "name": "HIP 109479",
+      "distance": 25.62667677440834
+    },
+    {
+      "name": "Fali",
+      "distance": 32.75398055485012
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 33.658745264975344
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 33.96495493979788
+    }
+  ],
+  "Gilyan": [
+    {
+      "name": "HIP 89911",
+      "distance": 33.71185633886838
+    }
+  ],
+  "HIP 90760": [
+    {
+      "name": "HIP 86568",
+      "distance": 18.510079602070867
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 18.581166960796622
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 18.969213338657458
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 22.449444070232563
+    },
+    {
+      "name": "Chiela",
+      "distance": 23.79838820697738
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 26.90198499878773
+    },
+    {
+      "name": "HIP 89911",
+      "distance": 27.215018400921576
+    },
+    {
+      "name": "HIP 86775",
+      "distance": 29.418534894051064
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 29.881291832223386
+    },
+    {
+      "name": "Ullernobo",
+      "distance": 30.34376609165382
+    },
+    {
+      "name": "Mulano",
+      "distance": 31.137688804124497
+    },
+    {
+      "name": "Tswarijem",
+      "distance": 33.13074832198935
+    }
+  ],
+  "Nones": [
+    {
+      "name": "Nyiko Oh",
+      "distance": 18.971349698295057
+    },
+    {
+      "name": "Hoduma",
+      "distance": 20.403258777705094
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 21.822101217859384
+    },
+    {
+      "name": "Watistha",
+      "distance": 28.981220347192075
+    }
+  ],
+  "Col 285 Sector TZ-O c6-22": [
+    {
+      "name": "HIP 117029",
+      "distance": 32.74205235148676
+    }
+  ],
+  "Parinta": [
+    {
+      "name": "HIP 117029",
+      "distance": 26.60733348745229
+    }
+  ],
+  "Hun Puggsa": [
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 17.597302039304207
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 20.31418262261615
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 22.44113393274725
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 23.622623061643683
+    },
+    {
+      "name": "Men Samit",
+      "distance": 24.276101449007417
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 24.460367338053203
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 25.211662572855047
+    },
+    {
+      "name": "Batani",
+      "distance": 25.4077874688549
+    },
+    {
+      "name": "HIP 80122",
+      "distance": 26.456295033035143
+    },
+    {
+      "name": "Mulano",
+      "distance": 27.021927583214712
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 27.877347154544672
+    },
+    {
+      "name": "Hoduma",
+      "distance": 28.00071497413057
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 28.28416766717734
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 29.18345127165394
+    },
+    {
+      "name": "Chiela",
+      "distance": 29.48095916222876
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 29.73625930051559
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 29.8148911514867
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 30.4040980739028
+    },
+    {
+      "name": "Ullernobo",
+      "distance": 30.942045120676816
+    },
+    {
+      "name": "Tswarijem",
+      "distance": 33.858938766225386
+    }
+  ],
+  "Col 285 Sector IX-T d3-81": [
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 17.74581816936035
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 21.12245731739089
+    },
+    {
+      "name": "Chiela",
+      "distance": 27.311302176251136
+    },
+    {
+      "name": "Chlevit",
+      "distance": 27.804756646795166
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 29.599887167225823
+    },
+    {
+      "name": "HIP 89911",
+      "distance": 30.480654725579633
+    },
+    {
+      "name": "Mulano",
+      "distance": 33.605216066482896
+    }
+  ],
+  "Kumata": [
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 17.552182245022983
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 18.438532810055687
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 20.97666579350732
+    },
+    {
+      "name": "Batani",
+      "distance": 22.538703690818156
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 23.294501262368765
+    },
+    {
+      "name": "Mulano",
+      "distance": 24.82503225702839
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 26.39367304038034
+    },
+    {
+      "name": "Chiela",
+      "distance": 27.300734021725496
+    },
+    {
+      "name": "Men Samit",
+      "distance": 28.264566902528333
+    },
+    {
+      "name": "Chlevit",
+      "distance": 29.342635095965733
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 29.80996123886276
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 31.453400551450713
+    },
+    {
+      "name": "Fali",
+      "distance": 31.599127880568158
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 31.824469752063425
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 33.38911510975545
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 33.98566448703041
+    }
+  ],
+  "HIP 94582": [
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 16.471269968493626
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 17.586005178123884
+    },
+    {
+      "name": "Chiela",
+      "distance": 23.885979968644786
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 24.66385339038691
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 26.6107833229783
+    },
+    {
+      "name": "HIP 89911",
+      "distance": 28.931796144121435
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 29.75902567919521
+    },
+    {
+      "name": "Mulano",
+      "distance": 30.24774010153486
+    },
+    {
+      "name": "Chlevit",
+      "distance": 31.037102922349245
+    },
+    {
+      "name": "Batani",
+      "distance": 32.68717136546079
+    }
+  ],
+  "Kurung": [
+    {
+      "name": "HIP 82886",
+      "distance": 8.636032346367168
+    },
+    {
+      "name": "HIP 80122",
+      "distance": 14.67602610339393
+    },
+    {
+      "name": "Ullernobo",
+      "distance": 17.36209615261072
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 21.673378868152977
+    },
+    {
+      "name": "Tswarijem",
+      "distance": 21.752895820154613
+    },
+    {
+      "name": "Hoduma",
+      "distance": 22.792928248143106
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 23.827792005869952
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 25.74292606110463
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 26.306839503967403
+    },
+    {
+      "name": "Col 285 Sector SL-Z b15-3",
+      "distance": 26.423792250072662
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 26.624339780546673
+    },
+    {
+      "name": "Sintangor",
+      "distance": 28.001586869095473
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 28.265517032684897
+    },
+    {
+      "name": "Men Samit",
+      "distance": 28.36866669408346
+    },
+    {
+      "name": "Pokomovoi",
+      "distance": 28.66067986479909
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 29.497583322621534
+    },
+    {
+      "name": "Watistha",
+      "distance": 30.228766437162136
+    },
+    {
+      "name": "Mulano",
+      "distance": 30.699558476059554
+    },
+    {
+      "name": "Chiela",
+      "distance": 30.768303114772188
+    },
+    {
+      "name": "HIP 81755",
+      "distance": 32.53084473810971
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 32.77387607722041
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 32.88042077456583
+    }
+  ],
+  "Pachanu": [
+    {
+      "name": "Lucab Ku",
+      "distance": 31.928707816203588
+    },
+    {
+      "name": "Fali",
+      "distance": 33.17903905800317
+    }
+  ],
+  "Shona": [
+    {
+      "name": "HIP 117029",
+      "distance": 28.737174449004204
+    }
+  ],
+  "Cephei Sector BA-A d107": [
+    {
+      "name": "HIP 109479",
+      "distance": 18.85069316530562
+    },
+    {
+      "name": "Fali",
+      "distance": 28.679158645696006
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 28.959579184831053
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 31.02207505350021
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 32.420696514726515
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 33.026548861294906
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 33.34413073821988
+    }
+  ],
+  "Col 285 Sector TZ-O c6-23": [
+    {
+      "name": "Zemlia",
+      "distance": 31.38696547235014
+    }
+  ],
+  "Meinjhalie": [
+    {
+      "name": "Lucab Ku",
+      "distance": 24.654863712612567
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 25.558106284993027
+    },
+    {
+      "name": "Fali",
+      "distance": 25.621436490027254
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 27.685189660945074
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 32.35829986746059
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 33.2229977293591
+    }
+  ],
+  "Wathlanukh": [
+    {
+      "name": "HIP 117029",
+      "distance": 19.42025963716757
+    },
+    {
+      "name": "Dakinn",
+      "distance": 30.73967687492827
+    }
+  ],
+  "Pipedu": [
+    {
+      "name": "Gliese 9035",
+      "distance": 11.536795753154339
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 23.92001237849805
+    },
+    {
+      "name": "Ikpen",
+      "distance": 28.374139579465666
+    }
+  ],
+  "Igorot": [
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 23.23626106164673
+    },
+    {
+      "name": "Allo",
+      "distance": 25.94166005795504
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 30.43977789217589
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 32.953373191336574
+    }
+  ],
+  "Sekenks": [
+    {
+      "name": "Bhumato",
+      "distance": 10.074623907372423
+    },
+    {
+      "name": "Kamandu",
+      "distance": 12.932630424144193
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 14.153110855038195
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 18.704475985041654
+    },
+    {
+      "name": "Barueker",
+      "distance": 27.413571570483114
+    },
+    {
+      "name": "Patora",
+      "distance": 28.827375498386946
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 29.65246287726367
+    },
+    {
+      "name": "Huile",
+      "distance": 30.194842533535425
+    },
+    {
+      "name": "Lyncis Sector UZ-P b5-4",
+      "distance": 31.77026297302243
+    },
+    {
+      "name": "HIP 44463",
+      "distance": 32.218265030297644
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-84",
+      "distance": 33.065660293195414
+    },
+    {
+      "name": "Nujemana",
+      "distance": 33.823328903657604
+    }
+  ],
+  "HIP 95044": [
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 10.80875115647039
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 16.08294540227318
+    },
+    {
+      "name": "Mulano",
+      "distance": 18.920552441392932
+    },
+    {
+      "name": "Batani",
+      "distance": 19.802466899669344
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 20.27489307154294
+    },
+    {
+      "name": "Chiela",
+      "distance": 22.158563877765182
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 23.560116756130476
+    },
+    {
+      "name": "Chlevit",
+      "distance": 23.61941898364564
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 27.344464276385082
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 27.911638617474612
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 28.48714759545083
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 28.633698187188465
+    },
+    {
+      "name": "Guo Chima",
+      "distance": 28.86799833942423
+    },
+    {
+      "name": "Men Samit",
+      "distance": 29.29632082809205
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 30.309181519384516
+    },
+    {
+      "name": "Fali",
+      "distance": 32.600400807543764
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 33.077678462975605
+    },
+    {
+      "name": "Col 285 Sector XV-L c8-18",
+      "distance": 33.72519342976405
+    }
+  ],
+  "HIP 54529": [
+    {
+      "name": "Col 285 Sector JX-T d3-84",
+      "distance": 7.754912757407397
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-87",
+      "distance": 9.95708565231313
+    },
+    {
+      "name": "HR 4429",
+      "distance": 13.664113868542666
+    },
+    {
+      "name": "Patora",
+      "distance": 23.954220661503477
+    },
+    {
+      "name": "Nujemana",
+      "distance": 24.513508712034678
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 25.270972880213773
+    },
+    {
+      "name": "Watistha",
+      "distance": 29.50383979247447
+    },
+    {
+      "name": "HIP 44463",
+      "distance": 29.78308624979117
+    },
+    {
+      "name": "Coritini",
+      "distance": 30.6983973777541
+    },
+    {
+      "name": "Bhumato",
+      "distance": 31.078686677930907
+    },
+    {
+      "name": "Kamandu",
+      "distance": 32.90690289000926
+    }
+  ],
+  "Cnephtha": [
+    {
+      "name": "Gliese 9035",
+      "distance": 11.013220038889626
+    },
+    {
+      "name": "Ikpen",
+      "distance": 24.71861172527697
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 29.13990029259709
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 33.26371310264385
+    }
+  ],
+  "Pegasi Sector BL-X c1-25": [
+    {
+      "name": "HIP 117029",
+      "distance": 21.186232447334756
+    },
+    {
+      "name": "Dakinn",
+      "distance": 21.331667517156273
+    },
+    {
+      "name": "Bedimo",
+      "distance": 23.610217762919934
+    },
+    {
+      "name": "Allo",
+      "distance": 28.477461619893372
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 33.93529861644804
+    }
+  ],
+  "Gliese 506.2": [
+    {
+      "name": "Watistha",
+      "distance": 18.64213766913548
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-84",
+      "distance": 19.031224343168255
+    },
+    {
+      "name": "Hoduma",
+      "distance": 19.82366109129441
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 20.996558497763388
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-87",
+      "distance": 23.378279348842163
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 25.979916371834225
+    },
+    {
+      "name": "HR 4429",
+      "distance": 26.902039449872568
+    },
+    {
+      "name": "Coritini",
+      "distance": 28.262873864179134
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 29.275579760484675
+    },
+    {
+      "name": "Huile",
+      "distance": 30.423861163977854
+    },
+    {
+      "name": "Nujemana",
+      "distance": 30.621237013713213
+    },
+    {
+      "name": "Patora",
+      "distance": 31.909203462715894
+    },
+    {
+      "name": "Ikpen",
+      "distance": 32.606571064165884
+    },
+    {
+      "name": "Khona",
+      "distance": 32.86639918385493
+    }
+  ],
+  "Dvorotri": [
+    {
+      "name": "HIP 8825",
+      "distance": 21.695648685277884
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 21.723335846791578
+    },
+    {
+      "name": "T'ienimi",
+      "distance": 33.93610436817255
+    }
+  ],
+  "Tarasa": [
+    {
+      "name": "Lucab Ku",
+      "distance": 31.407182821967652
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 33.58342864699047
+    }
+  ],
+  "Wikmeang": [
+    {
+      "name": "HIP 109479",
+      "distance": 13.388172543797753
+    },
+    {
+      "name": "Fali",
+      "distance": 22.95311968175568
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 27.676458012632324
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 29.606237465692935
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 30.258731307054166
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 32.33855634629505
+    },
+    {
+      "name": "Miki",
+      "distance": 32.3941937554016
+    },
+    {
+      "name": "Cileni",
+      "distance": 32.53258582752069
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 33.003595329713704
+    }
+  ],
+  "Ross 667": [
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 29.76611302093372
+    },
+    {
+      "name": "Allo",
+      "distance": 31.77602587348676
+    }
+  ],
+  "Hajangerni": [
+    {
+      "name": "HIP 109479",
+      "distance": 15.190393242934825
+    },
+    {
+      "name": "Cileni",
+      "distance": 26.224708798430918
+    },
+    {
+      "name": "Miki",
+      "distance": 26.73535668127508
+    },
+    {
+      "name": "Fali",
+      "distance": 28.372607966355506
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 28.417180240349325
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 29.63274555917828
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 32.095651720677054
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 33.288804893687605
+    }
+  ],
+  "Krinda": [
+    {
+      "name": "HIP 117029",
+      "distance": 19.977966378613214
+    },
+    {
+      "name": "Dakinn",
+      "distance": 26.774776784783846
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 30.204268763909845
+    },
+    {
+      "name": "Allo",
+      "distance": 30.55946431753999
+    },
+    {
+      "name": "Bedimo",
+      "distance": 33.2308744336498
+    }
+  ],
+  "Kashis": [
+    {
+      "name": "HIP 117029",
+      "distance": 30.911431567666032
+    }
+  ],
+  "Chelka": [
+    {
+      "name": "Ikpen",
+      "distance": 10.264281209612292
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 12.58696312161913
+    },
+    {
+      "name": "Huile",
+      "distance": 22.424591516625224
+    },
+    {
+      "name": "Liu Huang",
+      "distance": 28.254286179268448
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 28.982180678392716
+    },
+    {
+      "name": "Lyncis Sector UZ-P b5-4",
+      "distance": 31.08947834979706
+    },
+    {
+      "name": "Muncheim",
+      "distance": 33.22076369719697
+    }
+  ],
+  "Yi Trica": [
+    {
+      "name": "Ikpen",
+      "distance": 16.798204889213608
+    },
+    {
+      "name": "Huile",
+      "distance": 20.642866314722383
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 21.679888794110546
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 27.810902341752595
+    },
+    {
+      "name": "Bhumato",
+      "distance": 27.822557872390167
+    },
+    {
+      "name": "Nyiko Oh",
+      "distance": 28.674595409089907
+    },
+    {
+      "name": "Lyncis Sector UZ-P b5-4",
+      "distance": 30.43019997161537
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 31.671439470365094
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 31.821815311001664
+    },
+    {
+      "name": "Hoduma",
+      "distance": 32.42879820660951
+    }
+  ],
+  "Machadan": [
+    {
+      "name": "Wolf 959",
+      "distance": 28.774598851460986
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 29.400686907366637
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 29.825812672289416
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 31.03552966460376
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 32.31416219129006
+    },
+    {
+      "name": "Kato",
+      "distance": 32.74351378994778
+    }
+  ],
+  "Kabijao": [
+    {
+      "name": "Allo",
+      "distance": 22.251996925837915
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 25.74184488580801
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 29.035101332266777
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 30.799883319584183
+    },
+    {
+      "name": "Malgal",
+      "distance": 31.563722129804336
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 32.27144696264021
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 32.8659237708679
+    }
+  ],
+  "HR 8133": [
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 17.936002768523984
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 20.857262299376686
+    },
+    {
+      "name": "Fali",
+      "distance": 20.95067216254648
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 21.401984063983413
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 23.658458450414727
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 25.31275077036275
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 26.36629743868107
+    },
+    {
+      "name": "Undadja",
+      "distance": 26.53461771912307
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 26.554153100315588
+    },
+    {
+      "name": "Ardraj",
+      "distance": 27.287585175084658
+    },
+    {
+      "name": "Muri",
+      "distance": 28.650404938237784
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 30.27397680971233
+    },
+    {
+      "name": "Gui Wande",
+      "distance": 30.881230393638788
+    },
+    {
+      "name": "Lelae",
+      "distance": 31.637179596362568
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 32.25364865503592
+    }
+  ],
+  "Haiden": [
+    {
+      "name": "Dakinn",
+      "distance": 18.713923626540748
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 18.934250958910415
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 19.29833623010025
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 22.623553993846766
+    },
+    {
+      "name": "Chakyum",
+      "distance": 23.98660922004192
+    },
+    {
+      "name": "HIP 115473",
+      "distance": 24.238117256193807
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 26.99806489014537
+    },
+    {
+      "name": "Allo",
+      "distance": 27.12273176000161
+    },
+    {
+      "name": "Bedimo",
+      "distance": 28.121076115166716
+    },
+    {
+      "name": "Tzotz",
+      "distance": 28.934614461964063
+    },
+    {
+      "name": "Cileni",
+      "distance": 30.243478119257382
+    },
+    {
+      "name": "Malgal",
+      "distance": 31.23584054215606
+    },
+    {
+      "name": "Ngolite",
+      "distance": 31.978019794852838
+    },
+    {
+      "name": "Dallenja",
+      "distance": 32.571031152121975
+    }
+  ],
+  "Cephei Sector BA-A d85": [
+    {
+      "name": "HIP 2453",
+      "distance": 20.39729895568283
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 22.809289157599803
+    },
+    {
+      "name": "Hsini",
+      "distance": 26.14971543224706
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 26.438331103957754
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 28.17145469043088
+    },
+    {
+      "name": "Chiboneskhe",
+      "distance": 28.72696087737093
+    },
+    {
+      "name": "Cileni",
+      "distance": 29.227588903722456
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 31.363247923525076
+    },
+    {
+      "name": "Miki",
+      "distance": 31.514676020665355
+    }
+  ],
+  "Can Nik": [
+    {
+      "name": "HIP 109479",
+      "distance": 27.0416887358667
+    },
+    {
+      "name": "Fali",
+      "distance": 28.58908773465848
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 29.128185179907792
+    }
+  ],
+  "Omanmatho": [
+    {
+      "name": "Kutkhab",
+      "distance": 17.232724592327237
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 18.07376919218844
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 24.904916840104086
+    },
+    {
+      "name": "Kato",
+      "distance": 25.617929664836307
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 26.376592072801976
+    },
+    {
+      "name": "Lelae",
+      "distance": 28.62851370356135
+    },
+    {
+      "name": "33 Cygni",
+      "distance": 28.686972353535324
+    },
+    {
+      "name": "Chlevit",
+      "distance": 29.718092789788848
+    },
+    {
+      "name": "Tsui",
+      "distance": 30.77750611749594
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 30.958405184416396
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 31.366984160299822
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 33.02236458068986
+    }
+  ],
+  "Jungkurara": [
+    {
+      "name": "Nyikoku",
+      "distance": 27.32876375039676
+    },
+    {
+      "name": "Kato",
+      "distance": 28.99035063064088
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 29.057089550142493
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 29.70672075158246
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 33.49327999297023
+    }
+  ],
+  "Col 285 Sector SE-P c6-19": [
+    {
+      "name": "Gliese 9035",
+      "distance": 24.917618170934798
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 25.057862725599723
+    },
+    {
+      "name": "Lyncis Sector RO-R b4-5",
+      "distance": 29.78185663075759
+    },
+    {
+      "name": "Kawirun",
+      "distance": 31.914206892268215
+    },
+    {
+      "name": "Drevlyan",
+      "distance": 33.25005874054962
+    },
+    {
+      "name": "T'ienimi",
+      "distance": 33.30776525920795
+    }
+  ],
+  "Halbarapii": [
+    {
+      "name": "Kutkhab",
+      "distance": 10.88280969580007
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 15.09737275364492
+    },
+    {
+      "name": "Lelae",
+      "distance": 22.245215426581062
+    },
+    {
+      "name": "33 Cygni",
+      "distance": 23.45984351636856
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 23.635435030108923
+    },
+    {
+      "name": "Kato",
+      "distance": 23.66582534082638
+    },
+    {
+      "name": "Tsui",
+      "distance": 24.075422666331324
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 25.823355768083278
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 28.203172610763136
+    },
+    {
+      "name": "Chlevit",
+      "distance": 29.27784798806941
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 29.87926551661704
+    },
+    {
+      "name": "Muri",
+      "distance": 30.662811479257737
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 33.378935278293405
+    }
+  ],
+  "Jetes": [
+    {
+      "name": "HIP 109479",
+      "distance": 22.133781802371686
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 25.88943211645439
+    }
+  ],
+  "Kongi": [
+    {
+      "name": "HIP 109479",
+      "distance": 26.967301525412214
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 30.39818752306624
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 31.438400832023884
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 33.44534078631133
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 33.95782367971334
+    }
+  ],
+  "Hraeango": [
+    {
+      "name": "Allo",
+      "distance": 16.266187850492198
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 22.053512687891697
+    },
+    {
+      "name": "Pegasi Sector BQ-Y d75",
+      "distance": 23.678593312314817
+    },
+    {
+      "name": "Malgal",
+      "distance": 25.76992175361617
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 27.725443103988436
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 28.42707569927832
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 29.035235867390504
+    },
+    {
+      "name": "Malparci",
+      "distance": 31.77295245664935
+    },
+    {
+      "name": "Zemlia",
+      "distance": 33.86222660465493
+    }
+  ],
+  "Kaititja": [
+    {
+      "name": "HIP 117029",
+      "distance": 9.285825892186434
+    },
+    {
+      "name": "Dakinn",
+      "distance": 18.84279122768174
+    },
+    {
+      "name": "Bedimo",
+      "distance": 24.709602447732745
+    },
+    {
+      "name": "Cileni",
+      "distance": 30.613263057047675
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 31.17844933804438
+    }
+  ],
+  "Sawahinn": [
+    {
+      "name": "Allo",
+      "distance": 28.424688047980403
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 32.550591632488036
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 33.972889582172726
+    }
+  ],
+  "HIP 111496": [
+    {
+      "name": "HIP 109479",
+      "distance": 18.642032899472095
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 26.767973663736672
+    },
+    {
+      "name": "Cileni",
+      "distance": 27.9855745485509
+    },
+    {
+      "name": "Miki",
+      "distance": 29.0246056713093
+    },
+    {
+      "name": "Fali",
+      "distance": 30.70895698428229
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 31.071175850778484
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 32.98836797834958
+    }
+  ],
+  "Nyamad": [
+    {
+      "name": "Wat Saman",
+      "distance": 17.21557366347401
+    },
+    {
+      "name": "Tzotz",
+      "distance": 24.3550599529646
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 25.090052654139647
+    },
+    {
+      "name": "Muri",
+      "distance": 26.283776632411485
+    },
+    {
+      "name": "Chakyum",
+      "distance": 26.770582035137004
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 27.12345185674198
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 30.108479001977166
+    },
+    {
+      "name": "Gui Wande",
+      "distance": 30.625079719284
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 30.853516057736435
+    },
+    {
+      "name": "Ardraj",
+      "distance": 31.933677608834845
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 31.97632486016021
+    },
+    {
+      "name": "Cileni",
+      "distance": 32.17563494905734
+    },
+    {
+      "name": "Rajuar",
+      "distance": 33.405723803152355
+    },
+    {
+      "name": "Pegasi Sector JX-S b4-9",
+      "distance": 33.55471569410923
+    }
+  ],
+  "Wanggu": [
+    {
+      "name": "HIP 109479",
+      "distance": 10.380410863135427
+    },
+    {
+      "name": "Fali",
+      "distance": 12.393452152245557
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 17.410429255908657
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 22.591070034695125
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 28.910624668969017
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 29.048131528766184
+    },
+    {
+      "name": "Batani",
+      "distance": 29.461707138249814
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 29.63991251779431
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 29.9883115250759
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 31.156704485150545
+    },
+    {
+      "name": "Undadja",
+      "distance": 31.165025093243546
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 31.785674470781643
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 31.975897294876653
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 32.0470997371447
+    }
+  ],
+  "Kavalan": [
+    {
+      "name": "HIP 109479",
+      "distance": 23.352596215410397
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 27.29322117074128
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 28.915387069430697
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 30.250823206774058
+    },
+    {
+      "name": "Fali",
+      "distance": 30.407309847921436
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 33.13569992281739
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 33.2707436468213
+    },
+    {
+      "name": "Muri",
+      "distance": 33.36320601538467
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 33.97004367361779
+    }
+  ],
+  "Goplatrugba": [
+    {
+      "name": "Lucab Ku",
+      "distance": 22.233513027915762
+    },
+    {
+      "name": "Fali",
+      "distance": 25.15737575120863
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 26.038376875537
+    },
+    {
+      "name": "Chlevit",
+      "distance": 29.02864291307811
+    },
+    {
+      "name": "Batani",
+      "distance": 29.52572699676504
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 30.261700345692738
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 31.35340703675599
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 33.22143980173045
+    }
+  ],
+  "Rishnum": [
+    {
+      "name": "HIP 109479",
+      "distance": 17.413317685395278
+    },
+    {
+      "name": "Fali",
+      "distance": 24.25599958000082
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 28.45095835380594
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 28.569285982721023
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 29.01612563515329
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 31.284496584770228
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 33.90201586465766
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 33.95287692615311
+    }
+  ],
+  "Azalai": [
+    {
+      "name": "Kutkhab",
+      "distance": 7.977385027375825
+    },
+    {
+      "name": "Lelae",
+      "distance": 10.702566135044437
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 10.870554048092488
+    },
+    {
+      "name": "33 Cygni",
+      "distance": 14.207825473572653
+    },
+    {
+      "name": "Tsui",
+      "distance": 15.425254505598927
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 20.61005613923698
+    },
+    {
+      "name": "Muri",
+      "distance": 26.241981662262095
+    },
+    {
+      "name": "Cephei Sector FG-Y d71",
+      "distance": 26.80240923172766
+    },
+    {
+      "name": "Epomalinii",
+      "distance": 27.522593701584523
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 28.31458670566286
+    },
+    {
+      "name": "Kato",
+      "distance": 28.64534279883032
+    },
+    {
+      "name": "Chlevit",
+      "distance": 28.800312633936805
+    },
+    {
+      "name": "Gui Wande",
+      "distance": 30.176709380953053
+    },
+    {
+      "name": "Wolf 1112",
+      "distance": 30.827820101127813
+    },
+    {
+      "name": "Ardraj",
+      "distance": 30.866458838843176
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 31.202604683944255
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 31.641963706247754
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 32.16030404473813
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 32.24653263821554
+    },
+    {
+      "name": "Svantetit",
+      "distance": 32.775961799388895
+    },
+    {
+      "name": "Col 285 Sector OY-R d4-76",
+      "distance": 33.199812334748216
+    }
+  ],
+  "Chentrima": [
+    {
+      "name": "Ao Kach",
+      "distance": 15.345022859627809
+    },
+    {
+      "name": "Bhumato",
+      "distance": 16.47876830007328
+    },
+    {
+      "name": "Huile",
+      "distance": 18.514273421133762
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 18.86581419691448
+    },
+    {
+      "name": "Lyncis Sector UZ-P b5-4",
+      "distance": 21.035242934477843
+    },
+    {
+      "name": "Ikpen",
+      "distance": 23.85777356282434
+    },
+    {
+      "name": "Kamandu",
+      "distance": 24.905877506624815
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 26.117111548274245
+    },
+    {
+      "name": "Gliese 9035",
+      "distance": 27.446930326996497
+    },
+    {
+      "name": "Patora",
+      "distance": 28.69228241727207
+    },
+    {
+      "name": "Barueker",
+      "distance": 29.285718709167785
+    },
+    {
+      "name": "HIP 44463",
+      "distance": 29.697860034436825
+    },
+    {
+      "name": "Nujemana",
+      "distance": 32.02313921701775
+    },
+    {
+      "name": "Catucandit",
+      "distance": 33.748191502471656
+    }
+  ],
+  "Payatamu": [
+    {
+      "name": "Lucab Ku",
+      "distance": 16.31408636922399
+    },
+    {
+      "name": "Fali",
+      "distance": 18.363117969519774
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 22.430861657268096
+    },
+    {
+      "name": "Batani",
+      "distance": 22.4589251815954
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 23.60411610026946
+    },
+    {
+      "name": "Chlevit",
+      "distance": 24.716873348484025
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 24.931801510570793
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 27.53914117896562
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 28.02133673649421
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 28.072694417796807
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 29.18811897095289
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 29.75369265423201
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 29.97293701199467
+    },
+    {
+      "name": "Men Samit",
+      "distance": 31.65159146374002
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 32.25735744562781
+    },
+    {
+      "name": "Mulano",
+      "distance": 33.151360384040046
+    }
+  ],
+  "Cephei Sector CQ-Y b2": [
+    {
+      "name": "HIP 2453",
+      "distance": 11.631424635980753
+    },
+    {
+      "name": "Hsini",
+      "distance": 17.497795620091694
+    },
+    {
+      "name": "Chiboneskhe",
+      "distance": 21.016595005495063
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 21.51384910063748
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 22.201074192761485
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 27.330210933827424
+    },
+    {
+      "name": "Gamatcho",
+      "distance": 29.623450645139233
+    },
+    {
+      "name": "Cileni",
+      "distance": 30.012106932036613
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 30.27542836195716
+    },
+    {
+      "name": "HIP 11111",
+      "distance": 30.938289131349848
+    },
+    {
+      "name": "Miki",
+      "distance": 31.369474737593233
+    },
+    {
+      "name": "Muncheim",
+      "distance": 33.50784073355071
+    }
+  ],
+  "Col 285 Sector VK-N c7-22": [
+    {
+      "name": "Nyikoku",
+      "distance": 14.378600092672443
+    },
+    {
+      "name": "Kato",
+      "distance": 17.924238346788965
+    },
+    {
+      "name": "Chlevit",
+      "distance": 22.7927354449285
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 29.540127633864415
+    },
+    {
+      "name": "Parezmia",
+      "distance": 30.653143955800033
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 30.934864155391082
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 33.51184783494488
+    }
+  ],
+  "Col 285 Sector KZ-C b14-1": [
+    {
+      "name": "Nyiko Oh",
+      "distance": 12.886107162851783
+    },
+    {
+      "name": "Hoduma",
+      "distance": 15.152899114113444
+    },
+    {
+      "name": "Sevelitchit",
+      "distance": 16.74924205374679
+    },
+    {
+      "name": "Watistha",
+      "distance": 25.055329398153997
+    },
+    {
+      "name": "HIP 82886",
+      "distance": 29.521079597890726
+    },
+    {
+      "name": "HIP 80122",
+      "distance": 30.576204749363516
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 31.82963990626504
+    },
+    {
+      "name": "Ikpen",
+      "distance": 32.30341688099728
+    }
+  ],
+  "HIP 108602": [
+    {
+      "name": "Wolf 959",
+      "distance": 8.966408666517493
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 14.227778726842782
+    },
+    {
+      "name": "Tzotz",
+      "distance": 22.36936905402117
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 23.847108216983038
+    },
+    {
+      "name": "Malparci",
+      "distance": 23.925604910064447
+    },
+    {
+      "name": "Chakyum",
+      "distance": 26.07375731099183
+    },
+    {
+      "name": "Muri",
+      "distance": 26.3120175133911
+    },
+    {
+      "name": "Pegasi Sector JX-S b4-9",
+      "distance": 27.480248588759164
+    },
+    {
+      "name": "Allo",
+      "distance": 27.603692999080756
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 30.051615753150447
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 30.147246065146646
+    },
+    {
+      "name": "Rajuar",
+      "distance": 31.566305463658555
+    },
+    {
+      "name": "Gui Wande",
+      "distance": 31.68167476041947
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-12",
+      "distance": 31.808463029711135
+    },
+    {
+      "name": "Lelae",
+      "distance": 32.833639024063416
+    },
+    {
+      "name": "Pegasi Sector HM-V c2-16",
+      "distance": 33.75720409223785
+    }
+  ],
+  "Chankopa": [
+    {
+      "name": "Kutkhab",
+      "distance": 17.34048392671035
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 19.575624590929404
+    },
+    {
+      "name": "Lelae",
+      "distance": 22.118665230128602
+    },
+    {
+      "name": "Tsui",
+      "distance": 22.719631172732537
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 24.242850911402726
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 25.462748526033085
+    },
+    {
+      "name": "Lakshma",
+      "distance": 26.715533432115855
+    },
+    {
+      "name": "Kato",
+      "distance": 27.214462205323844
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 27.37275247623081
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 27.85723228579968
+    },
+    {
+      "name": "Malparci",
+      "distance": 28.855969784214498
+    },
+    {
+      "name": "33 Cygni",
+      "distance": 29.11960116270482
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-12",
+      "distance": 29.2609988668791
+    },
+    {
+      "name": "Muri",
+      "distance": 29.754562412762855
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 31.029991162784754
+    },
+    {
+      "name": "Pegasi Sector JX-S b4-9",
+      "distance": 32.23318965949538
+    },
+    {
+      "name": "Tzotz",
+      "distance": 32.31651933415788
+    }
+  ],
+  "Waluk": [
+    {
+      "name": "Nyikoku",
+      "distance": 14.959776798969964
+    },
+    {
+      "name": "Kato",
+      "distance": 16.590983761896098
+    },
+    {
+      "name": "Chlevit",
+      "distance": 16.628377241556073
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 23.766647126277615
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 24.29656852700603
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 27.160636872365494
+    },
+    {
+      "name": "33 Cygni",
+      "distance": 29.852060361263174
+    },
+    {
+      "name": "Epomalinii",
+      "distance": 31.272164015102952
+    },
+    {
+      "name": "Tsui",
+      "distance": 32.055630964972444
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 33.25552115814756
+    }
+  ],
+  "HIP 34235": [
+    {
+      "name": "Kamandu",
+      "distance": 11.217879492689338
+    },
+    {
+      "name": "Bhumato",
+      "distance": 13.574663324554315
+    },
+    {
+      "name": "Ao Kach",
+      "distance": 20.538502334031076
+    },
+    {
+      "name": "Lyncis Sector EW-W c1-13",
+      "distance": 22.45533761714573
+    },
+    {
+      "name": "Patora",
+      "distance": 27.119239019559526
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-87",
+      "distance": 27.130381810573546
+    },
+    {
+      "name": "Col 285 Sector JX-T d3-84",
+      "distance": 28.314121090455906
+    },
+    {
+      "name": "HIP 31272",
+      "distance": 28.577522717819683
+    },
+    {
+      "name": "HR 4429",
+      "distance": 29.623895680894165
+    },
+    {
+      "name": "HIP 46298",
+      "distance": 30.213384994278613
+    },
+    {
+      "name": "Nujemana",
+      "distance": 32.58801183909506
+    },
+    {
+      "name": "HIP 22703",
+      "distance": 33.042438384220375
+    },
+    {
+      "name": "Barueker",
+      "distance": 33.08467474715446
+    }
+  ],
+  "Kume": [
+    {
+      "name": "Lucab Ku",
+      "distance": 17.03557857837532
+    },
+    {
+      "name": "Fali",
+      "distance": 18.35335672635935
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 21.681713024747374
+    },
+    {
+      "name": "Batani",
+      "distance": 22.801495633510534
+    },
+    {
+      "name": "Chlevit",
+      "distance": 23.755159801346316
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 24.003702513883145
+    },
+    {
+      "name": "Malanquiya",
+      "distance": 25.480863683605783
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 25.950222783244076
+    },
+    {
+      "name": "Cephei Sector HR-W c1-15",
+      "distance": 26.07267112682358
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 27.451395257117625
+    },
+    {
+      "name": "Nuguynici",
+      "distance": 28.560875911156856
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 29.293570646986687
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 30.592137981023818
+    },
+    {
+      "name": "Men Samit",
+      "distance": 32.782575640498415
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 33.258589703451044
+    },
+    {
+      "name": "Mulano",
+      "distance": 33.532313007381404
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 33.89773798684803
+    }
+  ],
+  "Pents": [
+    {
+      "name": "Dakinn",
+      "distance": 17.23295126712195
+    },
+    {
+      "name": "Bedimo",
+      "distance": 18.573597272068756
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 19.736595530257997
+    },
+    {
+      "name": "Allo",
+      "distance": 29.183250493647893
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 31.35722230404026
+    }
+  ],
+  "HIP 101613": [
+    {
+      "name": "Parezmia",
+      "distance": 13.053563031314477
+    },
+    {
+      "name": "Col 285 Sector KS-T d3-92",
+      "distance": 17.301045398327812
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 29.805177953041984
+    },
+    {
+      "name": "Kato",
+      "distance": 33.8045565992959
+    }
+  ],
+  "HIP 6596": [
+    {
+      "name": "Cao Junga",
+      "distance": 3.3578848439158837
+    },
+    {
+      "name": "Maipaera",
+      "distance": 12.372356093828694
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 25.232202886391033
+    },
+    {
+      "name": "T'ienimi",
+      "distance": 25.53706329166492
+    },
+    {
+      "name": "Kidi",
+      "distance": 28.16387937700522
+    },
+    {
+      "name": "Oretes",
+      "distance": 30.045034557518818
+    },
+    {
+      "name": "Hyades Sector GX-T c3-2",
+      "distance": 33.3743855280513
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 33.51540282560393
+    }
+  ],
+  "Pegasi Sector FR-U b3-9": [
+    {
+      "name": "HIP 114512",
+      "distance": 13.544811333588225
+    },
+    {
+      "name": "Chakyum",
+      "distance": 16.997730776856656
+    },
+    {
+      "name": "HIP 115473",
+      "distance": 17.93654723079389
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 20.44452287594406
+    },
+    {
+      "name": "Dakinn",
+      "distance": 22.57096015209588
+    },
+    {
+      "name": "Ngolite",
+      "distance": 22.72240342013802
+    },
+    {
+      "name": "Tzotz",
+      "distance": 24.24577121633791
+    },
+    {
+      "name": "Dallenja",
+      "distance": 24.27765015142528
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 25.86680878800089
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 26.676062390980796
+    },
+    {
+      "name": "Ixbaksha",
+      "distance": 27.51993240703
+    },
+    {
+      "name": "Sivaci",
+      "distance": 28.619421536126477
+    },
+    {
+      "name": "Allo",
+      "distance": 28.743154755741408
+    },
+    {
+      "name": "Malgal",
+      "distance": 29.80642299173955
+    },
+    {
+      "name": "Cileni",
+      "distance": 31.424807949890482
+    },
+    {
+      "name": "HIP 115277",
+      "distance": 31.890896771257466
+    },
+    {
+      "name": "Malparci",
+      "distance": 32.097796726372046
+    },
+    {
+      "name": "Taiowahungu",
+      "distance": 32.738637103199636
+    },
+    {
+      "name": "Rajuar",
+      "distance": 33.234371326986164
+    }
+  ],
+  "Aowicha": [
+    {
+      "name": "Gliese 9035",
+      "distance": 6.79556381031037
+    },
+    {
+      "name": "Ikpen",
+      "distance": 21.724886722949787
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 22.584109284793588
+    },
+    {
+      "name": "Muncheim",
+      "distance": 23.79026192583848
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 26.69275050809676
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 29.724861359012255
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 30.699351708342313
+    }
+  ],
+  "Backlumba": [
+    {
+      "name": "Bedimo",
+      "distance": 29.216493896855592
+    },
+    {
+      "name": "Dakinn",
+      "distance": 33.97635321992341
+    }
+  ],
+  "Aspel": [
+    {
+      "name": "Dakinn",
+      "distance": 14.570578499582643
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 16.446201356620318
+    },
+    {
+      "name": "Bedimo",
+      "distance": 21.064702221666938
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 24.260890756781787
+    },
+    {
+      "name": "Allo",
+      "distance": 25.05920723381927
+    },
+    {
+      "name": "HIP 115473",
+      "distance": 30.376719987311006
+    },
+    {
+      "name": "Malgal",
+      "distance": 31.34814276296923
+    }
+  ],
+  "Col 285 Sector UZ-O c6-12": [
+    {
+      "name": "Cao Junga",
+      "distance": 13.382481844280605
+    },
+    {
+      "name": "Maipaera",
+      "distance": 17.06827969875699
+    },
+    {
+      "name": "Kidi",
+      "distance": 22.28771382398832
+    },
+    {
+      "name": "Oretes",
+      "distance": 25.342150843505767
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 29.588997770497397
+    },
+    {
+      "name": "Hyades Sector GH-V d2-97",
+      "distance": 32.49223164369447
+    }
+  ],
+  "Cephei Sector DL-Y c16": [
+    {
+      "name": "Lucab Ku",
+      "distance": 11.346332350698177
+    },
+    {
+      "name": "Fali",
+      "distance": 14.98003228259205
+    },
+    {
+      "name": "Cephei Sector FM-V b2-1",
+      "distance": 17.375252920821037
+    },
+    {
+      "name": "60 Tau Draconis",
+      "distance": 20.96670071953382
+    },
+    {
+      "name": "Batani",
+      "distance": 22.283222212855573
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 25.597088457478907
+    },
+    {
+      "name": "Men Samit",
+      "distance": 26.47258679393648
+    },
+    {
+      "name": "Onduwatya",
+      "distance": 26.497088578275918
+    },
+    {
+      "name": "Haidjaram",
+      "distance": 28.142234302956474
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 30.981376714487688
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 31.68820881850219
+    },
+    {
+      "name": "Chlevit",
+      "distance": 32.900447612836516
+    },
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 33.186161107643954
+    }
+  ],
+  "Pegasi Sector FR-V c2-23": [
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 8.604141444676511
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 18.253023080095527
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 23.31304456468524
+    },
+    {
+      "name": "Malparci",
+      "distance": 26.639429042070326
+    },
+    {
+      "name": "Kato",
+      "distance": 27.2919330457738
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 29.55267080252646
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 29.851864080196066
+    },
+    {
+      "name": "Allo",
+      "distance": 30.582128793831536
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 31.030117048804374
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-12",
+      "distance": 32.020181014283786
+    }
+  ],
+  "Rauratunab": [
+    {
+      "name": "Miki",
+      "distance": 14.170763807043006
+    },
+    {
+      "name": "Cileni",
+      "distance": 14.64665197451281
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 18.564236029931315
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 21.165595240271415
+    },
+    {
+      "name": "HR 8474",
+      "distance": 27.74512555724879
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 28.43051081694629
+    },
+    {
+      "name": "Hsini",
+      "distance": 30.406522994663497
+    }
+  ],
+  "Sun Aphu": [
+    {
+      "name": "Wolf 959",
+      "distance": 17.852969378369526
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 20.285318351581274
+    },
+    {
+      "name": "Allo",
+      "distance": 20.685210409553488
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 22.05774116523494
+    },
+    {
+      "name": "Malparci",
+      "distance": 25.802529097212545
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 27.366793861356868
+    },
+    {
+      "name": "Malgal",
+      "distance": 28.63896698010422
+    },
+    {
+      "name": "Pegasi Sector BQ-Y d75",
+      "distance": 30.393898441957063
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 33.68936973011665
+    }
+  ],
+  "Mehua": [
+    {
+      "name": "HIP 109479",
+      "distance": 12.785413441692059
+    },
+    {
+      "name": "Fali",
+      "distance": 25.242592508744025
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 27.133747149536866
+    },
+    {
+      "name": "Lucab Ku",
+      "distance": 28.82580021113898
+    },
+    {
+      "name": "HIP 105557",
+      "distance": 29.504038388837554
+    }
+  ],
+  "Col 285 Sector UZ-O c6-10": [
+    {
+      "name": "Cao Junga",
+      "distance": 19.031275656797156
+    },
+    {
+      "name": "Maipaera",
+      "distance": 19.707455164543696
+    },
+    {
+      "name": "Kidi",
+      "distance": 23.91392850542336
+    },
+    {
+      "name": "Oretes",
+      "distance": 25.39756155248964
+    },
+    {
+      "name": "Hyades Sector GH-V d2-97",
+      "distance": 31.147425405240156
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 31.963419032544063
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 32.08322003497311
+    }
+  ],
+  "9 Lacertae": [
+    {
+      "name": "Allo",
+      "distance": 6.17533526417797
+    },
+    {
+      "name": "Malgal",
+      "distance": 15.628187174941308
+    },
+    {
+      "name": "Pegasi Sector BQ-Y d75",
+      "distance": 17.173659199847307
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 23.233487079536726
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 23.433937229208837
+    },
+    {
+      "name": "Malparci",
+      "distance": 24.00024413938325
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 26.681973959491827
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 27.27297984613159
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 29.61276778055371
+    },
+    {
+      "name": "Koamuth",
+      "distance": 29.895096535636075
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 32.55897593694402
+    },
+    {
+      "name": "Dakinn",
+      "distance": 33.48162975797325
+    }
+  ],
+  "Korai": [
+    {
+      "name": "Col 285 Sector TG-Z b15-2",
+      "distance": 8.624320625417402
+    },
+    {
+      "name": "Lalande 34968",
+      "distance": 12.062419041179096
+    },
+    {
+      "name": "Chiela",
+      "distance": 17.50839642321649
+    },
+    {
+      "name": "Chlevit",
+      "distance": 23.34128166334274
+    },
+    {
+      "name": "Col 285 Sector RL-Z b15-3",
+      "distance": 24.915501732104453
+    },
+    {
+      "name": "Col 285 Sector XV-L c8-18",
+      "distance": 26.310254506323194
+    },
+    {
+      "name": "Mulano",
+      "distance": 26.60757205430439
+    },
+    {
+      "name": "Ari He",
+      "distance": 27.751143698278455
+    },
+    {
+      "name": "HIP 86568",
+      "distance": 29.757630980346875
+    },
+    {
+      "name": "HIP 89911",
+      "distance": 30.135306846786875
+    },
+    {
+      "name": "Col 285 Sector VR-X b16-2",
+      "distance": 30.693832086023406
+    },
+    {
+      "name": "68 Draconis",
+      "distance": 33.30298585994205
+    },
+    {
+      "name": "54 Draconis",
+      "distance": 33.86263035227771
+    }
+  ],
+  "Pi Dimshi": [
+    {
+      "name": "Maipaera",
+      "distance": 18.843257663551704
+    },
+    {
+      "name": "Cao Junga",
+      "distance": 19.78213860563362
+    },
+    {
+      "name": "Kidi",
+      "distance": 22.486410826874973
+    },
+    {
+      "name": "Oretes",
+      "distance": 23.339503462477516
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 27.75369485537016
+    },
+    {
+      "name": "Hyades Sector GH-V d2-97",
+      "distance": 28.84808336896058
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 30.48672546679128
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 30.57467165604563
+    }
+  ],
+  "Col 285 Sector UZ-O c6-23": [
+    {
+      "name": "Oretes",
+      "distance": 22.895248039986377
+    },
+    {
+      "name": "Kidi",
+      "distance": 22.93385955443392
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 23.906658493242002
+    },
+    {
+      "name": "Maipaera",
+      "distance": 23.981377052048117
+    },
+    {
+      "name": "Cao Junga",
+      "distance": 26.563455865154292
+    },
+    {
+      "name": "Hyades Sector GH-V d2-97",
+      "distance": 26.618066879001564
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 27.13383712613275
+    },
+    {
+      "name": "Chiboneskhe",
+      "distance": 29.90638061622469
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 33.98238859137186
+    }
+  ],
+  "HIP 3587": [
+    {
+      "name": "Maipaera",
+      "distance": 20.028251530650397
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 21.82749305634983
+    },
+    {
+      "name": "Cao Junga",
+      "distance": 23.53747427640655
+    },
+    {
+      "name": "Chiboneskhe",
+      "distance": 24.314387780180688
+    },
+    {
+      "name": "Hsini",
+      "distance": 26.632132994044994
+    },
+    {
+      "name": "Oretes",
+      "distance": 26.7598915706884
+    },
+    {
+      "name": "Kidi",
+      "distance": 28.33970133708187
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 29.434563945937775
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 29.768524301054963
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 30.233644209514342
+    },
+    {
+      "name": "Hyades Sector GH-V d2-97",
+      "distance": 30.90612360944834
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 31.320638912305093
+    },
+    {
+      "name": "Gamatcho",
+      "distance": 32.325221141934975
+    },
+    {
+      "name": "HIP 9659",
+      "distance": 33.44964732624247
+    }
+  ],
+  "Leschanatya": [
+    {
+      "name": "HIP 117029",
+      "distance": 24.979855164962427
+    },
+    {
+      "name": "HIP 2453",
+      "distance": 25.23533763643752
+    },
+    {
+      "name": "Lalande 2933",
+      "distance": 26.953283514026634
+    },
+    {
+      "name": "Hsini",
+      "distance": 27.672717554931246
+    },
+    {
+      "name": "Chiboneskhe",
+      "distance": 28.334790480300008
+    },
+    {
+      "name": "HIP 8825",
+      "distance": 31.14353740144173
+    },
+    {
+      "name": "Maipaera",
+      "distance": 31.31706865373099
+    },
+    {
+      "name": "HIP 109479",
+      "distance": 32.255722602741365
+    },
+    {
+      "name": "Oretes",
+      "distance": 32.61327914458312
+    }
+  ],
+  "3 Beta Lacertae": [
+    {
+      "name": "Allo",
+      "distance": 11.999064091107273
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 18.13027940352823
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 19.12185942351057
+    },
+    {
+      "name": "Malgal",
+      "distance": 19.809369823709687
+    },
+    {
+      "name": "Malparci",
+      "distance": 21.196831462803587
+    },
+    {
+      "name": "Pegasi Sector BQ-Y d75",
+      "distance": 21.99089833033203
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 22.781442900417876
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 27.851815610701216
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 28.579829261648854
+    },
+    {
+      "name": "Koamuth",
+      "distance": 29.85359785164093
+    },
+    {
+      "name": "Pegasi Sector HM-V c2-16",
+      "distance": 31.833950283070433
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 32.828284893708656
+    }
+  ],
+  "Aje": [
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 11.224624158518628
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 19.877284656423775
+    },
+    {
+      "name": "Allo",
+      "distance": 20.159350536723647
+    },
+    {
+      "name": "HIP 110291",
+      "distance": 22.565637766579965
+    },
+    {
+      "name": "Pegasi Sector BQ-Y d75",
+      "distance": 24.729987173975648
+    },
+    {
+      "name": "Wolf 959",
+      "distance": 26.522285735301924
+    },
+    {
+      "name": "Malparci",
+      "distance": 26.81175334041957
+    },
+    {
+      "name": "Malgal",
+      "distance": 27.18335097651686
+    }
+  ],
+  "HIP 110309": [
+    {
+      "name": "Wolf 959",
+      "distance": 14.322253772538733
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 16.109791762310277
+    },
+    {
+      "name": "Allo",
+      "distance": 23.890803833536033
+    },
+    {
+      "name": "Tzotz",
+      "distance": 24.88367468090274
+    },
+    {
+      "name": "Chakyum",
+      "distance": 25.631192087230357
+    },
+    {
+      "name": "Malparci",
+      "distance": 26.829230648445737
+    },
+    {
+      "name": "Pa Puggsa",
+      "distance": 27.838488560130198
+    },
+    {
+      "name": "Malgal",
+      "distance": 30.015116634164524
+    },
+    {
+      "name": "HIP 114512",
+      "distance": 30.384466760377745
+    },
+    {
+      "name": "Muri",
+      "distance": 31.080571956207628
+    },
+    {
+      "name": "Pegasi Sector JX-S b4-9",
+      "distance": 31.80239893663684
+    },
+    {
+      "name": "HIP 117029",
+      "distance": 32.248228512392735
+    },
+    {
+      "name": "Dakinn",
+      "distance": 33.63514890984578
+    }
+  ],
+  "Ba Pin": [
+    {
+      "name": "Wolf 959",
+      "distance": 26.89218200750917
+    },
+    {
+      "name": "Pegasi Sector FR-V c2-25",
+      "distance": 28.551180743972743
+    },
+    {
+      "name": "Wat Saman",
+      "distance": 30.881641492155172
+    },
+    {
+      "name": "Kutkhab",
+      "distance": 31.45546517002252
+    },
+    {
+      "name": "Nyikoku",
+      "distance": 31.606018883869258
+    },
+    {
+      "name": "Kato",
+      "distance": 32.06143394913896
+    }
+  ],
+  "Kolhynichi": [
+    {
+      "name": "Cao Junga",
+      "distance": 4.486198453312114
+    },
+    {
+      "name": "Maipaera",
+      "distance": 13.50903921916729
+    },
+    {
+      "name": "Hyades Sector NU-N b7-4",
+      "distance": 26.14747463307881
+    },
+    {
+      "name": "T'ienimi",
+      "distance": 27.10919038121574
+    },
+    {
+      "name": "Kidi",
+      "distance": 27.57911205740678
+    },
+    {
+      "name": "Oretes",
+      "distance": 29.905351998011994
+    },
+    {
+      "name": "Hyades Sector GX-T c3-2",
+      "distance": 32.31686684708931
+    }
+  ]
+}

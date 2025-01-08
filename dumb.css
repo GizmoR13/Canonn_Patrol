@@ -404,10 +404,35 @@ select:focus {
 	font-weight: bold;
 	left: 50%;
 	transform: translateX(-50%);
-	top: 89%;
+	top: 80%;
 }
 
 #raportBtn:hover {
+	background-color: #3D4E56;
+}
+
+#raport2Btn {
+	position: absolute;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 0px;
+	background-color: #1E292D;
+	color: #4CAF50;
+	border: 2px solid #506772;
+	cursor: pointer;
+	font-size: 20px;
+	min-width: 250px;
+	height: 40px;
+	border-radius: 5px;
+	font-weight: bold;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 90%;
+}
+
+#raport2Btn:hover {
 	background-color: #3D4E56;
 }
 
@@ -462,6 +487,44 @@ select:focus {
 
 #clearDataBtn.disabled:hover, #clearListBtn.disabled:hover {
 	background-color: #5c5c5c;
+}
+
+#expansionInfoContainer {
+	margin-top: 30px;
+	text-align: center;
+	padding: 15px;
+	background-color: #263238;
+	border: 1px solid #506772;
+	border-radius: 10px;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	display: none;
+}
+
+#expansionInfoContainer th::after {
+	content: none;
+}
+
+#expansionInfoContainer th.sorted-asc::after, 
+#expansionInfoContainer th.sorted-desc::after {
+	display: none !important;
+}
+
+#expansionInfoContainer table {
+	padding: 5px;
+	border-radius: 3px;
+}
+
+#expansionInfoContainer td, #expansionInfoContainer th {
+	padding: 5px;
+	border: 1px solid #000;
+	border-radius: 3px;
 }
 
 #factionInfoContainer {
@@ -549,9 +612,9 @@ select:focus {
 	border-radius: 10px;
 	width: auto;
 	min-width: 1000px;
-	height: 650px;
+	height: 750px;
 	position: absolute;
-	top: 50px;
+	top: -5px;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 1000;

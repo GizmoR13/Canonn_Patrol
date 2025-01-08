@@ -324,7 +324,7 @@ function getDecoded(band) {
 		"$system_security_low;": "Low",
 		"$system_security_medium;": "Medium"
 	};
-	return decodeBands[band] || " ";
+	return decodeBands[band] || band;
 }
 
 // Load and process system data from Elite BGS API
@@ -356,7 +356,8 @@ async function loadAndProcessData() {
 				const systemDetailsData = await fetchData('getSystem', { name: systemName });
 				if (systemDetailsData.docs.length > 0) {
 					const systemDetails = systemDetailsData.docs[0];
-					const latestUpdateTime = new Date(factionInfo.updated_at).getTime() / 1000;
+					let latestUpdateTime;
+				//	const latestUpdateTime = new Date(factionInfo.updated_at).getTime() / 1000;
 					let systemPower = '';
 					let powerState = '';
 					let controlledText = false;
@@ -417,6 +418,18 @@ async function loadAndProcessData() {
 							influenceColor = 1;
 						} else {
 							influenceColor = 0;
+						}
+						if (systemData.factions.find(faction => faction.data && faction.data.length > 0)) {
+							let tmpTime;
+							tmpTime = systemData.factions
+								.map(faction => faction.data)
+								.flat()
+								.reduce((latest, current) => {
+									const latestDate = new Date(latest.factionUpdated);
+									const currentDate = new Date(current.factionUpdated);
+									return currentDate > latestDate ? current : latest;
+								}).factionUpdated;
+							latestUpdateTime = new Date(tmpTime).getTime() / 1000;
 						}
 						if (systemData.factions.find(faction => 
 							faction.data && faction.data.length > 0 &&
@@ -562,6 +575,7 @@ async function loadOthersData(systemName, factionName, factionId, playerFactions
 			}
 			const factionDetails = {
 				influence: (factionPresence.influence * 100).toFixed(1),
+				factionUpdated: factionPresence.updated_at,
 				active_states: factionPresence.active_states.map(state => state.state).join(', ') || '-',
 				pending_states: factionPresence.pending_states.map(state => state.state).join(', ') || '-',
 				recovering_states: factionPresence.recovering_states.map(state => state.state).join(', ') || '-',
@@ -578,6 +592,63 @@ async function loadOthersData(systemName, factionName, factionId, playerFactions
 	}
 	return data;
 }
+
+async function getExpTarget() {
+	let expList = {};
+	const encodedFactionName = selectedFaction.replace(/&/g, '%26');
+	const factionData = await fetchData('GetFaction', { name: encodedFactionName });
+
+	for (const faction of factionData.docs) {
+		for (const factionInfo of faction.faction_presence) {
+			const systemName = factionInfo.system_name;
+			console.log(systemName);
+			let currentPage = 1;
+			let totalPages = 1;
+			while (currentPage <= totalPages) {
+				const params = {
+					referenceSystem: systemName,
+					referenceDistance: 30,
+					page: currentPage
+				};
+				console.log(currentPage);
+				const data = await fetchData('getSystem', params);
+				data.docs.forEach(system => {
+					if (system.distanceFromReferenceSystem > 34) {
+						return;
+					}
+					const factions = system.factions.map(f => f.name.toLowerCase());
+					if (factions.includes(selectedFaction.toLowerCase())) {
+						return;
+					}
+				//	if (system.factions.length >= 7) {
+				//		return;
+				//	}
+					if (!expList[systemName]) {
+						expList[systemName] = [];
+					}
+					expList[systemName].push({
+						name: system.name,
+						factionsCount: system.factions.length,
+						distance: system.distanceFromReferenceSystem
+					});
+				});
+				totalPages = data.pages;
+				currentPage = data.nextPage ? data.nextPage : currentPage + 1;
+			}
+		}
+	}
+	// Tworzenie pliku JSON i umożliwienie jego pobrania
+	const jsonContent = JSON.stringify(expList, null, 2);
+	const blob = new Blob([jsonContent], { type: 'application/json' });
+	const link = document.createElement('a');
+	link.href = URL.createObjectURL(blob);
+	link.download = 'expList.json';
+	link.click();
+
+	console.log('Dane zostały zapisane jako plik expList.json');
+	return expList;
+}
+
 
 // Toggle route checkbox for a system (add/remove it from the route)
 function toggleRoute(systemName, checkbox) {
@@ -1034,6 +1105,17 @@ function populateStartSystemSelect() {
 		option.textContent = system.name;
 		startSystemSelect.appendChild(option);
 	});
+}
+
+async function expansionRaport() {
+	document.getElementById('pageInfoContainer').style.display = 'none';
+	const expansionInfoOutput = document.getElementById('expansionInfoOutput');
+
+	const test = await getExpTarget();
+	
+	console.log(test);
+	document.getElementById('expansionInfoContainer').style.display = 'block';
+
 }
 
 function factionRaport() {
@@ -1573,9 +1655,11 @@ const elementsWithClickListeners = [
 	{ id: 'reloadBtn', action: () => loadAndProcessData() },
 	{ id: 'infoBtn', action: () => info() },
 	{ id: 'raportBtn', action: () => factionRaport() },
+//	{ id: 'raport2Btn', action: () => expansionRaport() },
 	{ id: 'closeRouteBtn', action: () => document.getElementById('routeOutputContainer').style.display = 'none' },
 	{ id: 'closeInfoBtn', action: () => document.getElementById('pageInfoContainer').style.display = 'none' },
 	{ id: 'closeFactionBtn', action: () => document.getElementById('factionInfoContainer').style.display = 'none' },
+	{ id: 'closeExpansionBtn', action: () => document.getElementById('expansionInfoContainer').style.display = 'none' },
 	{ id: 'clearListBtn', action: () => clearFactionData("list") },
 	{ id: 'clearDataBtn', action: () => clearFactionData("data") },
 	{ id: 'routeBtn', action: () => plotRoute() }
